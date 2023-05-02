@@ -11,6 +11,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 header{
@@ -48,3 +49,30 @@ main{
 .product-info{
   padding: 1rem;
 }
+
+
+
+/*PRODUCT Screen start */
+
+
+
+.product-screen{
+  display: flex;
+  justify-content: space-around;
+  height: calc(100vh - 110px);
+}
+
+.img-large{
+  height: 100%;
+  }
+
+  .btn{
+    padding: 10px;
+    width: 180%;
+    cursor: pointer;
+    margin: 20px 0;
+  }
+
+  .cart-image{
+    height: 80px;
+  }
