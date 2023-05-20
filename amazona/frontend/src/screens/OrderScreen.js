@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useReducer } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
 import { Store } from "../Store";
 import axios from "axios";
 import { getError } from "../utils";
@@ -26,11 +26,13 @@ function reducer(state, action) {
 
 export default function OrderScreen() {
 
+    const dOrderId = useLocation().pathname.split("/")[2] // useParams ilede aynı hesaba geliyor
+
     const navigate = useNavigate()
 
 
     const { state } = useContext(Store) // ayrı klasörde oluşturduğumuz useReducer yapısı
-    const { userInfo } = state
+    const { userInfo } = state // ayrı klasörde oluşturulan useReducer ın statain içerisinden userInfo 
 
 
     const [{ loading, error, order }, dispatch] = useReducer(reducer, {
@@ -44,7 +46,6 @@ export default function OrderScreen() {
     const params = useParams()
 
     const { id: orderId } = params
-
 
 
 
@@ -78,6 +79,18 @@ export default function OrderScreen() {
 
         }
     }, [order, userInfo, orderId, navigate])
+
+
+
+
+
+    const orderSubmitHandler = async ()=>{
+
+        console.log("orderdaki son buton active")
+
+       navigate(`/sonAdim/${dOrderId}`)
+
+    }
 
 
     return (
@@ -181,6 +194,11 @@ export default function OrderScreen() {
                         <span>${order.totalPrice.toFixed(2)}</span>
                     </div>
 
+                </div>
+
+
+                <div>
+                    <button onClick={orderSubmitHandler}>Ödemeyi tamamla</button>
                 </div>
 
             </div>

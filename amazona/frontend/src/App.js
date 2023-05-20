@@ -11,6 +11,10 @@ import SignupScreen from './screens/SignupScreen.js';
 import PaymentMethodScreen from './screens/PaymentMethodScreen.js';
 import PlaceOrderScreen from './screens/PlaceOrderScreen.js';
 import OrderScreen from './screens/OrderScreen.js';
+import SonAdimScreen from './screens/sonAdimScreen.js'
+import OrderHistoryScreen from './screens/OrderHistoryScreen.js';
+import ProfileScreen from './screens/ProfileScreen.js';
+
 
 
 
@@ -29,6 +33,8 @@ function App() {
     localStorage.removeItem('userInfo')
     localStorage.removeItem('shippingAddress')
     localStorage.removeItem('paymentMethod')
+
+    window.location.href = '/signin'
     
   }
 
@@ -63,6 +69,8 @@ function App() {
 
             <Route path='/signup' element={<SignupScreen />} />
 
+            <Route path='/profile' element={<ProfileScreen />} />
+
             <Route path='/shipping' element={<ShippingAdressScreen/>}/>
 
             <Route path='/payment' element={<PaymentMethodScreen/>}/>
@@ -70,6 +78,10 @@ function App() {
             <Route path='/placeorder' element={<PlaceOrderScreen/>}/>
 
             <Route path='/order/:id' element={<OrderScreen/>}/>
+
+            <Route path='/sonAdim/:dOId' element={<SonAdimScreen/>}/>
+
+            <Route path='/orderhistory' element={<OrderHistoryScreen/>}/>
            
 
           </Routes>

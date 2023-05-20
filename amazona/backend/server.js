@@ -1,5 +1,5 @@
 import  express  from "express";
-import data from "./data.js";
+import path from "path"
 import dotenv from "dotenv"
 import mongoose from "mongoose";
 import seedRouter from "./routes/seedRoute.js";
@@ -16,6 +16,14 @@ app.use('/api/seed', seedRouter)
 app.use('/api/product', productRouter)
 app.use('/api/users', userRouter)
 app.use('/api/orders', orderRouter)
+
+const __dirname = path.resolve() // incele
+app.use(express.static(path.join(__dirname, '/frontend/build'))) // incele
+
+app.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname,'/frontend/build/index.html'))
+})
+
 
 app.use((err, req, res, next)=>{
     console.log("app use içerisindeki 4 parametreli olay çalıştı")

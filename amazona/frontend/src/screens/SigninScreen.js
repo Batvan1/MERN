@@ -10,7 +10,7 @@ export default function SigninScreen(){
     const navigate = useNavigate()
 
     const {search} = useLocation()
-    const redirectInURL = new URLSearchParams(search).get('redirect')
+    const redirectInURL = new URLSearchParams(search).get('redirect') // /shipping or /  === alt satırda
     const redirect = redirectInURL ? redirectInURL : '/'
 
 
