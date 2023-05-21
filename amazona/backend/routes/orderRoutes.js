@@ -40,60 +40,10 @@ orderRouter.post('/', isAuth, expressAsyncHandler(async (req, res) => {
 
 orderRouter.get('/mine',isAuth, async (req, res)=> { // req.user isAuth fonksiyonunda decode edilmiş token
 
-
     const orders = await Order.find({user: req.user._id})
 
     res.send(orders)
 })
-
-
-orderRouter.get('/:id', isAuth, expressAsyncHandler(async (req, res) => {
-    console.log(":id dediğimiz yer çalıştı orderda")
-    const order = await Order.findById(req.params.id)
-
-    if (order) {
-        res.send(order)
-    } else {
-        res.status(404).send({ message: 'Order Not Found' })
-    }
-
-}))
-
-
-
-orderRouter.get('/ben/:id', async (req, res) => {
-
-    console.log("/ben/:id ksımı çalıştı")
-    const order = await Order.findById(req.params.id)
-
-    console.log(order)
-
-    if (order) {
-        res.send(order)
-    } else {
-        res.status(404).send({ message: "Order Not Found" })
-    }
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -103,8 +53,8 @@ orderRouter.post('/payment', async (req, res) => {
 
 
     const iyzipay = new Iyzipay({
-        apiKey: 'sandbox-HoZ1cz9QAx4TjWgC45vmrIFsqPEyLkJg',
-        secretKey: 'sandbox-j3LMmVQEj7CNIdaZWhyh3RV5ncdmh0Pn',
+        apiKey: process.env.IYZIPAY_API_KEY,
+        secretKey: process.env.IYZIPAY_SECRET_KEY,
         uri: 'https://sandbox-api.iyzipay.com'
     });
 
@@ -196,6 +146,38 @@ orderRouter.post('/payment', async (req, res) => {
 
     })
 })
+
+
+
+
+orderRouter.get('/:id', isAuth, expressAsyncHandler(async (req, res) => {
+    console.log(":id dediğimiz yer çalıştı orderda")
+    const order = await Order.findById(req.params.id)
+
+    if (order) {
+        res.send(order)
+    } else {
+        res.status(404).send({ message: 'Order Not Found' })
+    }
+
+}))
+
+
+
+orderRouter.get('/ben/:id', async (req, res) => {
+
+    console.log("/ben/:id ksımı çalıştı")
+    const order = await Order.findById(req.params.id)
+
+
+
+    if (order) {
+        res.send(order)
+    } else {
+        res.status(404).send({ message: "Order Not Found" })
+    }
+})
+
 
 
 export default orderRouter

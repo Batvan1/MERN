@@ -43,7 +43,7 @@ export default function SignupScreen(){
             navigate(redirect || '/')
 
         } catch (error) {
-            alert('Invalid error email or password yarrram')
+            alert('a error yarram')
         }
 
     }

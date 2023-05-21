@@ -27,6 +27,7 @@ app.get('*',(req,res)=>{
 
 app.use((err, req, res, next)=>{
     console.log("app use içerisindeki 4 parametreli olay çalıştı")
+    console.log(err)
     res.status(500).send({messagee: err.message})
 })
 
