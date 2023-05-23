@@ -24,7 +24,7 @@ export default function CartScreen() {
    // increment end
 
    //decrement start
-   const updateCartHandler1 =async (item, quantity)=>{
+   const updateCartHandler1 = (item, quantity)=>{
 
     if(item.quantity === 0){
         return;
