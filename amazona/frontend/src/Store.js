@@ -35,7 +35,7 @@ function reducer(state,action){
             const cartItems = existItem ? state.cart.cartItems.map((item) => item._id === existItem._id ? newItem : item) : [...state.cart.cartItems, newItem ] // zaten cartItems boşsa veya yeni gelen objenin id key'i cartItems içerisinde yer almıyorsa else kısmındaki bu bölüm çalışır. değilse else kısmından önceki iki parağraf çalışır
            
             localStorage.setItem('cartItems',JSON.stringify(cartItems))
-            console.log(state)
+            
             return {...state, cart: {...state.cart, cartItems} }
 
             case 'CART_REMOVE_ITEM':{

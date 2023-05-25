@@ -88,7 +88,7 @@ export default function PlaceOrderScreen() {
                 localStorage.removeItem('cartItems')
 
                 navigate(`/order/${data.order._id}`)
-                console.log(data)
+                
 
         } catch (err) {
             dispatch({ type: 'CREATE_FAIL' })
