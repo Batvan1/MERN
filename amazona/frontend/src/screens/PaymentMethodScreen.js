@@ -28,7 +28,7 @@ export default function PaymentMethodScreen() {
 
         ctxDispatch({type: 'SAVE_PAYMENT_METHOD', payload: paymentMethodName})
 
-        localStorage.setItem('paymentMethod', paymentMethodName)
+        localStorage.setItem('paymentMethod', JSON.stringify(paymentMethodName))
 
         navigate('/placeorder')
     }

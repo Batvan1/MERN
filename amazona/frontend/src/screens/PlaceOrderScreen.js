@@ -105,7 +105,8 @@ export default function PlaceOrderScreen() {
 
     return (
         <div>
-            <Helmet><title>Preview Order</title></Helmet>
+
+        <Helmet><title>Preview Order</title></Helmet>
 
             <h1>Preview Order</h1>
 
