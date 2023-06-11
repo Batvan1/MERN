@@ -84,11 +84,11 @@ export default function OrderScreen() {
 
 
 
-    const orderSubmitHandler = async ()=>{
+    const orderSubmitHandler = async () => {
 
         console.log("orderdaki son buton active")
 
-       navigate(`/sonAdim/${dOrderId}`)
+        navigate(`/sonAdim/${dOrderId}`)
 
     }
 

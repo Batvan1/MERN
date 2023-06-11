@@ -1,5 +1,5 @@
 
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom'
 import HomeScreen from './screens/HomeScreen.js';
 import ProductScreen from './screens/ProductScreen.js';
@@ -14,6 +14,9 @@ import OrderScreen from './screens/OrderScreen.js';
 import SonAdimScreen from './screens/sonAdimScreen.js'
 import OrderHistoryScreen from './screens/OrderHistoryScreen.js';
 import ProfileScreen from './screens/ProfileScreen.js';
+import axios from 'axios';
+import SearchBox from './components/SearchBox.js';
+import SearchScreen from './screens/SearchScreen.js';
 
 
 
@@ -21,28 +24,54 @@ import ProfileScreen from './screens/ProfileScreen.js';
 
 function App() {
 
-  const { state, dispatch: ctxDispatch} = useContext(Store)
+  const { state, dispatch: ctxDispatch } = useContext(Store)
   const { cart, userInfo } = state
 
 
 
-  const signoutHandler = ()=>{
+  const signoutHandler = () => {
 
-    ctxDispatch({type: 'USER_SİGNOUT'})
+    ctxDispatch({ type: 'USER_SİGNOUT' })
 
     localStorage.removeItem('userInfo')
     localStorage.removeItem('shippingAddress')
     localStorage.removeItem('paymentMethod')
 
     window.location.href = '/signin'
-    
+
   }
+
+  const [sideBarIsOpen, setSideBarIsOpen] = useState(false)
+  const [categories, setCategories] = useState([])
+
+  useEffect(()=>{
+
+    const fetchCategories = async ()=>{
+      try {
+
+        const {data} = await axios.get(`/api/product/categories`)
+        setCategories(data)
+
+      } catch (error) {
+        alert("app js deki useeffect içerisindeki catch bloğu çalıştı")
+      }
+    }
+
+    fetchCategories()
+
+  },[])
 
 
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className={sideBarIsOpen ? "Apbenekle active-cont" : "App"}>
         <header className="App-header">
+
+          <button onClick={() => setSideBarIsOpen(!sideBarIsOpen)}>Sidebar</button>
+
+
+          <SearchBox/> {/*components klasöründen gelen component arama kutusu */}
+
 
           <Link to="/">amazona</Link>
           <Link to="/cart">CART{cart.cartItems.reduce((a, c) => a + c.quantity, 0)}</Link>
@@ -56,6 +85,27 @@ function App() {
           ) : (<Link to='/signin'>Sing In</Link>)}
 
         </header>
+
+
+
+        <div className={sideBarIsOpen ? 'active-nav side-navbar' : 'side-navbar'}>
+          <nav>
+
+            <div>
+              <strong>Catagories</strong>
+            </div>
+
+            {categories.map((category)=>{
+             return <div key={category}>
+                <Link to={`/search?category=${category}`} onClick={()=>setSideBarIsOpen(false)}>{category}</Link>
+              </div>
+            })}
+
+          </nav>
+        </div>
+
+
+
         <main>
 
           <Routes>
@@ -71,18 +121,20 @@ function App() {
 
             <Route path='/profile' element={<ProfileScreen />} />
 
-            <Route path='/shipping' element={<ShippingAdressScreen/>}/>
+            <Route path='/shipping' element={<ShippingAdressScreen />} />
 
-            <Route path='/payment' element={<PaymentMethodScreen/>}/>
+            <Route path='/payment' element={<PaymentMethodScreen />} />
 
-            <Route path='/placeorder' element={<PlaceOrderScreen/>}/>
+            <Route path='/placeorder' element={<PlaceOrderScreen />} />
 
-            <Route path='/order/:id' element={<OrderScreen/>}/>
+            <Route path='/order/:id' element={<OrderScreen />} />
 
-            <Route path='/sonAdim/:dOId' element={<SonAdimScreen/>}/>
+            <Route path='/sonAdim/:dOId' element={<SonAdimScreen />} />
 
-            <Route path='/orderhistory' element={<OrderHistoryScreen/>}/>
-           
+            <Route path='/orderhistory' element={<OrderHistoryScreen />} />
+
+            <Route path='/search' element={<SearchScreen />} />
+
 
           </Routes>
 

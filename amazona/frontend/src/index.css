@@ -76,3 +76,32 @@ main{
   .cart-image{
     height: 80px;
   }
+
+  /*sidebar start*/
+
+  .navbar-brand{
+    font-weight: bold;
+  }
+
+  .side-navbar{
+    width:240px;
+    height: 100px;
+    position: absolute;
+    left: -300px;
+    background-color: white;
+    transition: 0.5s;
+  }
+
+  .active-cont{
+    margin-left: 240px;
+  }
+
+  .active-nav{
+    left: 0;
+  }
+
+  .site-container{
+    transition: 0.4s;
+  }
+
+  
