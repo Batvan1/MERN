@@ -49,35 +49,35 @@ export default function ShippingAdressScreen() {
 
             <h1>Shipping Adress</h1>
 
-            <form onSubmit={submitHandler}>
+            <form onSubmit={submitHandler} className="shipping-form">
 
-                <div>
-                    <label htmlFor="fullName">Full Name</label>
+                <div className="shipping-div">
+                    <label htmlFor="fullName" className="shipping-label">Full Name</label>
                     <input type="text" id="fullName" value={fullName} onChange={(e) => setFullName(e.target.value)} required></input>
                 </div>
 
-                <div>
-                    <label htmlFor="address">Adress</label>
+                <div className="shipping-div">
+                    <label htmlFor="address" className="shipping-label">Adress</label>
                     <input type="text" id="address" value={address} onChange={(e)=> setAddress(e.target.value)} required></input>
                 </div>
 
-                <div>
-                    <label htmlFor="city">City</label>
+                <div className="shipping-div">
+                    <label htmlFor="city" className="shipping-label">City</label>
                     <input type="text" id="city" value={city} onChange={(e)=> setCity(e.target.value)} required></input>
                 </div>
 
-                <div>
-                    <label htmlFor="postalCode">Postal Code</label>
+                <div className="shipping-div">
+                    <label htmlFor="postalCode" className="shipping-label">Postal Code</label>
                     <input type="text" id="postalCode" value={postalCode} onChange={(e)=> setPostalCode(e.target.value)} required></input>
                 </div>
 
-                <div>
-                    <label htmlFor="country">Country</label>
+                <div className="shipping-div">
+                    <label htmlFor="country" className="shipping-label">Country</label>
                     <input type="text" id="country" value={country} onChange={(e)=> setCountry(e.target.value)} required></input>
                 </div>
 
                 <div>
-                    <button type="submit">Continue</button>
+                    <button type="submit" className="shipping-btn">Continue</button>
                 </div>
 
             </form>

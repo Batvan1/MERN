@@ -2,6 +2,12 @@ import { useContext } from "react";
 import { Store } from "../Store";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios"
+// Aşağıdakiler react icons kütüphanesi
+import { MdDelete } from "react-icons/md"
+import { MdRemove } from "react-icons/md";
+import { MdAdd } from "react-icons/md";
+import { Helmet } from "react-helmet-async";
+
 
 export default function CartScreen() {
 
@@ -10,44 +16,47 @@ export default function CartScreen() {
 
     const navigate = useNavigate()
 
-// incremet start
-   const updateCartHandler =async (item, quantity)=>{
-    const {data} = await  axios.get(`/api/product/${item._id}`)
+    // incremet start
+    const updateCartHandler = async (item, quantity) => {
+        const { data } = await axios.get(`/api/product/${item._id}`)
 
-    if(data.countInStock < quantity){
-        window.alert('Sorry. Product is out stock.')
-        return;
+        if (data.countInStock < quantity) {
+            window.alert('Sorry. Product is out stock.')
+            return;
+        }
+
+        dispatch({ type: 'CART_ADD_ITEM', payload: { ...item, quantity }, })
     }
+    // increment end
 
-    dispatch({type:'CART_ADD_ITEM', payload:{...item, quantity},})
-   }
-   // increment end
+    //decrement start
+    const updateCartHandler1 = (item, quantity) => {
 
-   //decrement start
-   const updateCartHandler1 = (item, quantity)=>{
+        if (item.quantity === 0) {
+            return;
+        } else {
+            dispatch({ type: 'CART_ADD_ITEM', payload: { ...item, quantity }, })
+        }
 
-    if(item.quantity === 0){
-        return;
-    }else{
-        dispatch({type:'CART_ADD_ITEM', payload:{...item, quantity},})
     }
-    
-   }
-   //decrement end
+    //decrement end
 
-   // removeCart start
-   const removeCartHandler = (item)=>{
-    dispatch({type:'CART_REMOVE_ITEM', payload: item })
-   }
-   //removeCart end
+    // removeCart start
+    const removeCartHandler = (item) => {
+        dispatch({ type: 'CART_REMOVE_ITEM', payload: item })
+    }
+    //removeCart end
 
-   const checkoutHandler = ()=>{
-    navigate('/signin?redirect=/shipping')
-   }
+    const checkoutHandler = () => {
+        navigate('/signin?redirect=/shipping')
+    }
 
     return (
         <div>
-            <title>Shopping Cart</title>
+            <Helmet>
+                <title>Shopping Cart</title>
+            </Helmet>
+
             <h1>Shopping Cart</h1>
 
             <div className="mesage">
@@ -56,42 +65,61 @@ export default function CartScreen() {
                     <div>Cart is empty <Link to="/"> GO Shopping </Link></div> :
 
                     <div className="cart-container"> {cartItems.map((item) =>
-                        <div key={item._id}>
-                            <img src={item.image} alt={item.name} className="cart-image">
 
-                            </img>{" "}
-                            <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                        <div key={item._id} className="cart-item">
 
-                            <div>
-                                <button onClick={()=> updateCartHandler1(item, item.quantity - 1)}><i className="fas fa-minus-circle">--</i></button>{" "}
+                            <img src={item.image} alt={item.name} className="cart-image"></img>{" "}
 
-                                <span>{item.quantity}</span>{" "}
 
-                                <button  onClick={()=> updateCartHandler(item, item.quantity + 1)}><i className="fas fa-minus-circle">++</i></button>{" "}
-                                
-                                <div>${item.price} </div>
+                            <Link to={`/product/${item.slug}`} className="cart-name">{item.name}</Link>
 
-                                <div>
-                                    <button onClick={()=> removeCartHandler(item)}>
-                                        <i className="fas fa-trash">Sil</i>
+                            <div className="cart-details">
+
+                                <button onClick={() => updateCartHandler1(item, item.quantity - 1)}>
+
+                                    <MdRemove size="50" color="green" /> {/* React icons kütüphanesi*/}
+
+                                </button>{" "}
+
+                                <span className="cart-quantity">{item.quantity}</span>{" "}
+
+                                <button onClick={() => updateCartHandler(item, item.quantity + 1)}>
+
+                                    <MdAdd size="50" color="blue" /> {/* React icons kütüphanesi*/}
+
+                                </button>{" "}
+
+                                <div className="cart-price">${item.price} </div>
+
+                                <div className="cart-delete">
+
+                                    <button onClick={() => removeCartHandler(item)} className="mini-btn">
+                                        <MdDelete size="40" color="red" /> {/* React icons kütüphanesi*/}
                                     </button>
+
                                 </div>
                             </div>
                         </div>)}
 
                     </div>}
-                    
-                    <div className="total">
-                        <h3>
-                            Subtotal  {cartItems.reduce((a , c) => a + c.quantity, 0)} {" "}
 
-                            ${cartItems.reduce((a , c )=> a + c.quantity * c.price , 0)}
+                <div className="total">
+                    
+                        <h3>
+                            Toplam Adet : {cartItems.reduce((a, c) => a + c.quantity, 0)}
                         </h3>
 
-                        <div>
-                            <button onClick={checkoutHandler}>Proceed to checkout</button>
-                        </div>
-                    </div>
+                        <h3>
+                            Toplam Tutar :${cartItems.reduce((a, c) => a + c.quantity * c.price, 0)}
+                        </h3>
+
+                </div>
+
+                <div className="div-btn">
+                    <button onClick={checkoutHandler} className="btn">Proceed to checkout</button>
+                </div>
+
+
             </div>
 
         </div>

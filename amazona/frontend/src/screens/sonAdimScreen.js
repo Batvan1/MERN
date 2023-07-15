@@ -105,36 +105,36 @@ export default function SonAdimScreen(){
 
 
     return(
-        <div>
-            <div>
+        <div className="son-container">
+            <div className="son-div">
 
-            <label htmlFor="cart-user">Cart User Name</label>
-            <input type="text" id="cart-user" onChange={(e)=> setCartUserName(e.target.value)}></input>
-
-            </div>
-
-            <div>
-
-            <label htmlFor="cart-number">Cart Number</label>
-            <input type="text" id="cart-number" onChange={(e)=> setCartNumber(e.target.value)}></input>
+            <label className="son-label" htmlFor="cart-user">Cart User Name</label>
+            <input className="son-input" type="text" id="cart-user" onChange={(e)=> setCartUserName(e.target.value)}></input>
 
             </div>
 
-            <div>
+            <div className="son-div">
 
-            <label htmlFor="cart-expire">Cart Expire Month Year</label>
-            <input type="text" id="cart-expire" onChange={(e)=> setExpireMonthYear(e.target.value)}></input>
-
-            </div>
-
-            <div>
-
-            <label htmlFor="cart-cvc">Cart Cvc</label>
-            <input type="text" id="cart-cvc" onChange={(e)=> setCvc(e.target.value)}></input>
+            <label className="son-label" htmlFor="cart-number">Cart Number</label>
+            <input className="son-input" type="text" id="cart-number" onChange={(e)=> setCartNumber(e.target.value)}></input>
 
             </div>
 
-            <button onClick={end}>Güvenle öde</button>
+            <div className="son-div">
+
+            <label className="son-label" htmlFor="cart-expire">Cart Expire Month Year</label>
+            <input className="son-input" type="text" id="cart-expire" onChange={(e)=> setExpireMonthYear(e.target.value)}></input>
+
+            </div>
+
+            <div className="son-div">
+
+            <label className="son-label" htmlFor="cart-cvc">Cart Cvc</label>
+            <input className="son-input" type="text" id="cart-cvc" onChange={(e)=> setCvc(e.target.value)}></input>
+
+            </div>
+
+            <button className="son-btn" onClick={end}>Güvenle öde</button>
         </div>
     )
 }

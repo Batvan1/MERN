@@ -14,7 +14,10 @@ const PAGE_SIZE = 3
 
 productRouter.get('/search', async (req,res)=>{
     console.log('search screen api çalıştı')
+    // req.query express'te önceden tanımlanmış obje içerisinde karşıdan gelen istek parametre ve değeri var
     const {query} = req
+
+    console.log(req.query)
 
     const pageSize = query.pageSize || PAGE_SIZE 
     const page = query.page || 1
@@ -23,7 +26,7 @@ productRouter.get('/search', async (req,res)=>{
     const price = query.price || ''
     const rating = query.rating || ''
     const order = query.order || ''
-    const searchQuery = query.searchQuery || ''
+    const searchQuery = query.query || ''
 
     const queryFilter = searchQuery && searchQuery !== 'all' ? {
         name: {
@@ -42,14 +45,14 @@ productRouter.get('/search', async (req,res)=>{
 
 
     const priceFilter = price && price !== 'all' ? {
-        price: { //1-50
+        price: { //"1-50" string halde geliyor görünen şekilde split ile bölüp Number yerleşik objesi ile sayıya evrildi
             $gte: Number(price.split('-')[0]),
             $lte: Number(price.split('-')[1])
         }
     } : {}
 
 
-    // aşağıdaki kodu incele
+    // aşağıdaki kodu incele ..13.06.2023 kod anlaşıldı
     const sortOrder = 
     order === 'featured' 
     ? {featured: -1}
@@ -63,8 +66,12 @@ productRouter.get('/search', async (req,res)=>{
     ? {createdAt: -1}
     : {_id: -1}
 
+    console.log(queryFilter)
+    console.log(ratingFilter)
+    console.log(categoryFilter)
+    console.log(priceFilter)
 
-   const products = await Product.find({
+   const products = await Product.find({ // içi boşsa direk tüm belgeleri getiriyor (dizi içerisinde obje halinde)
     ...queryFilter,
     ...categoryFilter,
     ...priceFilter,
@@ -74,15 +81,18 @@ productRouter.get('/search', async (req,res)=>{
    .skip(pageSize * (page - 1))
    .limit(pageSize)
 
-   const countProducts = await Product.countDocuments({
+
+   const countProducts = await Product.countDocuments({ //içi boşsa direk şemadaki belge sayısı getiriyor (NUmber halinde)
+
     ...queryFilter,
     ...categoryFilter,
-    ...priceFilter,
-    ...ratingFilter
+     ...priceFilter,
+     ...ratingFilter 
+          
    })
 
 
-
+// {products: products,} bununla alttaki products, aynı diğerleri içinde geçerli tabiki bu kullanım 
    res.send({
     products,
     countProducts,
@@ -99,7 +109,7 @@ productRouter.get('/search', async (req,res)=>{
 
 productRouter.get('/categories',async (req,res)=>{
     const categories = await Product.find().distinct('category')
-    console.log(categories)
+    
     res.send(categories)
 })
 

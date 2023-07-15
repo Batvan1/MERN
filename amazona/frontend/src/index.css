@@ -14,17 +14,133 @@ body {
   
 }
 
-header{
-  background-color: blueviolet;
-  padding: 1rem;
+button{
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
-header a{
-  color:antiquewhite;
-  font-weight: bold;
+a{
   text-decoration: none;
 }
 
+h1{
+  text-align: center;
+}
+
+/*Header start*/
+.App-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f0c14b;
+  padding: 1rem;
+}
+
+.app-link {
+  text-decoration: none;
+  color: black;
+}
+
+.App-header .app-link:hover {
+  color: blue;
+}
+
+
+
+/*Header searchbox and input Start*/
+.search-box {
+  display: flex;
+  align-items: center;
+}
+
+#header-searchbox {
+  width: 300px;
+  height: 40px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 20px 0 0 20px ;
+}
+
+.search-button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: white;
+}
+/*Header searchbox and input End*/
+
+.app-link{
+  color: black;
+  font-size: 3rem;
+}
+
+.signin-link{
+  font-size: 2rem;
+  color: black;
+}
+
+
+
+
+/*select-menu Start*/
+
+.header-user-name{
+  font-family: Georgia, serif;
+  color: #333;
+  text-transform: capitalize;
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.header-user-name::first-letter {
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: #eee;
+  border: 2px solid #333;
+}
+
+.select-menu {
+  /* genişlik ve yükseklik */
+  width: 200px;
+  height: 40px;
+  /* kenarlık ve yuvarlak köşeler */
+  border: 2px solid #333;
+  border-radius: 10px;
+  /* yazı tipi ve renk */
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  /* arkaplan rengi ve resmi */
+  background-color: transparent;
+  background-image: url("https://cdn-icons-png.flaticon.com/512/25/25243.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 17px;
+  
+}
+
+/* seçili seçeneği vurgula */
+.select-menu option:checked {
+  background-color: green;
+}
+
+/* seçeneklerin üzerine gelince renk değiştir */
+.select-menu option:hover {
+  background-color: orange;
+}
+
+/*select-menu End*/
+
+/*Header searchbox and input End*/
+
+
+/* Home Screen Start*/
 main{
   padding: 1rem;
 }
@@ -33,6 +149,7 @@ main{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  height: 20px;
 }
 
 .product{
@@ -43,14 +160,14 @@ main{
 .product img{
   width: 100%;
   max-width: 400px;
-  max-height: 400px;
+  max-height: 350px;
 }
 
 .product-info{
   padding: 1rem;
 }
 
-
+/* Home Screen End*/
 
 /*PRODUCT Screen start */
 
@@ -59,19 +176,64 @@ main{
 .product-screen{
   display: flex;
   justify-content: space-around;
-  height: calc(100vh - 110px);
+  height: calc(100vh - 150px);
+}
+
+.product-div{
+  height: 90%;
 }
 
 .img-large{
-  height: 100%;
+  height: 90%;
   }
 
-  .btn{
-    padding: 10px;
-    width: 180%;
+  
+
+
+  .product-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-transform: capitalize;
+}
+
+.product-rating {
+    font-size: 18px;
+    color: gold;
+}
+
+.product-price {
+    font-size: 20px;
+    color: green;
+}
+
+.product-description {
+  text-transform: capitalize;
+    font-size: 16px;
+    color: #666;
+    text-align: justify;
+}
+
+.product-countInStock {
+    font-size: 16px;
+    color: #666;
+}
+
+.product-countInStock span {
+    font-weight: bold;
+}
+
+.btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    margin: 20px 0;
-  }
+}
+
+
+/*PRODUCT Screen End*/
+
 
   .cart-image{
     height: 80px;
@@ -103,5 +265,458 @@ main{
   .site-container{
     transition: 0.4s;
   }
+
+  
+  /* Cart Screen Start */
+
+  .cart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .cart-image {
+    width: 100px;
+    height: auto;
+  }
+  
+  .cart-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .cart-details {
+    display: flex;
+    align-items: center;
+  }
+  
+  .cart-minus, .cart-plus {
+    border: none;
+    background-color: transparent;
+  }
+  
+  .cart-quantity {
+    font-size: 18px;
+    margin: 0px 10px;
+  }
+  
+  .cart-price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 30px;
+  }
+  
+  .cart-delete {
+   margin-left: 30px;
+  }
+
+  .total{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .div-btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  /* Cart Screen END */
+
+
+  /*Shipping Screen Start*/
+
+  .shipping-form {
+    max-width: 600px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+
+.shipping-div {
+    margin-bottom: 10px;
+}
+
+
+.shipping-label {
+  display: inline-block;
+  width: 120px;
+  font-weight: bold;
+}  
+
+#fullName , #address , #city , #postalCode , #country{
+  
+    display: inline-block;
+    width: 400px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.shipping-btn{
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  padding: 10px;
+  background-color: #00a0d2;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.shipping-btn:hover {
+  background-color: #008fb3;
+}
+
+ /*Shipping Screen END*/
+
+
+ /*Payment Screen Start*/
+
+    .payment-form {
+        max-width: 600px;
+        margin: 100px auto 20px auto;
+        font-family: Arial, sans-serif;
+    }
+
+    .payment-div {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .payment-label {
+        display: inline-block;
+        width: 120px;
+        font-weight: bold;
+    }
+
+    input[type="radio"] {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+    }
+
+    input[type="radio"]:checked {
+        background-color: #00a0d2;
+    }
+
+    .payment-btn {
+        display: block;
+        width: 200px;
+        margin: 20px auto;
+        padding: 10px;
+        background-color: #00a0d2;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .payment-btn:hover {
+        background-color: #008fb3;
+    }
+
+    /*Payment Screen End*/
+
+
+    /*Place Order Start*/
+    
+
+    .place-full-com{
+      display: flex;
+      justify-content: center;
+      padding: 0 5rem;
+    }
+
+    .place-order-image{
+      height: 200px;
+    }
+
+    .place-div1{
+      width: 70%;
+    }
+
+    .mini-container {
+      border: 2px solid #ccc;
+      margin: 10px;
+      padding: 10px;
+      border-radius: 10px;
+    }
+    
+    .mini-body {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .mini-txt {
+      font-size: 14px;
+      margin: 5px;
+    }
+    
+    .place-order-image {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .place-mini-h {
+      color: #333;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .place-edit {
+      color: #007bff;
+    }
+    
+    .place-name-link {
+      color: #333;
+    }
+
+    .place-stg{
+      color:#666;
+      font-size: 1.5rem;
+    }
+
+    .place-span{
+      color: black;
+      font-size: 1.2rem;
+      text-transform: capitalize;
+    }
+    
+
+    
+
+    .place-details { /*place div-2 (sağ)*/
+      width: 30%;
+      border: 2px solid #ccc;
+      margin: 10px;
+      padding: 10px;
+      border-radius: 10px;
+
+    }
+    
+    .place-details div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 5px;
+    }
+    
+    .place-details h3 {
+      color: #333;
+      font-size: 2rem;
+    }
+    
+    .place-details strong {
+      color: #333;
+      
+    }
+    
+    .place-details button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 1rem;
+    }
+     /*Place Order End*/
+
+     /*Order Start*/
+     .order-container {
+      display: flex;
+      justify-content: center;
+      padding: 1rem 2rem;
+    }
+
+    .order-img{
+      height: 100px;
+    }
+
+    .order-1{
+      width: 70%;
+      margin: 5px;
+    }
+
+    .order-span{
+      color: black;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    }
+
+    .order-div{
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      margin-bottom: 5px;
+      padding: 20px;
+    }
+
+    .order-2{
+      border: 2px solid #ccc;
+      width: 30%;
+      margin: 5px;
+      padding: 20px;
+    }
+
+    .order-h3{
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .not{
+      display: block;
+      background-color: rgba(500, 0, 0, 0.5);
+      padding: 20px;
+      margin: 5px 0;
+      border-radius: 10px;
+    }
+
+    .order-items{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 30px;
+    }
+
+    .order-imgLink{
+      display: flex;
+      align-items: center;
+    }
+
+   .order-stg{
+    color: #666;
+    font-size: 1.5rem;
+   }
+
+
+.order2-div{
+  display: flex; /* Div etiketlerini esnek olarak gösteriyoruz */
+  justify-content: space-between; /* Div etiketlerinin içindeki öğeleri aralarında boşluk bırakarak yatay olarak dağıtıyoruz */
+  align-items: center; /* Div etiketlerinin içindeki öğeleri dikey olarak ortalamak için */
+  margin: 10px;
+}
+
+.order-2 > div > h4 {
+  font-family: Arial, sans-serif; /* H4 başlıklarının yazı tipi */
+  font-size: 18px; /* H4 başlıklarının yazı boyutu */
+  font-weight:500; /* H4 başlıklarının yazı kalınlığı */
+}
+
+.order-2 > div > span {
+  font-family: Arial, sans-serif; /* Span öğelerinin yazı tipi */
+  font-size: 18px; /* Span öğelerinin yazı boyutu */
+}
+
+.order-btn-divv{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.order-btnn{
+  background-color: #00a0d2;
+  padding: 20px;
+  border-radius: 20px;
+}
+    
+      /*Order End*/
+
+
+      /*SonAdim Start*/
+      .son-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .son-div {
+        margin-bottom: 10px;
+      }
+      
+      .son-label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      
+      .son-input {
+        width: 300px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      
+      .son-btn {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      
+      .son-btn:hover {
+        background-color: #45a049;
+      }
+      
+      .son-btn:active {
+        background-color: #3e8e41;
+      }
+      
+      /*SonAdim End*/
+
+
+  /*TELEFON HALİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİ START*/
+
+  /*CART SCREEN Telefon Start*/
+  @media (max-width: 600px) {
+    .cart-item {
+      flex-direction: column;
+    }
+  
+    .cart-image {
+      width: 50%;
+      margin-bottom: 10px;
+    }
+  
+    .cart-name {
+      font-size: 16px;
+      text-align: center;
+    }
+  
+    .cart-quantity {
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+  
+    .cart-price {
+      font-size: 16px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  
+    .cart-delete {
+      align-self: flex-end;
+    }
+     /*CART SCREEN Telefon Start*/
+  }
+ 
 
   

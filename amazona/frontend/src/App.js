@@ -17,7 +17,12 @@ import ProfileScreen from './screens/ProfileScreen.js';
 import axios from 'axios';
 import SearchBox from './components/SearchBox.js';
 import SearchScreen from './screens/SearchScreen.js';
-
+import ProtectedRoute from './components/ProtectedRoute.js';
+import DashboardScreeen from './screens/adminRoute/DashboardScreeen.js';
+import AdminRoute from './components/AdminRoute.js';
+// Aşağıdakiler react icons kütüphanesi
+import { MdShoppingCart } from "react-icons/md";
+import { MdViewSidebar } from "react-icons/md";
 
 
 
@@ -44,12 +49,12 @@ function App() {
   const [sideBarIsOpen, setSideBarIsOpen] = useState(false)
   const [categories, setCategories] = useState([])
 
-  useEffect(()=>{
+  useEffect(() => {
 
-    const fetchCategories = async ()=>{
+    const fetchCategories = async () => {
       try {
 
-        const {data} = await axios.get(`/api/product/categories`)
+        const { data } = await axios.get(`/api/product/categories`)
         setCategories(data)
 
       } catch (error) {
@@ -59,7 +64,7 @@ function App() {
 
     fetchCategories()
 
-  },[])
+  }, [])
 
 
   return (
@@ -67,22 +72,56 @@ function App() {
       <div className={sideBarIsOpen ? "Apbenekle active-cont" : "App"}>
         <header className="App-header">
 
-          <button onClick={() => setSideBarIsOpen(!sideBarIsOpen)}>Sidebar</button>
+          <button onClick={() => setSideBarIsOpen(!sideBarIsOpen)}><MdViewSidebar size="2rem" /></button>
 
 
-          <SearchBox/> {/*components klasöründen gelen component arama kutusu */}
+          <SearchBox /> {/*components klasöründen gelen component arama kutusu */}
+          
 
+          <Link to="/" className='app-link'>Amazona</Link>
 
-          <Link to="/">amazona</Link>
-          <Link to="/cart">CART{cart.cartItems.reduce((a, c) => a + c.quantity, 0)}</Link>
+          <Link to="/cart">
+            <MdShoppingCart size="2rem" color='gray' /> {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+          </Link>
+
           {userInfo ? (
             <div>
-              <div>{userInfo.name}</div>
-              <Link to='/profile'>User Profile</Link>{" "}
-              <Link to='/orderhistory'>Order History</Link>{" "}
-              <Link to='#signout' onClick={signoutHandler}>Sign Out</Link>
+
+              <p className='header-user-name'>{userInfo.name}</p>
+
+              <select
+                className='select-menu'
+                onChange={(e) => (window.location.href = e.target.value)}
+                onClick={(e) => {
+                  if (e.target.value === "#signout") {
+                    signoutHandler();
+                  }
+                }}
+              >
+                <option value="/profile">User Profile</option>
+                <option value="/orderhistory">Order History</option>
+                <option value="#signout">Sign Out</option>
+              </select>
+
             </div>
-          ) : (<Link to='/signin'>Sing In</Link>)}
+
+            // <div>
+            //   <div>{userInfo.name}</div>
+            //   <Link to='/profile'>User Profile</Link>{" "}
+            //   <Link to='/orderhistory'>Order History</Link>{" "}
+            //   <Link to='#signout' onClick={signoutHandler}>Sign Out</Link>
+            // </div>
+          ) : (<Link to='/signin' className='signin-link'>Sing In</Link>)}
+
+
+          {userInfo && userInfo.isAdmin && (
+            <div>
+              <Link to="/admin/dashboard">Dashboard</Link>
+              <Link to="/admin/productlist">Products</Link>
+              <Link to="/admin/orderlist">Orders</Link>
+              <Link to="/admin/userlist">Users</Link>
+            </div>
+          )}
 
         </header>
 
@@ -95,9 +134,9 @@ function App() {
               <strong>Catagories</strong>
             </div>
 
-            {categories.map((category)=>{
-             return <div key={category}>
-                <Link to={`/search?category=${category}`} onClick={()=>setSideBarIsOpen(false)}>{category}</Link>
+            {categories.map((category) => {
+              return <div key={category}>
+                <Link to={`/search?category=${category}`} onClick={() => setSideBarIsOpen(false)}>{category}</Link>
               </div>
             })}
 
@@ -119,7 +158,13 @@ function App() {
 
             <Route path='/signup' element={<SignupScreen />} />
 
-            <Route path='/profile' element={<ProfileScreen />} />
+            <Route path='/profile' element={
+
+              <ProtectedRoute>
+                <ProfileScreen />
+              </ProtectedRoute>}
+
+            />
 
             <Route path='/shipping' element={<ShippingAdressScreen />} />
 
@@ -127,7 +172,13 @@ function App() {
 
             <Route path='/placeorder' element={<PlaceOrderScreen />} />
 
-            <Route path='/order/:id' element={<OrderScreen />} />
+            <Route path='/order/:id' element={
+
+              <ProtectedRoute>
+                <OrderScreen />
+              </ProtectedRoute>}
+
+            />
 
             <Route path='/sonAdim/:dOId' element={<SonAdimScreen />} />
 
@@ -135,6 +186,13 @@ function App() {
 
             <Route path='/search' element={<SearchScreen />} />
 
+            {/*Admin Routes */}
+
+            <Route path='/admin/dashboard' element={
+              <AdminRoute>
+                <DashboardScreeen />
+              </AdminRoute>}
+            />
 
           </Routes>
 

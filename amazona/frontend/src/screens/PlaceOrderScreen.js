@@ -55,7 +55,7 @@ export default function PlaceOrderScreen() {
 
     cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice
 
-    
+
 
 
     const placeOrderHandler = async () => {
@@ -81,14 +81,14 @@ export default function PlaceOrderScreen() {
             )
 
 
-                ctxDispatch({type: 'CART_CLEAR'})
+            ctxDispatch({ type: 'CART_CLEAR' })
 
-                dispatch({type: 'CREATE_SUCCESS'})
+            dispatch({ type: 'CREATE_SUCCESS' })
 
-                localStorage.removeItem('cartItems')
+            localStorage.removeItem('cartItems')
 
-                navigate(`/order/${data.order._id}`)
-                
+            navigate(`/order/${data.order._id}`)
+
 
         } catch (err) {
             dispatch({ type: 'CREATE_FAIL' })
@@ -106,93 +106,96 @@ export default function PlaceOrderScreen() {
     return (
         <div>
 
-        <Helmet><title>Preview Order</title></Helmet>
+            <Helmet><title>Preview Order</title></Helmet>
 
             <h1>Preview Order</h1>
 
-            <div className="mini-container">
+            <div className="place-full-com">
+                <div className="place-div1">
+                    <div className="mini-container">
 
-                <h3>Shipping</h3>
+                        <h3 className="place-mini-h">Shipping</h3>
 
-                <div className="mini-body">
+                        <div className="mini-body">
 
-                    <div className="mini-txt">
-                        <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
-                        <strong>Address:</strong> {cart.shippingAddress.address}, {cart.shippingAddress.postalCode}, {cart.shippingAddress.country}
-                    </div>
-                    <Link to="/shipping">Edit</Link>
-                </div>
-            </div>
-
-
-            <div className="mini-container">
-
-                <h3>Payment</h3>
-
-                <div className="mini-body">
-
-                    <div className="mini-txt">
-                        <strong>Method:</strong> {cart.paymentMethod} <br />
-
-                    </div>
-                    <Link to="/payment">Edit</Link>
-                </div>
-            </div>
-
-
-            <div className="mini-container">
-
-                <h3>Items</h3>
-
-                <div className="mini-body">
-                    {cart.cartItems.map((item) => (
-
-                        <div key={item._id}>
-                            <img src={item.image} alt={item.name} className="place-order-image"></img>
-
-                            <Link to={`/product/${item.slug}`}>{item.name}</Link>
-
-                            <div><span>Piece: {item.quantity}</span></div>
-                            <div>Price: {item.price}</div>
+                            <div className="mini-txt">
+                                <strong className="place-stg">Name:</strong> <span className="place-span">{cart.shippingAddress.fullName}</span> <br />
+                                <strong className="place-stg">Address:</strong> <span className="place-span"> {cart.shippingAddress.address}, {cart.shippingAddress.postalCode}, {cart.shippingAddress.country} </span>
+                            </div>
+                            <Link to="/shipping" className="place-edit">Edit</Link>
                         </div>
+                    </div>
 
-                    ))}
+
+                    <div className="mini-container">
+
+                        <h3 className="place-mini-h">Payment</h3>
+
+                        <div className="mini-body">
+
+                            <div className="mini-txt">
+                                <strong className="place-stg">Method:</strong> <span className="place-span">{cart.paymentMethod}</span> <br />
+
+                            </div>
+                            <Link to="/payment" className="place-edit">Edit</Link>
+                        </div>
+                    </div>
+
+
+                    <div className="mini-container">
+
+                        <h3 className="place-mini-h">Items</h3>
+
+                        <div className="mini-body">
+                            {cart.cartItems.map((item) => (
+
+                                <div key={item._id}>
+                                    <img src={item.image} alt={item.name} className="place-order-image"></img>
+
+                                    <Link to={`/product/${item.slug}`} className="place-name-link">{item.name}</Link> <br/>
+
+                                        <strong className="place-stg">Piece:</strong> <span className="place-span">{item.quantity}</span> <br/>
+                                        <strong className="place-stg">Price:</strong> <span className="place-span">{item.price}</span>
+                                </div>
+
+                            ))}
+                        </div>
+                        <Link to="/cart" className="place-edit">Edit</Link>
+                    </div>
                 </div>
-                <Link to="/cart">Edit</Link>
-            </div>
 
 
+                <div className="place-details">
+                    <h3>Order Summary</h3>
 
-            <div>
-                <h3>Order Summary</h3>
+                    <div>
+                        <div>Items</div>
+                        <div>${cart.itemsPrice.toFixed(2)}</div>
+                    </div>
 
-                <div>
-                    <div>Items</div>
-                    <div>${cart.itemsPrice.toFixed(2)}</div>
+                    <div>
+                        <div>Shipping</div>
+                        <div>${cart.shippingPrice.toFixed(2)}</div>
+                    </div>
+
+                    <div>
+                        <div>Tax</div>
+                        <div>${cart.taxPrice.toFixed(2)}</div>
+                    </div>
+
+                    <div>
+                        <strong>Order Total</strong>
+                        <strong>${cart.totalPrice.toFixed(2)}</strong>
+                    </div>
+
+
+                    <div>
+                        <button type="button" onClick={placeOrderHandler} disabled={cart.cartItems.length === 0}>Place Order</button>
+                    </div>
+
+                    
+
                 </div>
-
-                <div>
-                    <div>Shipping</div>
-                    <div>${cart.shippingPrice.toFixed(2)}</div>
-                </div>
-
-                <div>
-                    <div>Tax</div>
-                    <div>${cart.taxPrice.toFixed(2)}</div>
-                </div>
-
-                <div>
-                    <strong>Order Total</strong>
-                    <strong>${cart.totalPrice.toFixed(2)}</strong>
-                </div>
-
-
-                <div>
-                    <button type="button" onClick={placeOrderHandler} disabled={cart.cartItems.length === 0}>Place Order</button>
-                </div>
-
-                {loading}
-
             </div>
 
         </div>

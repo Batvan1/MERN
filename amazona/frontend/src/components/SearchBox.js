@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { MdSearch } from "react-icons/md";
 
 export default function SearchBox(){
 
@@ -15,11 +15,11 @@ export default function SearchBox(){
     }
 
     return(
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler} className="search-box">
 
-            <input type="text" name="q" id="q" onChange={(e)=> setQuery(e.target.value)} placeholder="Haydi Ara"></input>
+            <input type="text" name="q" id="header-searchbox" onChange={(e)=> setQuery(e.target.value)} placeholder="Haydi Ara"></input>
 
-            <button type="submit">Ara</button>
+            <button type="submit" className="search-button"><MdSearch size="30"/></button>
 
         </form>
     )

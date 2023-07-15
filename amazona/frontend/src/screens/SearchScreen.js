@@ -78,8 +78,8 @@ export default function SearchScreen() {
     const navigate = useNavigate()
 
     const { search } = useLocation()
-
-    const sp = new URLSearchParams(search)
+console.log(useLocation())
+    const sp = new URLSearchParams(search) // search objesi params parametrelerini veriyor.. window location.search
 
     const category = sp.get('category') || 'all'
 
@@ -107,7 +107,8 @@ export default function SearchScreen() {
             try {
 
                 const { data } = await axios.get(`/api/product/search?page=${page}&query=${query}&category=${category}&price=${price}&rating=${rating}&order=${order}`)
-                console.log('fetch data isteği başarılı')
+                console.log('fetch data çalışltı')
+                console.log(data)
                 dispatch({ type: 'FETCH_SUCCESS', payload: data })
 
             } catch (error) {
@@ -133,9 +134,9 @@ export default function SearchScreen() {
 
         const fetchCategories = async () => {
             try {
-
+                console.log("fetchCategories çalıştı")
                 const { data } = await axios.get(`/api/product/categories`) // backendten biz dizi gönderilmiş basim abinin yaptığı
-
+                
                 setCategories(data)
 
             } catch (error) {
@@ -159,6 +160,7 @@ export default function SearchScreen() {
         const filterPrice = filter.price || price
         const filterOrder = filter.order || order
 
+        // yukarıdaki fetchdata fonksiyonu içerisindeki istek ile aynı sıralaması farklı ve tabiki bu fonksiyonun çalışmasıyla objelerimizin değerleri değişiyor nasıl değişiyor kullanıcının bastığı butonlara göre değişiyor çünkü kullanıcı butona bastığında biz bu fonksiyonu çağırıyoruz ve yeni parametre değeri ile istek yapıyoruz
         return `/search?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${filterOrder}&page=${filterPage}`
     }
 

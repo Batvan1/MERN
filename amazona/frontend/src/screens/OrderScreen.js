@@ -104,102 +104,112 @@ export default function OrderScreen() {
                 <h1 className="my-3"> Order {orderId}</h1>
 
 
+                <div className="order-container">
 
-                <div>
-                    <strong>Name:</strong> {order.shippingAddress.fullName} <br />
-                    <strong>Navigate:</strong> {order.shippingAddress.address}, {order.shippingAddress.city},
-                    {order.shippingAddress.postalCode},
-                    {order.shippingAddress.country}
+                    <div className="order-1">
 
-                    <div className="textt">
+                        <div className="order-div">
 
-                        {order.isDelivered ? (
-                            <span>Delivered at {order.deliveredAd}</span>
-                        ) :
+                            <h3 className="order-h3">Shipping</h3>
 
-                            <span>Not Delivered</span>
+                            <strong className="order-stg">Name:</strong> <span className="order-span">{order.shippingAddress.fullName} </span><br />
+                            <strong className="order-stg">Address:</strong> {order.shippingAddress.address}, {order.shippingAddress.city},
+                            {order.shippingAddress.postalCode},
+                            {order.shippingAddress.country}
 
-                        }
+                            <div className="textt">
 
-                    </div>
-                </div>
+                                {order.isDelivered ? (
+                                    <span className="not-f">Delivered at {order.deliveredAt}</span>
+                                ) :
 
+                                    <span className="not">Not Delivered</span>
 
-                <div>
-                    <h3>Payment</h3>
-
-                    <div>
-                        <strong>Method: </strong> {order.paymentMethod} <br />
-
-                        {order.isPaid ? (
-                            <span>Paid At {order.paidAt}</span>
-                        ) :
-                            <span>Not Paid</span>
-                        }
-                    </div>
-
-                </div>
-
-
-
-                <div>
-                    <h3>ITEMS</h3>
-
-                    <div>
-                        {order.orderItems.map((item) => {
-                            return <div key={item._id}>
-
-                                <img src={item.image} alt={item.name} className="img-li"></img> {' '}
-
-                                <Link to={`/product/${item.slug}`}>{item.name}</Link>
-
-                                <div>
-                                    <span>{item.quantity}</span>
-                                </div>
-
-                                <div>
-                                    <span>{item.price}</span>
-                                </div>
+                                }
 
                             </div>
-                        })}
+                        </div>
+
+
+                        <div className="order-div">
+                            <h3 className="order-h3">Payment</h3>
+
+                            <div>
+                                <strong className="order-stg">Method: </strong> <span className="order-span">{order.paymentMethod} </span><br />
+
+                                {order.isPaid ? (
+                                    <span className="not-f">Paid At {order.paidAt}</span>
+                                ) :
+                                    <span className="not">Not Paid</span>
+                                }
+                            </div>
+
+                        </div>
+
+
+
+                        <div className="order-div">
+                            <h3 className="order-h3">ITEMS</h3>
+
+                            <div>
+                                {order.orderItems.map((item) => {
+                                    return <div key={item._id} className="order-items">
+
+                                        <div className="order-imgLink">
+                                            <img src={item.image} alt={item.name} className="order-img"></img> {' '}
+
+                                            <Link to={`/product/${item.slug}`} className="order-link">{item.name}</Link>
+                                        </div>
+
+
+                                        <span className="order-span">{item.quantity}</span>
+
+                                        <span className="order-span">${item.price}</span>
+
+                                    </div>
+                                })}
+                            </div>
+                        </div>
                     </div>
+
+
+
+                    <div className="order-2">
+                        <h3 className="order-h3">Order Sumarry</h3>
+
+
+                        <div className="order2-div">
+                            <h4>Items</h4>
+                            <span>${order.itemsPrice.toFixed(2)}</span>
+                        </div>
+
+
+                        <div className="order2-div">
+                            <h4>Shipping</h4>
+                            <span>${order.shippingPrice.toFixed(2)}</span>
+                        </div>
+
+
+                        <div className="order2-div">
+                            <h4>Tax</h4>
+                            <span>${order.taxPrice.toFixed(2)}</span>
+                        </div>
+
+                        <div className="order2-div">
+                            <h4>Order Total</h4>
+                            <span>${order.totalPrice.toFixed(2)}</span>
+                        </div>
+
+
+                        <div className="order-btn-divv">
+                            <button onClick={orderSubmitHandler} className="order-btnn">Ödemeyi tamamla</button>
+                        </div>
+                    </div>
+
+
                 </div>
 
 
-
-                <div>
-                    <h3>Order Sumarry</h3>
-
-
-                    <div>
-                        <span>Items</span>
-                        <span>${order.itemsPrice.toFixed(2)}</span>
-                    </div>
-
-
-                    <div>
-                        <span>Shipping</span>
-                        <span>${order.shippingPrice.toFixed(2)}</span>
-                    </div>
-
-
-                    <div>
-                        <span>Tax</span>
-                        <span>${order.taxPrice.toFixed(2)}</span>
-                    </div>
-
-                    <div>
-                        <span>Order Total</span>
-                        <span>${order.totalPrice.toFixed(2)}</span>
-                    </div>
-
-                </div>
-
-
-                <div>
-                    <button onClick={orderSubmitHandler}>Ödemeyi tamamla</button>
-                </div>
 
             </div>
 

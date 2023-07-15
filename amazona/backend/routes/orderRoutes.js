@@ -3,6 +3,7 @@ import { generateToken, isAuth } from '../utils.js'
 import expressAsyncHandler from 'express-async-handler'
 import Iyzipay from 'iyzipay'
 import Order from '../models/orderModel.js'
+import Payment from '../models/IyzicoPaymentModel.js'
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -125,17 +126,28 @@ orderRouter.post('/payment', async (req, res) => {
 
     return new Promise(async (resolve, reject) => {
 
-        await iyzipay.payment.create(data, function (err, result) {
+        await iyzipay.payment.create(data, async function (err, result) {
 
             if (err) return reject(err)
 
             console.log(err, result)
 
 
+            const IyzicoSave = new Payment({
+                sendData: data,
+                resultData: result
+            })
+            await IyzicoSave.save()
+            .then(response => console.log(response))
+            .catch(err => console.log(err))
+
+
 
             if (result.status !== 'success') {
                 reject(res.send("result.status key'inin değeri success'e eşit değil"))
             }
+
+          
 
 
 

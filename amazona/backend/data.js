@@ -28,7 +28,7 @@ const data = {
             countInStock: 10,
             brand: "nike",
             rating: 4.5,
-            numRevievs: 10,
+            numReviews: 10,
             description: "high quality shirt"
         },
         {
@@ -41,7 +41,7 @@ const data = {
             countInStock: 10,
             brand: "nike",
             rating: 4.5,
-            numRevievs: 10,
+            numReviews: 10,
             description: "high quality shirt"
         },
         {
@@ -54,7 +54,7 @@ const data = {
             countInStock: 10,
             brand: "nike",
             rating: 4.5,
-            numRevievs: 10,
+            numReviews: 10,
             description: "high quality shirt"
         },
         {
@@ -67,8 +67,21 @@ const data = {
             countInStock: 0,
             brand: "nike",
             rating: 4.5,
-            numRevievs: 10,
+            numReviews: 10,
             description: "high quality shirt"
+        },
+        {
+            //_id: "5",
+            name: "büyük ooo1o",
+            slug: "beasymen",
+            category: "shirsats-4",
+            image: "/images/sezen.jpeg",
+            price: 700,
+            countInStock: 1,
+            brand: "nikse",
+            rating: 4.5,
+            numReviews: 10,
+            description: "high quasaslity shirt"
         }
     ]
 }
