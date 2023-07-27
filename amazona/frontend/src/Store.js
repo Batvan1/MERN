@@ -40,7 +40,7 @@ function reducer(state,action){
 
             case 'CART_REMOVE_ITEM':{
                 // remove cart
-                const cartItems = state.cart.cartItems.filter(item => item._id !== action.payload._id)
+                const cartItems = state.cart.cartItems.filter(item => item._id !== action.payload._id) //mevcut cartItems dizisindeki objelerin id'si ile kullanıcının SİL butonuna basmasıyla gönderdiğimiz objenin id'sini karşılaştırıyoruz, aynıysa filter'da kullandığımız ! işareti ile id'si aynı olmayanlar durup, id'si aynı olanlar siliniyor.
 
                 localStorage.setItem('cartItems',JSON.stringify(cartItems))
 

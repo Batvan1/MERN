@@ -4,39 +4,39 @@ import { useContext, useEffect, useState } from "react";
 import { Store } from "../Store";
 import { Helmet } from "react-helmet-async";
 
-export default function SignupScreen(){
+export default function SignupScreen() {
 
 
 
     const navigate = useNavigate()
 
-    const {search} = useLocation()
+    const { search } = useLocation()
     const redirectInURL = new URLSearchParams(search).get('redirect')
     const redirect = redirectInURL ? redirectInURL : '/'
 
 
-    const [email , setEmail] = useState('')
-    const [name , setName] = useState('')
-    const [password , setPassword] = useState('')
-    const [confirmPassword , setConfirmPassword] = useState('')
+    const [email, setEmail] = useState('')
+    const [name, setName] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
 
-    const {state , dispatch: ctxDispatch} = useContext(Store)
+    const { state, dispatch: ctxDispatch } = useContext(Store)
 
-    const {userInfo} = state
+    const { userInfo } = state
 
-    const submitHandler = async (e)=>{
+    const submitHandler = async (e) => {
         e.preventDefault()
 
-        if(password !== confirmPassword){
+        if (password !== confirmPassword) {
             alert("Password do not match")
             return;
         }
 
         try {
 
-            const {data} = await axios.post('/api/users/signup', { email, password, name })
+            const { data } = await axios.post('/api/users/signup', { email, password, name })
 
-            ctxDispatch({type: 'USER_SIGNIN', payload: data})
+            ctxDispatch({ type: 'USER_SIGNIN', payload: data })
 
             localStorage.setItem('userInfo', JSON.stringify(data))
 
@@ -49,45 +49,45 @@ export default function SignupScreen(){
     }
     //incele
     // bu kod ile kullanıcı sayfasına girdiğinde ve tekrar signin isteği attığında tekrar giriş yapmamasını sağlayacak
-    useEffect(()=>{
+    useEffect(() => {
 
-        if(userInfo){
+        if (userInfo) {
             navigate(redirect)
         }
 
-    },[navigate, redirect, userInfo])
+    }, [navigate, redirect, userInfo])
     // bu kod ile son
 
 
-    return(
+    return (
         <div className="signin-container">
 
             <Helmet>
-            <title>Sign up</title>
+                <title>Sign up</title>
             </Helmet>
 
             <h1>Sign up</h1>
-            <form onSubmit={submitHandler}>
+            <form onSubmit={submitHandler} className="signin-form">
 
-                <label htmlFor="name">Your Name</label>
-                <input type="text" id="name" required onChange={(e)=> setName(e.target.value)}></input>
+                <label className="signin-label" htmlFor="name">Your Name</label>
+                <input className="signin-input" type="text" id="name" required onChange={(e) => setName(e.target.value)}></input>
 
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" required  onChange={(e)=> setEmail(e.target.value) }></input>
+                <label className="signin-label" htmlFor="email">Email</label>
+                <input className="signin-input" type="email" id="email" required onChange={(e) => setEmail(e.target.value)}></input>
 
-                <label htmlFor="password">Password</label>
-                <input type="password" id="password" required  onChange={(e)=> setPassword(e.target.value)}></input>
+                <label className="signin-label" htmlFor="password">Password</label>
+                <input className="signin-input" type="password" id="password" required onChange={(e) => setPassword(e.target.value)}></input>
 
-                <label htmlFor="confirmPassword">Confirm Password</label>
-                <input type="password" id="confirmPassword" required  onChange={(e)=> setConfirmPassword(e.target.value)}></input>
+                <label className="signin-label" htmlFor="confirmPassword">Confirm Password</label>
+                <input className="signin-input" type="password" id="confirmPassword" required onChange={(e) => setConfirmPassword(e.target.value)}></input>
 
 
                 <div>
-                    <button type="submit">Sign up</button>
+                    <button className="signin-btn" type="submit">Sign up</button>
                 </div>
 
-                <div>
-                Already have an account {" "}
+                <div className="signin-link-div">
+                    <p>Already have an account </p>
                     <Link to={`/signin?redirect=${redirect}`}>Sign In</Link>
                 </div>
             </form>

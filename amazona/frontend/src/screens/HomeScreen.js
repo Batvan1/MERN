@@ -1,7 +1,8 @@
-import { useEffect, useReducer} from 'react'
-import { Link } from 'react-router-dom'
+import { useContext, useEffect, useReducer} from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { Helmet } from 'react-helmet-async'
+import { Store } from '../Store'
 
 const reducer = (state , action)=>{
     switch(action.type){
@@ -31,6 +32,10 @@ const HomeScreen = () => {
 
     //const [product , setProduct] = useState([]) // sokuk reactın içinden gelen metot
 
+    const {state ,dispatch: ctxDispatch} = useContext(Store)
+
+    const Navigate = useNavigate()
+
     useEffect(()=>{
 
         const fetchData = async ()=>{
@@ -53,6 +58,30 @@ const HomeScreen = () => {
 
     },[])
 
+
+   const addToCartHandler = async (product)=>{
+
+    try {
+
+        const existItem = state.cart.cartItems.find(x => x._id === product._id)
+
+        const quantity = existItem ? existItem.quantity + 1 : 1
+
+        const {data} = await axios.get(`/api/product/slug/${product.slug}`)
+
+        ctxDispatch({type: 'CART_ADD_ITEM', payload: {...data, quantity}, })
+
+        Navigate("/cart")
+
+
+
+    } catch (error) {
+        console.log(error)
+    }
+   
+
+   }
+
    
     return (
         <div>
@@ -60,27 +89,30 @@ const HomeScreen = () => {
             <Helmet>
                 <title>Amazona</title>
             </Helmet>
-            <h1>Featured Products</h1>
+            <h1 className='home-h1'>Özel Ürünler</h1>
 
-            <div className="products">
+            <div className="home-products">
 
                 {loading ? <div>Loading...</div>: error ? <div>{error}</div> :(
                 
                 products.map(product => (
-                    <div className="product" key={product.slug}>
+                    <div className="home-product" key={product.slug}>
 
                         <Link to={`/product/${product.slug}`}>
-                            <img src={product.image} alt={product.name}></img>
+                            <img src={product.image} alt={product.name} className='home-img'></img>
                         </Link>
 
-                        <div className="product-info">
+                        <div className="home-product-info">
 
                             <Link to={`/product/${product.slug}`}>
-                                <p> {product.name}</p>
+                                <p className='home-name'> {product.name}</p>
                             </Link>
 
-                            <p> <strong>{product.price} </strong></p>
-                            <button>Add to cart</button>
+                            <p> <strong className='home-price'>{product.price} TL</strong></p>
+
+                            
+                            <button className='home-btn' onClick={ () => addToCartHandler(product) }>Sepete Ekle</button>
+                            
 
                         </div>
 

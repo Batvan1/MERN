@@ -115,11 +115,14 @@ productRouter.get('/categories',async (req,res)=>{
 
 
 productRouter.get('/slug/:slug',async (req,res)=>{
-    const product = await Product.findOne({ slug: req.params.slug }) //burada kullanıcı tarafından gelen istek bizde statik olarak duran data.js verisi ile eşleşip karşıya obje döndürüyoruz tek bir key değeri eşlemesidnen
+    console.log("PRODUCT ROUTER SLUG/:SLUG İSTEĞİ KARŞILANDI")
+    const product = await Product.findOne({ slug: req.params.slug }) //burada kullanıcı tarafından gelen istek bizde statik olarak duran data.js (dinamik mongo db) verisi ile eşleşip karşıya obje döndürüyoruz tek bir key değeri eşlemesidnen
     if(product){
         res.send(product)
+        console.log("prodcut başarılı")
     }else{
         res.status(404).send({message: 'Product not found'})
+        console.log("prodcut olmadııııııı")
     }
     
 })

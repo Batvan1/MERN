@@ -145,27 +145,60 @@ main{
   padding: 1rem;
 }
 
-.products{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  height: 20px;
+.home-products{
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+  background-color: #f0f0f0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
 }
 
-.product{
-  border: 1px #404040 solid;
-  margin: 1rem;
+.home-product {
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 10px;
 }
 
-.product img{
+.home-h1{
+  margin-bottom: 20px;
+}
+
+.home-img {
   width: 100%;
-  max-width: 400px;
-  max-height: 350px;
+  max-height: 300px;
+  height: 100%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
-.product-info{
-  padding: 1rem;
+.home-product-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.home-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.home-price {
+  color: green;
+}
+
+.home-btn {
+  background-color: #f0c14b;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+
+
 
 /* Home Screen End*/
 
@@ -239,32 +272,76 @@ main{
     height: 80px;
   }
 
-  /*sidebar start*/
+  /*Sidebar start*/
 
   .navbar-brand{
     font-weight: bold;
   }
 
-  .side-navbar{
-    width:240px;
-    height: 100px;
-    position: absolute;
-    left: -300px;
-    background-color: white;
-    transition: 0.5s;
-  }
+  
 
   .active-cont{
-    margin-left: 240px;
+    margin-left: 200px;
+    transition: 1s;
   }
 
   .active-nav{
-    left: 0;
+    position: fixed; /* Sidebar'i sayfanin solunda sabitle */
+    left: 0; /* Sidebar'i sol kenardan baslat */
+    top: 0;
+    height: 100%; /* Sidebar'in yuksekligini sayfa yuksekligine esitle */
+    width: 200px; /* Sidebar'in genisligini belirt */
+    background-color: #333; /* Sidebar'in arka plan rengini belirt */
+    border-right: 2px solid #fff; /* Sidebar'in sag kenarina beyaz bir cizgi ekle */
+    border-radius: 0 10px 10px 0; /* Sidebar'in sag ust ve alt koselelerine yuvarlaklik ver */
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5); /* Sidebar'a goz aldirici bir golge ekle */
+    transition: 2s;
+
   }
 
-  .site-container{
-    transition: 0.4s;
+  /* Sidebar stilini tanimla */
+  .side-navbar {
+  left: -200px;
+  display: none;
+   
   }
+
+/* Navigasyon menusunun stilini tanimla */
+.appjs-nav {
+  list-style-type: none; /* Menudeki noktalari kaldir */
+  padding: 0; /* Menudeki boslugu kaldir */
+}
+
+/* Navigasyon menusundeki basligin stilini tanimla */
+.appjs-stg {
+  color: white; /* Basligin rengini beyaz yap */
+  font-size: 20px; /* Basligin boyutunu belirt */
+  font-weight: bold; /* Basligi kalin yap */
+  text-align: center; /* Basligi ortala */
+}
+
+/* Navigasyon menusundeki divlerin stilini tanimla */
+.appjs-map-div {
+  margin: 10px; /* Divler arasinda bosluk birak */
+}
+
+/* Navigasyon menusundeki baglantilarin stilini tanimla */
+.appjs-link {
+  color: white; /* Baglantilarin rengini beyaz yap */
+  font-size: 16px; /* Baglantilarin boyutunu belirt */
+  text-decoration: none; /* Baglantilarin alt cizgisini kaldir */
+  display: block; /* Baglantilari blok yap */
+  padding: 10px; /* Baglantilara ic bosluk ekle */
+}
+
+/* Baglantilarin ustune gelince stilini degistir */
+.appjs-link:hover {
+  background-color: #555; /* Baglantinin arka plan rengini degistir */
+  border-radius: 10px; /* Baglantinin koselerine yuvarlaklik ver */
+}
+
+/*Sidebar end*/
+
 
   
   /* Cart Screen Start */
@@ -510,11 +587,11 @@ main{
 
     }
     
-    .place-details div {
+    .place-yy-div{
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: 5px;
+      margin: 10px;
     }
     
     .place-details h3 {
@@ -531,9 +608,14 @@ main{
       background-color: #007bff;
       color: white;
       border: none;
-      padding: 10px;
+      padding: 15px;
       border-radius: 5px;
       margin-top: 1rem;
+    }
+
+    .place-right-button{
+      display: flex;
+      justify-content: center;
     }
      /*Place Order End*/
 
@@ -681,6 +763,261 @@ main{
       }
       
       /*SonAdim End*/
+
+      /*Signin Start*/
+      .signin-form {
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        width: 300px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+      }
+      
+      .signin-label {
+        display: block;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      
+      .signin-input {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        padding: 10px;
+      }
+      
+      .signin-btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #f0c14b;
+      }
+      
+      .signin-link-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+      }
+      
+      .signin-link {
+        color: blue;
+        font-size: 25px;
+        margin: 5px;
+      }
+      
+      /*Signin End*/
+
+      /*SearchScreen Start*/
+
+
+        /* search-department sınıfına sahip div elementinin stilini belirliyoruz */
+.search-department {
+  /* arkaplan rengini açık gri yapıyoruz */
+  background-color: lightgray;
+  /* kenar boşluklarını 10 piksel yapıyoruz */
+  margin: 10px;
+  /* dolgu boşluklarını 20 piksel yapıyoruz */
+  padding: 20px;
+  /* yuvarlak köşeler için sınır yarıçapını 10 piksel yapıyoruz */
+  border-radius: 10px;
+}
+
+/* search-department sınıfına sahip div elementinin içindeki h3 elementinin stilini belirliyoruz */
+.search-department h3 {
+  /* yazı rengini koyu gri yapıyoruz */
+  color:#666;
+  /* yazı tipini Arial olarak seçiyoruz */
+  font-family: Arial;
+}
+
+/* search-department-ul sınıfına sahip ul elementinin stilini belirliyoruz */
+.search-department-ul {
+  /* liste işaretlerini kaldırıyoruz */
+  list-style: none;
+}
+
+/* search-department-ul sınıfına sahip ul elementinin içindeki li elementlerinin stilini belirliyoruz */
+.search-department-ul li {
+  /* her liste öğesinin altına bir çizgi çiziyoruz */
+  border-bottom: 1px solid gray;
+  font-size: 1.5rem;
+}
+
+/* search-department-ul sınıfına sahip ul elementinin içindeki li elementlerinin içindeki Link componentlerinin stilini belirliyoruz */
+.search-department-ul li a {
+  /* yazı rengini siyah yapıyoruz */
+  color: black;
+  /* yazı tipini Arial olarak seçiyoruz */
+  font-family: Arial;
+}
+
+.search-department-ul li a:hover {
+  /* yazı rengini siyah yapıyoruz */
+  color: blueviolet;
+  /* yazı tipini Arial olarak seçiyoruz */
+}
+
+/* text-bold sınıfına sahip Link componentlerinin stilini belirliyoruz */
+.text-bold {
+  /* yazı kalınlığını artırıyoruz */
+  font-weight: bold;
+}
+
+
+
+
+
+/* search-price sınıfına sahip div elementinin stilini belirliyoruz */
+.search-price {
+  /* arkaplan rengini açık mavi yapıyoruz */
+  background-color: lightgray;
+  /* kenar boşluklarını 10 piksel yapıyoruz */
+  margin: 10px;
+  /* dolgu boşluklarını 20 piksel yapıyoruz */
+  padding: 20px;
+  /* yuvarlak köşeler için sınır yarıçapını 10 piksel yapıyoruz */
+  border-radius: 10px;
+}
+
+/* search-price sınıfına sahip div elementinin içindeki h3 elementinin stilini belirliyoruz */
+.search-price h3 {
+  /* yazı rengini koyu mavi yapıyoruz */
+  color:#666;
+  /* yazı tipini Arial olarak seçiyoruz */
+  font-family: Arial;
+}
+
+/* search-search-ul sınıfına sahip ul elementinin stilini belirliyoruz */
+.search-search-ul {
+  /* liste işaretlerini kaldırıyoruz */
+  list-style: none;
+}
+
+/* search-search-ul sınıfına sahip ul elementinin içindeki li elementlerinin stilini belirliyoruz */
+.search-search-ul li {
+  /* her liste öğesinin altına bir çizgi çiziyoruz */
+  border-bottom: 1px solid gray;
+  font-size: 1.5rem;
+}
+
+/* search-search-ul sınıfına sahip ul elementinin içindeki li elementlerinin içindeki Link componentlerinin stilini belirliyoruz */
+.search-search-ul li a {
+  /* yazı rengini siyah yapıyoruz */
+  color: black;
+  /* yazı tipini Arial olarak seçiyoruz */
+  font-family: Arial;
+}
+
+.search-search-ul li a:hover {
+  /* yazı rengini siyah yapıyoruz */
+  color: purple;
+  /* yazı tipini Arial olarak seçiyoruz */
+  font-family: Arial;
+}
+
+
+
+
+
+
+.search-p-select{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-sortBy{
+  font-size: 25px;
+}
+
+
+/* search-result sınıfına sahip div elementinin stilini belirliyoruz */
+.search-result {
+  /* arkaplan rengini beyaz yapıyoruz */
+  background-color:darkorange;
+  /* kenar boşluklarını 10 piksel yapıyoruz */
+  margin: 10px;
+  /* dolgu boşluklarını 20 piksel yapıyoruz */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* search-mini-result sınıfına sahip div elementinin stilini belirliyoruz */
+.search-mini-result {
+  /* arkaplan rengini açık sarı yapıyoruz */
+  background-color: gray;
+  /* yuvarlak köşeler için sınır yarıçapını 10 piksel yapıyoruz */
+  border-radius: 10px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+/* search-result-span sınıfına sahip span elementinin stilini belirliyoruz */
+.search-result-span {
+  /* yazı rengini koyu sarı yapıyoruz */
+  color: white;
+  /* yazı tipini Arial olarak seçiyoruz */
+  font-family: Arial;
+  font-size: 1.5rem;
+}
+
+.search-result-before-span{
+  font-size: 1.5rem;
+}
+
+/* search-result-btn sınıfına sahip button elementinin stilini belirliyoruz */
+.search-result-btn {
+  /* arkaplan rengini koyu sarı yapıyoruz */
+  background-color: gold;
+  /* yazı rengini beyaz yapıyoruz */
+  color: white;
+  /* yazı tipini Arial olarak seçiyoruz */
+  font-family: Arial;
+  padding: 20px;
+  border-radius: 10px;
+  margin-left: 100px;
+}
+
+/* search-select sınıfına sahip select elementinin stilini belirliyoruz */
+.search-select {
+  /* arkaplan rengini açık mavi yapıyoruz */
+  background-color: lightblue;
+  margin: 1rem;
+  width: 300px;
+  font-size: 20px;
+  padding: 10px;
+}
+
+/* search-not-product sınıfına sahip div elementinin stilini belirliyoruz */
+.search-not-product {
+  /* yazı rengini kırmızı yapıyoruz */
+  color: red;
+}
+
+/* search-result-products sınıfına sahip div elementinin stilini belirliyoruz */
+.search-result-products {
+  /* arkaplan rengini açık yeşil yapıyoruz */
+  background-color: lightgreen;
+}
+
+/* search-result-item sınıfına sahip div elementinin stilini belirliyoruz */
+.search-result-item {
+  /* her ürün için bir çerçeve çiziyoruz */
+  border: 1px solid black;
+}
+
+
+
+      /*SearchScreen End*/
 
 
   /*TELEFON HALİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİ START*/

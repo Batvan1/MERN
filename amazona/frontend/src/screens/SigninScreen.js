@@ -56,20 +56,20 @@ export default function SigninScreen(){
             <title>Sign in</title>
 
             <h1>Sign in</h1>
-            <form onSubmit={submitHandler}>
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" required  onChange={(e)=> setEmail(e.target.value) }></input>
+            <form onSubmit={submitHandler} className="signin-form">
+                <label className="signin-label" htmlFor="email">Email</label>
+                <input className="signin-input" type="email" id="email" required  onChange={(e)=> setEmail(e.target.value) }></input>
 
-                <label htmlFor="password">Password</label>
-                <input type="password" id="password" required  onChange={(e)=> setPassword(e.target.value)}></input>
+                <label className="signin-label" htmlFor="password">Password</label>
+                <input className="signin-input" type="password" id="password" required  onChange={(e)=> setPassword(e.target.value)}></input>
 
                 <div>
-                    <button type="submit">Sign in</button>
+                    <button type="submit" className="signin-btn">Sign in</button>
                 </div>
 
-                <div>
-                    New Customer ? {" "}
-                    <Link to={`/signup?redirect=${redirect}`}>Create your account</Link>
+                <div className="signin-link-div">
+                   <p> New Customer ?</p>
+                    <Link to={`/signup?redirect=${redirect}`} className="signin-link">Create your account</Link>
                 </div>
             </form>
         </div>

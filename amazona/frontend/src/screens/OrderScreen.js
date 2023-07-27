@@ -101,7 +101,7 @@ export default function OrderScreen() {
                     <title>Order {orderId}</title>
                 </Helmet>
 
-                <h1 className="my-3"> Order {orderId}</h1>
+                <h1 className="my-3"> Sipariş {orderId}</h1>
 
 
                 <div className="order-container">
@@ -110,20 +110,20 @@ export default function OrderScreen() {
 
                         <div className="order-div">
 
-                            <h3 className="order-h3">Shipping</h3>
+                            <h3 className="order-h3">Kargo</h3>
 
-                            <strong className="order-stg">Name:</strong> <span className="order-span">{order.shippingAddress.fullName} </span><br />
-                            <strong className="order-stg">Address:</strong> {order.shippingAddress.address}, {order.shippingAddress.city},
+                            <strong className="order-stg">İsim: </strong> <span className="order-span">{order.shippingAddress.fullName} </span><br />
+                            <strong className="order-stg">Adres: </strong> {order.shippingAddress.address}, {order.shippingAddress.city},
                             {order.shippingAddress.postalCode},
                             {order.shippingAddress.country}
 
                             <div className="textt">
 
                                 {order.isDelivered ? (
-                                    <span className="not-f">Delivered at {order.deliveredAt}</span>
+                                    <span className="not-f">Teslim Edildi {order.deliveredAt}</span>
                                 ) :
 
-                                    <span className="not">Not Delivered</span>
+                                    <span className="not">Teslim Edilmedi</span>
 
                                 }
 
@@ -132,15 +132,15 @@ export default function OrderScreen() {
 
 
                         <div className="order-div">
-                            <h3 className="order-h3">Payment</h3>
+                            <h3 className="order-h3">Ödeme Yöntemi</h3>
 
                             <div>
-                                <strong className="order-stg">Method: </strong> <span className="order-span">{order.paymentMethod} </span><br />
+                                <strong className="order-stg">Metod: </strong> <span className="order-span">{order.paymentMethod} </span><br />
 
                                 {order.isPaid ? (
-                                    <span className="not-f">Paid At {order.paidAt}</span>
+                                    <span className="not-f">Ödendi {order.paidAt}</span>
                                 ) :
-                                    <span className="not">Not Paid</span>
+                                    <span className="not">Ödenmedi</span>
                                 }
                             </div>
 
@@ -149,7 +149,7 @@ export default function OrderScreen() {
 
 
                         <div className="order-div">
-                            <h3 className="order-h3">ITEMS</h3>
+                            <h3 className="order-h3">Ürünler</h3>
 
                             <div>
                                 {order.orderItems.map((item) => {
@@ -164,7 +164,7 @@ export default function OrderScreen() {
 
                                         <span className="order-span">{item.quantity}</span>
 
-                                        <span className="order-span">${item.price}</span>
+                                        <span className="order-span">{item.price} TL</span>
 
                                     </div>
                                 })}
@@ -175,34 +175,34 @@ export default function OrderScreen() {
 
 
                     <div className="order-2">
-                        <h3 className="order-h3">Order Sumarry</h3>
+                        <h3 className="order-h3">Sipariş Özeti</h3>
 
 
                         <div className="order2-div">
-                            <h4>Items</h4>
-                            <span>${order.itemsPrice.toFixed(2)}</span>
+                            <h4>Ürünler</h4>
+                            <span>{order.itemsPrice.toFixed(2)} TL</span>
                         </div>
 
 
                         <div className="order2-div">
-                            <h4>Shipping</h4>
-                            <span>${order.shippingPrice.toFixed(2)}</span>
+                            <h4>Kargo</h4>
+                            <span>{order.shippingPrice.toFixed(2)} TL</span>
                         </div>
 
 
                         <div className="order2-div">
-                            <h4>Tax</h4>
-                            <span>${order.taxPrice.toFixed(2)}</span>
+                            <h4>Vergi</h4>
+                            <span>{order.taxPrice.toFixed(2)} TL</span>
                         </div>
 
                         <div className="order2-div">
-                            <h4>Order Total</h4>
-                            <span>${order.totalPrice.toFixed(2)}</span>
+                            <h4>Sipariş Toplamı</h4>
+                            <span>{order.totalPrice.toFixed(2)} TL</span>
                         </div>
 
 
                         <div className="order-btn-divv">
-                            <button onClick={orderSubmitHandler} className="order-btnn">Ödemeyi tamamla</button>
+                            <button onClick={orderSubmitHandler} className="order-btnn">Ödemeyi Tamamla</button>
                         </div>
                     </div>
 

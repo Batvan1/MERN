@@ -69,16 +69,17 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className={sideBarIsOpen ? "Apbenekle active-cont" : "App"}>
+      <div className={sideBarIsOpen ? "benyazdim active-cont" : "App"}>
         <header className="App-header">
 
           <button onClick={() => setSideBarIsOpen(!sideBarIsOpen)}><MdViewSidebar size="2rem" /></button>
 
 
-          <SearchBox /> {/*components klasöründen gelen component arama kutusu */}
-          
+          <Link to="/" className='app-link'>Metin Müzik</Link>
 
-          <Link to="/" className='app-link'>Amazona</Link>
+
+          <SearchBox /> {/*components klasöründen gelen component arama kutusu */}
+                   
 
           <Link to="/cart">
             <MdShoppingCart size="2rem" color='gray' /> {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
@@ -127,16 +128,16 @@ function App() {
 
 
 
-        <div className={sideBarIsOpen ? 'active-nav side-navbar' : 'side-navbar'}>
-          <nav>
+        <div className={sideBarIsOpen ? 'active-nav' : 'side-navbar'}>
+          <nav className='appjs-nav'>
 
             <div>
-              <strong>Catagories</strong>
+              <strong className='appjs-stg'>Catagories</strong>
             </div>
 
             {categories.map((category) => {
-              return <div key={category}>
-                <Link to={`/search?category=${category}`} onClick={() => setSideBarIsOpen(false)}>{category}</Link>
+              return <div key={category} className='appjs-map-div'>
+                <Link to={`/search?category=${category}`} onClick={() => setSideBarIsOpen(false)} className='appjs-link'>{category}</Link>
               </div>
             })}
 

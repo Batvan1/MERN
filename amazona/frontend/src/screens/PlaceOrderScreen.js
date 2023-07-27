@@ -108,19 +108,19 @@ export default function PlaceOrderScreen() {
 
             <Helmet><title>Preview Order</title></Helmet>
 
-            <h1>Preview Order</h1>
+            <h1>Sipariş Özet</h1>
 
             <div className="place-full-com">
                 <div className="place-div1">
                     <div className="mini-container">
 
-                        <h3 className="place-mini-h">Shipping</h3>
+                        <h3 className="place-mini-h">Kargo Alıcısı</h3>
 
                         <div className="mini-body">
 
                             <div className="mini-txt">
-                                <strong className="place-stg">Name:</strong> <span className="place-span">{cart.shippingAddress.fullName}</span> <br />
-                                <strong className="place-stg">Address:</strong> <span className="place-span"> {cart.shippingAddress.address}, {cart.shippingAddress.postalCode}, {cart.shippingAddress.country} </span>
+                                <strong className="place-stg">İsim: </strong> <span className="place-span">{cart.shippingAddress.fullName}</span> <br />
+                                <strong className="place-stg">Adres: </strong> <span className="place-span"> {cart.shippingAddress.address}, {cart.shippingAddress.postalCode}, {cart.shippingAddress.country} </span>
                             </div>
                             <Link to="/shipping" className="place-edit">Edit</Link>
                         </div>
@@ -129,12 +129,12 @@ export default function PlaceOrderScreen() {
 
                     <div className="mini-container">
 
-                        <h3 className="place-mini-h">Payment</h3>
+                        <h3 className="place-mini-h">Ödeme Yöntemi</h3>
 
                         <div className="mini-body">
 
                             <div className="mini-txt">
-                                <strong className="place-stg">Method:</strong> <span className="place-span">{cart.paymentMethod}</span> <br />
+                                <strong className="place-stg">Metod:</strong> <span className="place-span">{cart.paymentMethod}</span> <br />
 
                             </div>
                             <Link to="/payment" className="place-edit">Edit</Link>
@@ -144,7 +144,7 @@ export default function PlaceOrderScreen() {
 
                     <div className="mini-container">
 
-                        <h3 className="place-mini-h">Items</h3>
+                        <h3 className="place-mini-h">Ürünler</h3>
 
                         <div className="mini-body">
                             {cart.cartItems.map((item) => (
@@ -154,8 +154,8 @@ export default function PlaceOrderScreen() {
 
                                     <Link to={`/product/${item.slug}`} className="place-name-link">{item.name}</Link> <br/>
 
-                                        <strong className="place-stg">Piece:</strong> <span className="place-span">{item.quantity}</span> <br/>
-                                        <strong className="place-stg">Price:</strong> <span className="place-span">{item.price}</span>
+                                        <strong className="place-stg">Adet: </strong> <span className="place-span">{item.quantity}</span> <br/>
+                                        <strong className="place-stg">Fiyat: </strong> <span className="place-span">{item.price}</span>
                                 </div>
 
                             ))}
@@ -166,31 +166,31 @@ export default function PlaceOrderScreen() {
 
 
                 <div className="place-details">
-                    <h3>Order Summary</h3>
+                    <h3>Sipariş Özeti</h3>
 
-                    <div>
-                        <div>Items</div>
-                        <div>${cart.itemsPrice.toFixed(2)}</div>
+                    <div className="place-yy-div">
+                        <div>Ürünler</div>
+                        <div>{cart.itemsPrice.toFixed(2)} TL</div>
                     </div>
 
-                    <div>
-                        <div>Shipping</div>
-                        <div>${cart.shippingPrice.toFixed(2)}</div>
+                    <div className="place-yy-div">
+                        <div>Kargo</div>
+                        <div>{cart.shippingPrice.toFixed(2)} TL</div>
                     </div>
 
-                    <div>
-                        <div>Tax</div>
-                        <div>${cart.taxPrice.toFixed(2)}</div>
+                    <div className="place-yy-div">
+                        <div>Vergi</div>
+                        <div>{cart.taxPrice.toFixed(2)} TL</div>
                     </div>
 
-                    <div>
-                        <strong>Order Total</strong>
-                        <strong>${cart.totalPrice.toFixed(2)}</strong>
+                    <div className="place-yy-div">
+                        <strong>Sipariş Toplamı</strong>
+                        <strong>{cart.totalPrice.toFixed(2)} TL</strong>
                     </div>
 
 
-                    <div>
-                        <button type="button" onClick={placeOrderHandler} disabled={cart.cartItems.length === 0}>Place Order</button>
+                    <div className="place-right-button">
+                        <button type="button" onClick={placeOrderHandler} disabled={cart.cartItems.length === 0}>Siparişi Ver</button>
                     </div>
 
                     

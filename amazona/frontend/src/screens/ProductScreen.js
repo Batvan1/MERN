@@ -104,14 +104,14 @@ const ProductScreen = () => {
                 <div className="product-div">
                     <h1 className="product-name">{product.name}</h1>
                     <i className="product-rating">{product.rating}</i>
-                    <p className="product-price">Price: ${product.price}</p>
+                    <p className="product-price">Fiyat: ${product.price}</p>
                     <p className="product-description">{product.description}</p>
                 </div>
 
                 <div className="product-div">
-                    <p className="product-price">Price: ${product.price}</p>
+                    <p className="product-price">Fiyat: {product.price} TL</p>
                     <p className="product-countInStock">Status: {product.countInStock ? <span>var</span> : <span>kalmadı</span>} </p>
-                    <button className="btn" onClick={addToCartHandler}>Add To Cart</button>
+                    <button className="btn" onClick={addToCartHandler}>Sepete Ekle</button>
                 </div>
 
             </div>

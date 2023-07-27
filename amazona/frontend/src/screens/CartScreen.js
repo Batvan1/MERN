@@ -31,14 +31,16 @@ export default function CartScreen() {
 
     //decrement start
     const updateCartHandler1 = (item, quantity) => {
-
+        // item.quantity değerini quantity parametresine eşitle
+        item.quantity = quantity;
+        // dispatch fonksiyonunu çağır
+        dispatch({ type: 'CART_ADD_ITEM', payload: { ...item, quantity }, })
+        // Koşulu kontrol et
         if (item.quantity === 0) {
-            return;
-        } else {
-            dispatch({ type: 'CART_ADD_ITEM', payload: { ...item, quantity }, })
+          dispatch({type: 'CART_REMOVE_ITEM', payload: item})
         }
-
-    }
+      }
+      
     //decrement end
 
     // removeCart start
@@ -57,7 +59,7 @@ export default function CartScreen() {
                 <title>Shopping Cart</title>
             </Helmet>
 
-            <h1>Shopping Cart</h1>
+            <h1>Sepetim</h1>
 
             <div className="mesage">
 
@@ -89,7 +91,7 @@ export default function CartScreen() {
 
                                 </button>{" "}
 
-                                <div className="cart-price">${item.price} </div>
+                                <div className="cart-price">{item.price} TL</div>
 
                                 <div className="cart-delete">
 
@@ -110,13 +112,13 @@ export default function CartScreen() {
                         </h3>
 
                         <h3>
-                            Toplam Tutar :${cartItems.reduce((a, c) => a + c.quantity * c.price, 0)}
+                            Toplam Tutar : {cartItems.reduce((a, c) => a + c.quantity * c.price, 0)} TL
                         </h3>
 
                 </div>
 
                 <div className="div-btn">
-                    <button onClick={checkoutHandler} className="btn">Proceed to checkout</button>
+                    <button onClick={checkoutHandler} className="btn" disabled={cartItems.length === 0}>Ödeme</button>
                 </div>
 
 
