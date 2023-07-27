@@ -55,7 +55,7 @@ export default function SigninScreen(){
         <div className="signin-container">
             <title>Sign in</title>
 
-            <h1>Sign in</h1>
+            <h1>Giriş Yap</h1>
             <form onSubmit={submitHandler} className="signin-form">
                 <label className="signin-label" htmlFor="email">Email</label>
                 <input className="signin-input" type="email" id="email" required  onChange={(e)=> setEmail(e.target.value) }></input>
@@ -68,8 +68,8 @@ export default function SigninScreen(){
                 </div>
 
                 <div className="signin-link-div">
-                   <p> New Customer ?</p>
-                    <Link to={`/signup?redirect=${redirect}`} className="signin-link">Create your account</Link>
+                   <p> Yeni misiniz ?</p>
+                    <Link to={`/signup?redirect=${redirect}`} className="signin-link">30 Saniyede Hesabını Oluştur.</Link>
                 </div>
             </form>
         </div>
