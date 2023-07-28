@@ -93,7 +93,9 @@ const ProductScreen = () => {
         loading ? <div>loading...</div> : error ? <div>{error}</div> :
 
 
-            <div className="product-screen">
+
+
+            <div className="product-screennn">
 
                 <Helmet>
                     <title>Product Cart</title>
@@ -101,16 +103,16 @@ const ProductScreen = () => {
 
                 <img className="img-large" src={product.image} alt={product.name}></img>
 
-                <div className="product-div">
+                <div className="product-div-1">
                     <h1 className="product-name">{product.name}</h1>
                     <i className="product-rating">{product.rating}</i>
-                    <p className="product-price">Fiyat: ${product.price}</p>
+                    <p className="product-price">Fiyat: {product.price} TL</p>
                     <p className="product-description">{product.description}</p>
                 </div>
 
-                <div className="product-div">
+                <div className="product-div-2">
                     <p className="product-price">Fiyat: {product.price} TL</p>
-                    <p className="product-countInStock">Status: {product.countInStock ? <span>var</span> : <span>kalmadı</span>} </p>
+                    <p className="product-countInStock">Stokta: {product.countInStock ? <span> Var</span> : <span className="product-span-2"> Kalmadı</span>} </p>
                     <button className="btn" onClick={addToCartHandler}>Sepete Ekle</button>
                 </div>
 

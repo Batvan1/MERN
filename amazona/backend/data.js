@@ -29,7 +29,7 @@ const data = {
             brand: "nike",
             rating: 4.5,
             numReviews: 10,
-            description: "high quality shirt"
+            description: "Kaset"
         },
         {
             //_id: "2",
@@ -42,7 +42,7 @@ const data = {
             brand: "nike",
             rating: 4.5,
             numReviews: 10,
-            description: "high quality shirt"
+            description: "Kaset"
         },
         {
             //_id: "3",
@@ -55,7 +55,7 @@ const data = {
             brand: "nike",
             rating: 4.5,
             numReviews: 10,
-            description: "high quality shirt"
+            description: "Kaset"
         },
         {
             //_id: "4",
@@ -68,7 +68,7 @@ const data = {
             brand: "nike",
             rating: 4.5,
             numReviews: 10,
-            description: "high quality shirt"
+            description: "Kaset"
         },
         {
             //_id: "5",
@@ -81,7 +81,7 @@ const data = {
             brand: "nikse",
             rating: 4.5,
             numReviews: 10,
-            description: "high quasaslity shirt"
+            description: "Kaset"
         }
     ]
 }
