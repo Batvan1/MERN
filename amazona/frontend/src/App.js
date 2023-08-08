@@ -23,6 +23,9 @@ import AdminRoute from './components/AdminRoute.js';
 // Aşağıdakiler react icons kütüphanesi
 import { MdShoppingCart } from "react-icons/md";
 import { MdViewSidebar } from "react-icons/md";
+import AboutScreen from './screens/AboutScreen.js';
+import PrivacyPolicyScreen from './screens/PrivacyPolicy.js';
+import DeliveryAndReturnScreen from './screens/DeliveryAndReturn.js';
 
 
 
@@ -195,10 +198,52 @@ function App() {
               </AdminRoute>}
             />
 
+
+            <Route path='/about' element={<AboutScreen />} />
+
+            <Route path='/privacy-policy' element={<PrivacyPolicyScreen />} />
+
+            <Route path='/delivery-and-return' element={<DeliveryAndReturnScreen />} />
+
           </Routes>
 
 
         </main>
+
+        <footer className="footer">
+
+  <div className="container">
+    
+      <div className="col-md-4">
+
+       <Link to="/about"><h4 className='about'>Hakkımızda</h4></Link> 
+       
+
+      </div>
+
+      <div className="col-md-4">
+
+        <h4>Bağlantılar</h4>
+        <ul className="footer-links">
+          <li><Link to="/privacy-policy">Gizlilik Politikası</Link></li>
+          <li><Link to="/delivery-and-return">Teslimat Ve İade Şartları</Link></li>
+          <li><a href="/iletisim">İletişim</a></li>
+        </ul>
+
+      </div>
+
+      <div className="col-md-4">
+
+        <h4>İletişim</h4>
+        <p>İşletmenizin iletişim bilgileri.</p>
+
+      </div>
+
+  </div>
+
+</footer>
+
+
       </div>
     </BrowserRouter>
   );
