@@ -6,6 +6,8 @@ import { getError } from "../utils";
 import { Helmet } from "react-helmet-async";
 
 
+
+
 function reducer(state, action) {
     switch (action.type) {
         case 'FETCH_REQUEST':
@@ -25,6 +27,7 @@ function reducer(state, action) {
 
 
 export default function OrderScreen() {
+console.log(process.env.PUBLIC_URL)
 
     const dOrderId = useLocation().pathname.split("/")[2] // useParams ilede aynı hesaba geliyor
 
@@ -182,7 +185,7 @@ export default function OrderScreen() {
                             <h4>Ürünler</h4>
                             <span>{order.itemsPrice.toFixed(2)} TL</span>
                         </div>
-
+                       
 
                         <div className="order2-div">
                             <h4>Kargo</h4>
@@ -206,6 +209,11 @@ export default function OrderScreen() {
                         </div>
                     </div>
 
+                                    
+
+               
+
+                  
 
                 </div>
 

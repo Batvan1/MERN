@@ -43,14 +43,10 @@ export default function PaymentMethodScreen() {
             <form onSubmit={submitHandler} className="payment-form">
 
                 <div className="payment-div">
-                    <label htmlFor="iyzico" className="payment-label">Iyzico</label>
+                    <img className="payment-img"  src="/images/logo/iyzicoileOde.png" alt="iyzico"></img>
                     <input type="radio" id="iyzico" value="iyzico" checked={paymentMethodName === "iyzico"} onChange={(e)=>setPaymentMethod(e.target.value)}></input>
                 </div>
 
-                <div className="payment-div">
-                    <label htmlFor="papara" className="payment-label">Papara</label>
-                    <input type="radio" id="papara" value="papara" checked={paymentMethodName === "papara"} onChange={(e)=>setPaymentMethod(e.target.value)}></input>
-                </div>
 
                 <div>
                     <button type="submit" className="payment-btn">Continue</button>

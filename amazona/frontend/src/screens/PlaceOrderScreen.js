@@ -193,6 +193,7 @@ export default function PlaceOrderScreen() {
                         <button type="button" onClick={placeOrderHandler} disabled={cart.cartItems.length === 0}>Siparişi Ver</button>
                     </div>
 
+                               
                     
 
                 </div>

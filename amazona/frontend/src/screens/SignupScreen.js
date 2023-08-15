@@ -43,7 +43,7 @@ export default function SignupScreen() {
             navigate(redirect || '/')
 
         } catch (error) {
-            alert('a error yarram')
+            alert("seni gidi gidi gidi hadi gir şuna")
         }
 
     }

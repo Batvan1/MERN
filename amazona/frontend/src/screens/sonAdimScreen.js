@@ -70,7 +70,9 @@ export default function SonAdimScreen() {
 
     // iyzicoya gönderilecek önemli veriler. sayfadaki butona basınca aktifleşecek sayemizde start
 
-    const end = async () => {
+    const endSubmitHandler = async (e) => {
+
+        e.preventDefault()
 
         try {
 
@@ -129,31 +131,34 @@ export default function SonAdimScreen() {
 
     return (
         <div className="son-container">
+
+            <form onSubmit={endSubmitHandler}>
+
             <div className="son-div">
 
                 <label className="son-label" htmlFor="cart-user">Cart User Name</label>
-                <input className="son-input" type="text" id="cart-user" onChange={(e) => setCartUserName(e.target.value)}></input>
+                <input required className="son-input" type="text" id="cart-user" onChange={(e) => setCartUserName(e.target.value)}></input>
 
             </div>
 
             <div className="son-div">
 
                 <label className="son-label" htmlFor="cart-number">Cart Number</label>
-                <input className="son-input" type="text" id="cart-number" onChange={(e) => setCartNumber(e.target.value)}></input>
+                <input required className="son-input" type="text" id="cart-number" onChange={(e) => setCartNumber(e.target.value)}></input>
 
             </div>
 
             <div className="son-div">
 
                 <label className="son-label" htmlFor="cart-expire">Cart Expire Month Year</label>
-                <input className="son-input" type="text" id="cart-expire" onChange={(e) => setExpireMonthYear(e.target.value)}></input>
+                <input required className="son-input" type="text" id="cart-expire" onChange={(e) => setExpireMonthYear(e.target.value)}></input>
 
             </div>
 
             <div className="son-div">
 
                 <label className="son-label" htmlFor="cart-cvc">Cart Cvc</label>
-                <input className="son-input" type="text" id="cart-cvc" onChange={(e) => setCvc(e.target.value)}></input>
+                <input required className="son-input" type="text" id="cart-cvc" onChange={(e) => setCvc(e.target.value)}></input>
 
             </div>
 
@@ -248,7 +253,12 @@ export default function SonAdimScreen() {
             </div>}
 
 
-            <button className="son-btn" onClick={end}>Güvenle öde</button>
+            <button className="son-btn" type="submit">Güvenle öde</button>
+
+            </form>
+            
+                <img className="son-iimg" src="/images/logo/aa.png" alt="iyzico"></img>
+            
         </div>
     )
 }

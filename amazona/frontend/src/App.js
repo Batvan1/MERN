@@ -20,12 +20,14 @@ import SearchScreen from './screens/SearchScreen.js';
 import ProtectedRoute from './components/ProtectedRoute.js';
 import DashboardScreeen from './screens/adminRoute/DashboardScreeen.js';
 import AdminRoute from './components/AdminRoute.js';
-// Aşağıdakiler react icons kütüphanesi
-import { MdShoppingCart } from "react-icons/md";
-import { MdViewSidebar } from "react-icons/md";
 import AboutScreen from './screens/AboutScreen.js';
 import PrivacyPolicyScreen from './screens/PrivacyPolicy.js';
 import DeliveryAndReturnScreen from './screens/DeliveryAndReturn.js';
+import CommunicationScreen from './screens/CommunicationScreen.js';
+// Aşağıdakiler react icons kütüphanesi
+import { MdShoppingCart } from "react-icons/md";
+import { MdViewSidebar } from "react-icons/md";
+
 
 
 
@@ -62,6 +64,7 @@ function App() {
 
       } catch (error) {
         alert("app js deki useeffect içerisindeki catch bloğu çalıştı")
+        console.log(error)
       }
     }
 
@@ -205,6 +208,8 @@ function App() {
 
             <Route path='/delivery-and-return' element={<DeliveryAndReturnScreen />} />
 
+            <Route path='/communication' element={<CommunicationScreen />} />
+
           </Routes>
 
 
@@ -227,7 +232,7 @@ function App() {
         <ul className="footer-links">
           <li><Link to="/privacy-policy">Gizlilik Politikası</Link></li>
           <li><Link to="/delivery-and-return">Teslimat Ve İade Şartları</Link></li>
-          <li><a href="/iletisim">İletişim</a></li>
+          <li><a href="/communication">İletişim</a></li>
         </ul>
 
       </div>
@@ -235,7 +240,7 @@ function App() {
       <div className="col-md-4">
 
         <h4>İletişim</h4>
-        <p>İşletmenizin iletişim bilgileri.</p>
+        <p>Bizimle krayyark9@gmail.com üzerinden veya iletişim sayfamızdan iletişime geçebilirsiniz</p>
 
       </div>
 

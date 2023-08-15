@@ -6,6 +6,7 @@ import seedRouter from "./routes/seedRoute.js";
 import productRouter from "./routes/productRoute.js"
 import userRouter from "./routes/userRoutes.js";
 import orderRouter from "./routes/orderRoutes.js";
+import communicationRouter from "./routes/communicationRouter.js";
 
 const app = express()
 
@@ -16,6 +17,7 @@ app.use('/api/seed', seedRouter)
 app.use('/api/product', productRouter)
 app.use('/api/users', userRouter)
 app.use('/api/orders', orderRouter)
+app.use('/api/communication', communicationRouter)
 
 const __dirname = path.resolve() // incele
 app.use(express.static(path.join(__dirname, '/frontend/build'))) // incele

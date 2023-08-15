@@ -35,7 +35,7 @@ export default function SigninScreen(){
             navigate(redirect || '/')
 
         } catch (error) {
-            alert('Invalid error email or password yarrram')
+            alert('Şifreniz veya kullanıcı adınız hatalı')
         }
 
     }
