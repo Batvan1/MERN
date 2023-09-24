@@ -138,20 +138,23 @@ orderRouter.post('/payment', async (req, res) => {
                 resultData: result
             })
             await IyzicoSave.save()
-            .then(response => console.log(response))
+            .then(response => {
+                console.log(response)
+                
+            })
             .catch(err => console.log(err))
 
 
 
             if (result.status !== 'success') {
-                reject(res.send("result.status key'inin değeri success'e eşit değil"))
+                return res.send(result)
             }
 
           
 
+            resolve(res.send(result));
 
-
-            resolve(res.send(result))
+            
 
 
         });
@@ -175,20 +178,22 @@ orderRouter.get('/:id', isAuth, expressAsyncHandler(async (req, res) => {
 }))
 
 
-
 orderRouter.get('/ben/:id', async (req, res) => {
+    try {
+        console.log("/ben/:id kısmı çalıştı")
+        const order = await Order.findById(req.params.id)
 
-    console.log("/ben/:id ksımı çalıştı")
-    const order = await Order.findById(req.params.id)
-
-
-
-    if (order) {
-        res.send(order)
-    } else {
-        res.status(404).send({ message: "Order Not Found" })
+        if (order) {
+            res.send(order)
+        } else {
+            res.status(404).send({ message: "Order Not Found" })
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ error: "Sunucu hatası" });
     }
-})
+});
+
 
 
 

@@ -91,8 +91,11 @@ console.log(process.env.PUBLIC_URL)
 
         console.log("orderdaki son buton active")
 
-        navigate(`/sonAdim/${dOrderId}`)
+        
+            navigate(`/sonAdim/${dOrderId}`)
 
+        
+       
     }
 
 

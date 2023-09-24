@@ -4,8 +4,15 @@ import Product from '../models/productModel.js'
 const productRouter = express.Router()
 
 productRouter.get('/', async (req,res)=>{
-    const product = await Product.find()
-    res.send(product)
+    
+    try {
+        const product = await Product.find()
+        res.send(product)
+    } catch (error) {
+        console.log(`anasayfa istek hatası sunucu tarafı ${error}`)
+        res.status(500).send({message: "veritabanı hatası olduuuuuuu"})
+    }
+   
 })
 
 
@@ -116,7 +123,7 @@ productRouter.get('/categories',async (req,res)=>{
 
 productRouter.get('/slug/:slug',async (req,res)=>{
     console.log("PRODUCT ROUTER SLUG/:SLUG İSTEĞİ KARŞILANDI")
-    const product = await Product.findOne({ slug: req.params.slug }) //burada kullanıcı tarafından gelen istek bizde statik olarak duran data.js (dinamik mongo db) verisi ile eşleşip karşıya obje döndürüyoruz tek bir key değeri eşlemesidnen
+    const product = await Product.findOne({ slug: req.params.slug }) //burada kullanıcı tarafından gelen istek bizde statik olarak duran data.js (dinamik mongo db) verisi ile eşleşip karşıya obje döndürüyoruz tek bir key değeri eşlemesinden
     if(product){
         res.send(product)
         console.log("prodcut başarılı")

@@ -1225,6 +1225,19 @@ main{
       
       /*Communication Ent*/
 
+      /*TransactionOkScreen Start*/
+      .payment-success{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px;
+      }
+
+      .payment-success *{
+          margin: 20px;
+      }
+      /*TransactionOkScreen End*/
+
 
   /*TELEFON HALİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİ START*/
 

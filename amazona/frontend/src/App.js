@@ -24,9 +24,12 @@ import AboutScreen from './screens/AboutScreen.js';
 import PrivacyPolicyScreen from './screens/PrivacyPolicy.js';
 import DeliveryAndReturnScreen from './screens/DeliveryAndReturn.js';
 import CommunicationScreen from './screens/CommunicationScreen.js';
+import TransactionOkScreen from './screens/TransactionOkScreen.js';
 // Aşağıdakiler react icons kütüphanesi
 import { MdShoppingCart } from "react-icons/md";
 import { MdViewSidebar } from "react-icons/md";
+
+
 
 
 
@@ -209,6 +212,8 @@ function App() {
             <Route path='/delivery-and-return' element={<DeliveryAndReturnScreen />} />
 
             <Route path='/communication' element={<CommunicationScreen />} />
+
+            <Route path='/paymentSuccess' element={<TransactionOkScreen />} />
 
           </Routes>
 
