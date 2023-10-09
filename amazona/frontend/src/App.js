@@ -28,6 +28,7 @@ import TransactionOkScreen from './screens/TransactionOkScreen.js';
 // Aşağıdakiler react icons kütüphanesi
 import { MdShoppingCart } from "react-icons/md";
 import { MdViewSidebar } from "react-icons/md";
+import HakanScreen from './screens/HakanScreen.js';
 
 
 
@@ -84,7 +85,7 @@ function App() {
           <button onClick={() => setSideBarIsOpen(!sideBarIsOpen)}><MdViewSidebar size="2rem" /></button>
 
 
-          <Link to="/" className='app-link'>Metin Müzik</Link>
+          <Link to="/" className='app-link'><img src='/images/logo/metinmuzik.png' alt="metinmüzik" height="100px"></img></Link>
 
 
           <SearchBox /> {/*components klasöründen gelen component arama kutusu */}
@@ -214,6 +215,8 @@ function App() {
             <Route path='/communication' element={<CommunicationScreen />} />
 
             <Route path='/paymentSuccess' element={<TransactionOkScreen />} />
+
+            <Route path='/hakan' element={<HakanScreen />} />
 
           </Routes>
 

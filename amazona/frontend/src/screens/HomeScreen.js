@@ -82,7 +82,7 @@ const HomeScreen = () => {
 
    }
 
-   
+   console.log(products)
     return (
         <div>
 
@@ -110,11 +110,9 @@ const HomeScreen = () => {
 
                             <p> <strong className='home-price'>{product.price} TL</strong></p>
 
-                            
-                            <button className='home-btn' onClick={ () => addToCartHandler(product) }>Sepete Ekle</button>
-                            
-
                         </div>
+
+                        <button className='home-btn' onClick={ () => addToCartHandler(product) }>Sepete Ekle</button>
 
                     </div>
 

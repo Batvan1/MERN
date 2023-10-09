@@ -25,7 +25,7 @@ export default function CartScreen() {
             return;
         }
 
-        dispatch({ type: 'CART_ADD_ITEM', payload: { ...item, quantity }, })
+        dispatch({ type: 'CART_ADD_ITEM', payload: { ...item, quantity }, }) // store.js'den gelen useReducer yapısı (react yapısı)
     }
     // increment end
 

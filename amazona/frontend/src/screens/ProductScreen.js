@@ -62,7 +62,6 @@ const ProductScreen = () => {
     }, [slug])
 
 
-
     const { state, dispatch: ctxDispatch } = useContext(Store) // yukarıdaki dispatch ile karışmasın diye  dispathc:ctxDispatch diyerek ctxDispatch kullanıldı
     const { cart } = state
 
@@ -86,7 +85,7 @@ const ProductScreen = () => {
 
     }
 
-
+console.log(product.image)
 
     return (
 
