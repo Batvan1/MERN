@@ -4,8 +4,8 @@
   "description": "batuhanin mekani",
   "main": "index.js",
   "scripts": {
-    "build": "cd backend && npm install && cd /frontend && npm install && npm run build",
-    "start": "cd amazona && node backend/server.js",
+    "build": "cd backend && npm install && cd ../frontend && npm install && npm run build",
+    "start": "cd node backend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "batuhan",
