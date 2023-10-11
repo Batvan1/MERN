@@ -99,7 +99,7 @@ const HomeScreen = () => {
                     <div className="home-product" key={product.slug}>
 
                         <Link to={`/product/${product.slug}`}>
-                            <img src={product.image} alt={product.name} className='home-img'></img>
+                            <img src={`https://metinmuzik.onrender.com/${product.image}`} alt={product.name} className='home-img'></img>
                         </Link>
 
                         <div className="home-product-info">

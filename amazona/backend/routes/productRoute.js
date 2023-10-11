@@ -9,7 +9,7 @@ const productRouter = express.Router()
 // multer start
 const Storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        const uploadPath = path.join(path.resolve(),'../frontend/public/images')
+        const uploadPath = path.join(path.resolve(),'./public')
         console.log(uploadPath)
         return cb(null, uploadPath)
     },
@@ -33,7 +33,7 @@ productRouter.post('/hakan',upload, async (req, res) => {
         const productSave = new Product({
             name: name,
             slug: slug,
-            image: `/images/${req.file.filename}`,
+            image: req.file.filename,
             brand: brand,
             category: category,
             description: description,
