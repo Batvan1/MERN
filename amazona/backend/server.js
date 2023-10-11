@@ -14,7 +14,7 @@ app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
-app.use(express.static('public'));
+app.use(express.static('./public'));
 app.use('/api/seed', seedRouter)
 app.use('/api/product', productRouter)
 app.use('/api/users', userRouter)
