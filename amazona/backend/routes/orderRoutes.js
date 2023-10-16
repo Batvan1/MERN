@@ -56,9 +56,9 @@ orderRouter.post('/payment', async (req, res) => {
     const iyzipay = new Iyzipay({
         apiKey: process.env.IYZIPAY_API_KEY,
         secretKey: process.env.IYZIPAY_SECRET_KEY,
-        uri: 'https://sandbox-api.iyzipay.com'
+        uri: 'https://api.iyzipay.com'
     });
-
+    // 'https://sandbox-api.iyzipay.com'
     const { totalItemsPrice, cartUserName, cartNumber, cvc, expireMonthYear, fullName, city, country, address, postalCode, items } = req.body
 
     const data = {
@@ -108,7 +108,7 @@ orderRouter.post('/payment', async (req, res) => {
             address: address,
             zipCode: postalCode
         },
-        basketItems: items.map(x => (
+        basketItems: items.map(x => ( // normal parantez sayesinde map metodu bu oluşturduğum objeleri dizi içerisinde objeler haline getiriyor 
             {
                 id: x._id,
                 name: x.name,

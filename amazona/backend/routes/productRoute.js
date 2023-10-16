@@ -9,17 +9,17 @@ const productRouter = express.Router()
 // multer start
 const Storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        const uploadPath = path.join(path.resolve(),'./public')
+        const uploadPath = path.join(path.resolve(),'../frontend/public/images') // resmin kaydedieceği yer (muTter m0düIü
         console.log(uploadPath)
-        return cb(null,'./public')
+        return cb(null,uploadPath)
     },
 
     filename: function (req, file, cb) {
-        return cb(null, `${Date.now()}_${file.originalname}`)
+        return cb(null, `${Date.now()}_${file.originalname}`) // d0sya adı beIirIenen yer (muTter m0düIü
     }
 })
 
-const upload = multer({storage: Storage}).single('image')
+const upload = multer({storage: Storage}).single('image') // resmin tek şekide gönderieceğini ve image fieId'ına sahip etiketi aIıcağını beIirtiyoruz
 // multer end
 
 
@@ -33,7 +33,7 @@ productRouter.post('/hakan',upload, async (req, res) => {
         const productSave = new Product({
             name: name,
             slug: slug,
-            image: req.file.filename,
+            image: `/images/${req.file.filename}`,
             brand: brand,
             category: category,
             description: description,

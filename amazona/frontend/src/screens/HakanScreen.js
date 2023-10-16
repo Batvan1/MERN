@@ -22,6 +22,7 @@ export default function HakanScreen() {
             // FormData nesnesi oluştur
             const formData = new FormData();
             // FormData nesnesine dosya ve metin verilerini ekle
+            // append metodunun ilk parametresi aslında bir obje key'i gibi çalışıyor. 
             formData.append("image", file);
             formData.append("name", name);
             formData.append("slug", slug);

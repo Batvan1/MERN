@@ -46,7 +46,7 @@ export default function PlaceOrderScreen() {
 
 
     const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100 // fonksiyon oluşturuldu
-
+ // burada cart objesinin (react state diyor) içerisinde yeni key oluşturuyoruz aslında
     cart.itemsPrice = round2(cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)) //görünen 4 yerde kullanıldı func
 
     cart.shippingPrice = cart.itemsPrice > 100 ? round2(0) : round2(10)
