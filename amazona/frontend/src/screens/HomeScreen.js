@@ -108,12 +108,12 @@ const HomeScreen = () => {
                                 <p className='home-name'> {product.name}</p>
                             </Link>
 
-                            <p> <strong className='home-price'>{product.price} TL</strong></p>
+                             <strong className='home-price'>{product.price} TL</strong>
 
                         </div>
 
                         <button className='home-btn' onClick={ () => addToCartHandler(product) }>Sepete Ekle</button>
-
+                        
                     </div>
 
                 )))}

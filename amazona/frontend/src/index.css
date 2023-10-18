@@ -1,4 +1,4 @@
-*{
+ *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -29,7 +29,8 @@ h1{
   text-align: center;
 }
 
-/*Header start*/
+@media (min-width: 601px){
+  /*Header start*/
 .App-header {
   display: flex;
   align-items: center;
@@ -38,9 +39,22 @@ h1{
   padding: 1rem;
 }
 
+.app-header-logo{
+ 
+  width: 300px;
+}
+
 
 .App-header .app-link:hover {
   color: blue;
+}
+
+.shopping-cart{
+  font-size: 200%;
+}
+
+.side-bar{
+  font-size: 200%;
 }
 
 
@@ -74,7 +88,6 @@ h1{
 .app-link{
   text-decoration: none;
   color: rgb(32, 25, 31);
-  font-size: 3rem;
 }
 
 .signin-link{
@@ -238,7 +251,7 @@ margin: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} 
 
 .product-name {
   font-size: 45px;
@@ -1242,42 +1255,200 @@ margin: 20px;
           margin: 20px;
       }
       /*TransactionOkScreen End*/
+}
+
 
 
   /*TELEFON HALİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİ START*/
 
-  /*CART SCREEN Telefon Start*/
-  @media (max-width: 600px) {
-    .cart-item {
+  @media (max-width:600px) {
+
+    
+    
+    /* Ürünleri tek sütun halinde göster */
+    .home-products {
+        flex-direction: column;
+        align-items: center; 
+    }
+    
+    /* Ürünlerin boyutunu küçült */
+    .home-product {
+      display: flex;
       flex-direction: column;
-    }
-  
-    .cart-image {
-      width: 50%;
-      margin-bottom: 10px;
-    }
-  
-    .cart-name {
-      font-size: 16px;
-      text-align: center;
-    }
-  
-    .cart-quantity {
+      align-items: center; 
       justify-content: center;
-      margin-bottom: 10px;
+      border: 2px gray solid;
+      margin: 20px;
+    }
+    
+    /* Resimlerin boyutunu küçült */
+    .home-img {
+        width:250px; 
+        height:250px; 
+    }
+
+    .home-product-info{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    /* Ürün bilgilerinin boyutunu küçült */
+    .home-name {
+        font-size:16px; 
+        margin: 10px;
+    }
+    
+    .home-price {
+        font-size:18px; 
+        margin: 5px;
+    }
+    
+    /* Sepete ekle butonunun boyutunu küçült */
+    .home-btn {
+        width:100%; 
+        height:30px; 
+        background-color: #f39c12;
+        border-radius: 20px;
+        margin: 10px;
     }
   
-    .cart-price {
-      font-size: 16px;
-      text-align: center;
-      margin-bottom: 10px;
+  /*NAVBAR START*/
+  
+  .App-header {
+     background-color: #f39c12;
     }
   
-    .cart-delete {
-      align-self: flex-end;
+    .app-header-tüm1{
+      display: flex;
+      justify-content:space-around;
     }
-     /*CART SCREEN Telefon Start*/
-  }
+  
+    .app-header-tüm2{
+      display: flex;
+      justify-content:space-around;
+      margin: 20px;
+    }
+  
+    .app-header-tüm3{
+      display: flex;
+      justify-content:space-around;
+      margin: 20px 0 50px 0;
+      border-bottom: 2px solid gray;
+    }
+    
+    /* Başlık bağlantısını küçült ve sola hizala */
+    .App-header .app-link {
+      width: 100%;
+      height: 75px;
+      margin: 20px;
+    }
+    
+    /* Başlık bağlantısının resmini küçült */
+    .App-header .app-link img {
+      height: 75px;
+      width: 100%;
+    }
+    
+    /* Arama kutusunu küçült ve sağa hizala */
+    .SearchBox {
+      width: 200px;
+    }
+    
+    /* Arama kutusunun girişini küçült */
+    .SearchBox input {
+      width: 150px;
+      height: 30px;
+      padding: 5px;
+      font-size: 14px;
+    }
+    
+    /* Arama kutusunun butonunu küçült */
+    .SearchBox button {
+      width: 30px;
+      height: 30px;
+    }
+    
+    /* Sepet bağlantısını küçült ve sağa hizala */
+    .App-header a:nth-child(4) {
+      width: 50px;
+      height: 30px;
+      margin-right: 10px;
+    }
+    
+    /* Sepet bağlantısının ikonunu küçült */
+    .App-header a:nth-child(4) svg {
+      width: 20px;
+      height: 20px;
+    }
+    
+    /* Giriş yap bağlantısını küçült ve sağa hizala */
+    .App-header .signin-link {
+      width: 100px;
+      height: 30px;
+      margin-right: 10px;
+    }
+    
+    /* Kullanıcı adını küçült ve sağa hizala */
+    .App-header .header-user-name {
+      width: 100px;
+      height: 30px;
+      margin-right: 10px;
+    }
+    
+    /* Kullanıcı adının ilk harfini küçült */
+    .App-header .header-user-name::first-letter {
+        font-size :1.5rem;  
+    }
+    
+    /* Seçim menüsünü küçült ve sağa hizala */
+    .App-header .select-menu {
+         width :100px;  
+         height :30px;  
+         margin-right :10px; 
+         font-size :14px;  
+         background-size :15px;  
+    }
+    
+    /* Yönetici bağlantılarını gizle */
+    .App-header div:nth-child(6) {
+        display:none; 
+    }
+    
+    /* Yan menüyü göster ve sola hizala */
+    .side-navbar {
+        display:block; 
+        position:absolute; 
+        top:-10px; 
+        left:-250px; 
+        width:250px; 
+        height:auto; 
+        background-color:#f39c12; 
+        transition:.5s; 
+    }
+    
+    .appjs-nav {
+        display:flex; 
+        flex-direction:column; 
+        align-items:center; 
+    }
+    
+    .appjs-stg {
+        margin-top:-10px; 
+        margin-bottom:-10px; 
+        font-size:x-large; 
+    }
+    
+    .appjs-map-div a{
+        text-decoration:none; 
+        color:black; 
+    }
+  
+   
+  
+    }
+  
+   
  
 
   

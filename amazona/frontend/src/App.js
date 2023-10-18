@@ -82,57 +82,67 @@ function App() {
       <div className={sideBarIsOpen ? "benyazdim active-cont" : "App"}>
         <header className="App-header">
 
-          <button onClick={() => setSideBarIsOpen(!sideBarIsOpen)}><MdViewSidebar size="2rem" /></button>
+          <div className='app-header-tüm1'>
+
+            <button onClick={() => setSideBarIsOpen(!sideBarIsOpen)}><MdViewSidebar className='side-bar' /></button>
 
 
-          <Link to="/" className='app-link'><img src='/images/logo/metinmuzik.png' alt="metinmüzik" height="100px"></img></Link>
+            <Link to="/" className='app-link'><img src='/images/logo/metinmuzik.png' alt="metinmüzik" className='app-header-logo' ></img></Link>
+
+          </div>
+
+          <div className='app-header-tüm2'>
+
+            <SearchBox /> {/*components klasöründen gelen component arama kutusu */}
+
+            <Link to="/cart">
+              <MdShoppingCart className='shopping-cart' /> {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+            </Link>
+
+          </div>
+
+          <div className='app-header-tüm3'>
+
+            {userInfo ? (
+              <div>
+
+                <p className='header-user-name'>{userInfo.name}</p>
+
+                <select
+                  className='select-menu'
+                  onChange={(e) => (window.location.href = e.target.value)}
+                  onClick={(e) => {
+                    if (e.target.value === "#signout") {
+                      signoutHandler();
+                    }
+                  }}
+                >
+                  <option value="/profile">User Profile</option>
+                  <option value="/orderhistory">Order History</option>
+                  <option value="#signout">Sign Out</option>
+                </select>
+
+              </div>
+
+              // <div>
+              //   <div>{userInfo.name}</div>
+              //   <Link to='/profile'>User Profile</Link>{" "}
+              //   <Link to='/orderhistory'>Order History</Link>{" "}
+              //   <Link to='#signout' onClick={signoutHandler}>Sign Out</Link>
+              // </div>
+            ) : (<Link to='/signin' className='signin-link'>Sing In</Link>)}
 
 
-          <SearchBox /> {/*components klasöründen gelen component arama kutusu */}
-                   
+            {userInfo && userInfo.isAdmin && (
+              <div>
+                <Link to="/admin/dashboard">Dashboard</Link>
+                <Link to="/admin/productlist">Products</Link>
+                <Link to="/admin/orderlist">Orders</Link>
+                <Link to="/admin/userlist">Users</Link>
+              </div>
+            )}
 
-          <Link to="/cart">
-            <MdShoppingCart size="2rem" color='gray' /> {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-          </Link>
-
-          {userInfo ? (
-            <div>
-
-              <p className='header-user-name'>{userInfo.name}</p>
-
-              <select
-                className='select-menu'
-                onChange={(e) => (window.location.href = e.target.value)}
-                onClick={(e) => {
-                  if (e.target.value === "#signout") {
-                    signoutHandler();
-                  }
-                }}
-              >
-                <option value="/profile">User Profile</option>
-                <option value="/orderhistory">Order History</option>
-                <option value="#signout">Sign Out</option>
-              </select>
-
-            </div>
-
-            // <div>
-            //   <div>{userInfo.name}</div>
-            //   <Link to='/profile'>User Profile</Link>{" "}
-            //   <Link to='/orderhistory'>Order History</Link>{" "}
-            //   <Link to='#signout' onClick={signoutHandler}>Sign Out</Link>
-            // </div>
-          ) : (<Link to='/signin' className='signin-link'>Sing In</Link>)}
-
-
-          {userInfo && userInfo.isAdmin && (
-            <div>
-              <Link to="/admin/dashboard">Dashboard</Link>
-              <Link to="/admin/productlist">Products</Link>
-              <Link to="/admin/orderlist">Orders</Link>
-              <Link to="/admin/userlist">Users</Link>
-            </div>
-          )}
+          </div>
 
         </header>
 
@@ -225,36 +235,36 @@ function App() {
 
         <footer className="footer">
 
-  <div className="container">
-    
-      <div className="col-md-4">
+          <div className="container">
 
-       <Link to="/about"><h4 className='about'>Hakkımızda</h4></Link> 
-       
+            <div className="col-md-4">
 
-      </div>
+              <Link to="/about"><h4 className='about'>Hakkımızda</h4></Link>
 
-      <div className="col-md-4">
 
-        <h4>Bağlantılar</h4>
-        <ul className="footer-links">
-          <li><Link to="/privacy-policy">Gizlilik Politikası</Link></li>
-          <li><Link to="/delivery-and-return">Teslimat Ve İade Şartları</Link></li>
-          <li><a href="/communication">İletişim</a></li>
-        </ul>
+            </div>
 
-      </div>
+            <div className="col-md-4">
 
-      <div className="col-md-4">
+              <h4>Bağlantılar</h4>
+              <ul className="footer-links">
+                <li><Link to="/privacy-policy">Gizlilik Politikası</Link></li>
+                <li><Link to="/delivery-and-return">Teslimat Ve İade Şartları</Link></li>
+                <li><a href="/communication">İletişim</a></li>
+              </ul>
 
-        <h4>İletişim</h4>
-        <p>Bizimle krayyark9@gmail.com üzerinden veya iletişim sayfamızdan iletişime geçebilirsiniz</p>
+            </div>
 
-      </div>
+            <div className="col-md-4">
 
-  </div>
+              <h4>İletişim</h4>
+              <p>Bizimle krayyark9@gmail.com üzerinden veya iletişim sayfamızdan iletişime geçebilirsiniz</p>
 
-</footer>
+            </div>
+
+          </div>
+
+        </footer>
 
 
       </div>

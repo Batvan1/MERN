@@ -19,7 +19,7 @@ export default function SearchBox(){
 
             <input type="text" name="q" id="header-searchbox" onChange={(e)=> setQuery(e.target.value)} placeholder="Haydi Ara"></input>
 
-            <button type="submit" className="search-button"><MdSearch size="30"/></button>
+            <button type="submit" className="search-button"><MdSearch/></button>
 
         </form>
     )
