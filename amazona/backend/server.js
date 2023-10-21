@@ -2,14 +2,20 @@ import  express  from "express";
 import path from "path"
 import dotenv from "dotenv"
 import mongoose from "mongoose";
+
+
 import seedRouter from "./routes/seedRoute.js";
 import productRouter from "./routes/productRoute.js"
 import userRouter from "./routes/userRoutes.js";
 import orderRouter from "./routes/orderRoutes.js";
 import communicationRouter from "./routes/communicationRouter.js";
+import cors from 'cors'
 
 const app = express()
 
+app.use(cors({
+    origin: "https://metinmuzikk.onrender.com"
+}))
 app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
