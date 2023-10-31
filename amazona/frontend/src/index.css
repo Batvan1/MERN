@@ -11,7 +11,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+  background: rgb(34,186,217);
+background: linear-gradient(240deg, rgba(34,186,217,1) 2%, rgba(6,6,64,1) 62%, rgba(12,46,98,1) 91%);
 }
 
 button{
@@ -25,9 +26,52 @@ a{
   text-decoration: none;
 }
 
-h1{
-  text-align: center;
+.home-div-title{
+  display: flex;
+  justify-content: center;
 }
+
+h1{
+  
+  display: inline-block;
+  position: relative;
+  font-size: 5vw;
+  color: rgb(34,186,217);
+  -webkit-text-stroke: 0.3vw gray;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+h1::before{
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  color: white;
+  -webkit-text-stroke: 0vw purple;
+  border-right: 2px solid blue;
+  overflow: hidden;
+  animation: animate 4s linear infinite ;
+}
+
+@keyframes animate{
+  0%{
+    width: 0%;
+  }
+  25%{
+    width: 100%;
+  }
+  75%{
+    width: 100%;
+  }
+  100%{
+    width: 100%;
+  }
+}
+
+
 
 @media (min-width: 601px){
   /*Header start*/
@@ -40,21 +84,45 @@ h1{
 }
 
 .app-header-logo{
- 
-  width: 300px;
+  width: 400px;
+  margin: 0 0 0 20px;
 }
 
+.app-header-tüm1{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 33%;
+}
 
-.App-header .app-link:hover {
-  color: blue;
+.app-header-tüm2{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 33%;
+}
+
+.app-header-link-cart{
+  position: relative;
+}
+
+.basket-count{
+  position: absolute;
+  top: -10px;
+  left: 30px;
+  color: white;
+  background-color: red;
+  border-radius: 20px;
 }
 
 .shopping-cart{
   font-size: 200%;
+  color: lightgray;
 }
 
 .side-bar{
   font-size: 200%;
+  color: lightgray;
 }
 
 
@@ -163,21 +231,20 @@ main{
   width: 80%;
   height: auto;
   margin: 0 auto;
-  background-color: #f0f0f0;
+  background-color: transparent;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 20px;
 }
 
-.home-h1{
-  margin-bottom: 20px;
-}
+
 
 .home-product {
   display: flex;
   flex-direction: column;
   width: 100%;
-  border: 1px red solid;
+  border: 1px #f39c12 solid;
+  border-radius: 50%;
  /* Resmi çerçevenin dışına taşan kısımları kes---   border: 11px solid #ccc;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   border-radius: 10px;
@@ -202,21 +269,23 @@ margin: 20px;
 }
 
 .home-name {
+  color: white;
   font-size: 18px;
   font-weight: bold;
   text-transform: capitalize;
 }
 
 .home-price {
-  color: green;
+  color: rgb(246, 109, 0);
 }
 
 .home-btn {
-  background-color: #f0c14b;
+  background-color: #f39c12;
   border: none;
   padding: 10px;
   width: 100%;
   margin-top: auto; /* Button'u en alta taşır */
+  border-radius: 20px;
 }
 
 
@@ -1208,10 +1277,6 @@ margin: 20px;
 
 
       /*Communication Start*/
-      h1 {
-        text-align: center;
-        margin-bottom: 20px;
-      }
       
       .communication-div {
         display: flex;

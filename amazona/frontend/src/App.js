@@ -95,8 +95,8 @@ function App() {
 
             <SearchBox /> {/*components klasöründen gelen component arama kutusu */}
 
-            <Link to="/cart">
-              <MdShoppingCart className='shopping-cart' /> {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+            <Link to="/cart" className='app-header-link-cart'>
+              <MdShoppingCart className='shopping-cart' /><div className='basket-count'>{cart.cartItems.reduce((a, c) => a + c.quantity, 0)} </div>
             </Link>
 
           </div>
