@@ -13,12 +13,13 @@ export default function HakanScreen() {
     const [rating, setRating] = useState()
     const [numReviews, setNumReviews] = useState()
     const [countInStock, setCountInStock] = useState()
+    const [status, setStatus] = useState()
 
     const upload = async () => {
 
         try {
 
-            
+
             // FormData nesnesi oluştur
             const formData = new FormData();
             // FormData nesnesine dosya ve metin verilerini ekle
@@ -33,6 +34,7 @@ export default function HakanScreen() {
             formData.append("rating", rating);
             formData.append("numReviews", numReviews);
             formData.append("countInStock", countInStock);
+            formData.append("status", status);
 
             console.log(file)
 
@@ -64,9 +66,13 @@ export default function HakanScreen() {
 
     }
 
+    const handleChange = (event) => {
+        setStatus(event.target.value); // seçilen değeri güncelle
+      };
+
     return (
         <div>
-            <input type="file"  onChange={(e) => setFile(e.target.files[0])}></input>
+            <input type="file" onChange={(e) => setFile(e.target.files[0])}></input>
 
             <div>
                 <label>
@@ -81,6 +87,17 @@ export default function HakanScreen() {
                     <input type="text" onChange={(e) => setSlug(e.target.value)}></input>
                 </label>
             </div>
+
+            <div>
+                <label>
+                    Status
+                    <select value={status} onChange={handleChange}> 
+                        <option value="new">Yeni</option> 
+                        <option value="used">Kullanılmış</option> 
+                    </select>
+                </label>
+            </div>
+
 
             <div>
                 <label>

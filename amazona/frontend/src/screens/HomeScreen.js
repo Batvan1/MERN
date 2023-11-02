@@ -87,7 +87,7 @@ const HomeScreen = () => {
         <div>
 
             <Helmet>
-                <title>Amazona</title>
+                <title>Metin Müzik</title>
             </Helmet>
 
             <div className='home-div-title'>

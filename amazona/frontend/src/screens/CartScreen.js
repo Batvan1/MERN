@@ -56,10 +56,10 @@ export default function CartScreen() {
     return (
         <div>
             <Helmet>
-                <title>Shopping Cart</title>
+                <title>Ürün Adeti</title>
             </Helmet>
 
-            <h1>Sepetim</h1>
+            <h1 className="cart-h1">Sepetim</h1>
 
             <div className="mesage">
 
@@ -79,7 +79,7 @@ export default function CartScreen() {
 
                                 <button onClick={() => updateCartHandler1(item, item.quantity - 1)}>
 
-                                    <MdRemove size="50" color="green" /> {/* React icons kütüphanesi*/}
+                                    <MdRemove className="cart-negative" /> {/* React icons kütüphanesi*/}
 
                                 </button>{" "}
 
@@ -87,7 +87,7 @@ export default function CartScreen() {
 
                                 <button onClick={() => updateCartHandler(item, item.quantity + 1)}>
 
-                                    <MdAdd size="50" color="blue" /> {/* React icons kütüphanesi*/}
+                                    <MdAdd className="cart-positive" /> {/* React icons kütüphanesi*/}
 
                                 </button>{" "}
 
@@ -107,11 +107,11 @@ export default function CartScreen() {
 
                 <div className="total">
                     
-                        <h3>
+                        <h3 className="cart-quantity-totalPrice">
                             Toplam Adet : {cartItems.reduce((a, c) => a + c.quantity, 0)}
                         </h3>
 
-                        <h3>
+                        <h3 className="cart-quantity-totalPrice">
                             Toplam Tutar : {cartItems.reduce((a, c) => a + c.quantity * c.price, 0)} TL
                         </h3>
 

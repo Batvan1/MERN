@@ -28,7 +28,7 @@ productRouter.post('/hakan',upload, async (req, res) => {
 
     try {
        console.log(req.file)
-        const { brand, slug, name, category, description, price, rating, numReviews, countInStock } = req.body
+        const { brand, slug, name, category, description, price, rating, numReviews, countInStock, status } = req.body
 
         const productSave = new Product({
             name: name,
@@ -41,6 +41,7 @@ productRouter.post('/hakan',upload, async (req, res) => {
             rating: rating,
             numReviews: numReviews,
             countInStock: countInStock,
+            status: status
         })
 
         const save = await productSave.save()

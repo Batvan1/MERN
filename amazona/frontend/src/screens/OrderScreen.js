@@ -119,10 +119,10 @@ console.log(process.env.PUBLIC_URL)
                             <h3 className="order-h3">Kargo</h3>
 
                             <strong className="order-stg">İsim: </strong> <span className="order-span">{order.shippingAddress.fullName} </span><br />
-                            <strong className="order-stg">Adres: </strong> {order.shippingAddress.address}, {order.shippingAddress.city},
+                            <strong className="order-stg">Adres: </strong> <span className="order-span">{order.shippingAddress.address}, {order.shippingAddress.city},
                             {order.shippingAddress.postalCode},
                             {order.shippingAddress.country}
-
+                            </span>
                             <div className="textt">
 
                                 {order.isDelivered ? (

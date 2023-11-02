@@ -53,9 +53,10 @@ export default function SigninScreen(){
 
     return(
         <div className="signin-container">
-            <title>Sign in</title>
+            <title>Giriş yap</title>
 
-            <h1>Giriş Yap</h1>
+            <h1 className="sign-in-h1">Giriş Yap</h1>
+
             <form onSubmit={submitHandler} className="signin-form">
                 <label className="signin-label" htmlFor="email">Email</label>
                 <input className="signin-input" type="email" id="email" required  onChange={(e)=> setEmail(e.target.value) }></input>

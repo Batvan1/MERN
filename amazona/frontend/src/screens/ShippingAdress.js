@@ -47,7 +47,7 @@ export default function ShippingAdressScreen() {
             <title>Shipping Adress</title>
             </Helmet>
 
-            <h1>Kargo Adresi</h1>
+            <h1 className="shipping-h1">Kargo Adresi</h1>
 
             <form onSubmit={submitHandler} className="shipping-form">
 

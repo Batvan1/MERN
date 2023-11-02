@@ -31,45 +31,7 @@ a{
   justify-content: center;
 }
 
-h1{
-  
-  display: inline-block;
-  position: relative;
-  font-size: 5vw;
-  color: rgb(34,186,217);
-  -webkit-text-stroke: 0.3vw gray;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-}
 
-h1::before{
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  color: white;
-  -webkit-text-stroke: 0vw purple;
-  border-right: 2px solid blue;
-  overflow: hidden;
-  animation: animate 4s linear infinite ;
-}
-
-@keyframes animate{
-  0%{
-    width: 0%;
-  }
-  25%{
-    width: 100%;
-  }
-  75%{
-    width: 100%;
-  }
-  100%{
-    width: 100%;
-  }
-}
 
 
 
@@ -251,6 +213,46 @@ main{
   overflow: hidden;*/
 }
 
+.home-h1{
+  
+  display: inline-block;
+  position: relative;
+  font-size: 5vw;
+  color: rgb(34,186,217);
+  -webkit-text-stroke: 0.3vw gray;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.home-h1::before{
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  color: white;
+  -webkit-text-stroke: 0vw purple;
+  border-right: 2px solid blue;
+  overflow: hidden;
+  animation: animate 4s linear infinite ;
+}
+
+@keyframes animate{
+  0%{
+    width: 0%;
+  }
+  25%{
+    width: 100%;
+  }
+  75%{
+    width: 100%;
+  }
+  100%{
+    width: 100%;
+  }
+}
+
 
 
 .home-img {
@@ -301,7 +303,7 @@ margin: 20px;
   justify-content: space-around;
   align-items: center;
  
-  background-color: #f5f5f5;
+  background-color: transparent;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -327,11 +329,11 @@ margin: 20px;
 } 
 
 .product-name {
-  font-size: 45px;
+  font-size: 30px;
   font-weight: bold;
   margin-bottom: 10px;
   text-transform: capitalize;
-  margin: 10px;
+  color: #f5f5f5;
 }
 
 .product-rating {
@@ -344,6 +346,11 @@ margin: 20px;
   font-weight: bold;
   margin-bottom: 5px;
   margin: 10px;
+  color: #f5f5f5;
+}
+
+.productsc-price-color{
+  color: #f39c12;
 }
 
 .product-span-2{
@@ -352,7 +359,7 @@ margin: 20px;
 
 .product-description {
   font-size: 22px;
-  color: #333;
+  color: lightgray;
   margin-bottom: 20px;
   margin-top: 10px;
 }
@@ -366,12 +373,12 @@ margin: 20px;
   padding: 10px 20px;
   font-size: 16px;
   font-weight: bold;
-  background-color: #3498db;
-  color: #fff;
+  background-color: #f39c12;
+  color: #f5f5f5;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition:  0.3s ease;
 }
 
 .btn:hover {
@@ -462,6 +469,11 @@ margin: 20px;
   
   /* Cart Screen Start */
 
+  .cart-h1{
+    color: #f5f5f5;
+    text-align: center;
+  }
+
   .cart-container {
     display: flex;
     flex-direction: column;
@@ -487,7 +499,8 @@ margin: 20px;
   .cart-name {
     font-size: 20px;
     font-weight: bold;
-    color: #333;
+    color: #f5f5f5;
+    text-transform: capitalize;
   }
   
   .cart-details {
@@ -503,21 +516,37 @@ margin: 20px;
   .cart-quantity {
     font-size: 18px;
     margin: 0px 10px;
+    color: #f5f5f5;
   }
   
   .cart-price {
     font-size: 20px;
     font-weight: bold;
     margin-left: 30px;
+    color: #f39c12;
   }
   
   .cart-delete {
    margin-left: 30px;
   }
 
+  .cart-negative{
+    color: red;
+    font-size: 50px;
+  }
+
+  .cart-positive{
+    color: gold;
+    font-size: 50px;
+  }
+
   .total{
     display: flex;
     justify-content: space-around;
+  }
+
+  .cart-quantity-totalPrice{
+    color: #f5f5f5;
   }
 
   .div-btn{
@@ -530,6 +559,11 @@ margin: 20px;
 
 
   /*Shipping Screen Start*/
+
+  .shipping-h1{
+    color: white;
+    text-align: center;
+  }
 
   .shipping-form {
     max-width: 600px;
@@ -546,6 +580,7 @@ margin: 20px;
   display: inline-block;
   width: 120px;
   font-weight: bold;
+  color: #f5f5f5;
 }  
 
 #fullName , #address , #city , #postalCode , #country{
@@ -559,11 +594,11 @@ margin: 20px;
 
 .shipping-btn{
   display: block;
-  margin: 0 auto;
+  margin: 20px auto;
   width: 200px;
   padding: 10px;
-  background-color: #00a0d2;
-  color: white;
+  background-color:#f39c12;
+  color: #f5f5f5;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -599,6 +634,9 @@ margin: 20px;
     .payment-img{
       height: 100px;
       width: 400px;
+      background-color: #f5f5f5;
+      border-radius: 20px;
+      margin: 20px;
     }
 
     input[type="radio"] {
@@ -618,7 +656,7 @@ margin: 20px;
         width: 200px;
         margin: 20px auto;
         padding: 10px;
-        background-color: #00a0d2;
+        background-color:#f39c12;
         color: white;
         border: none;
         border-radius: 10px;
@@ -660,6 +698,7 @@ margin: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin: 20px;
     }
     
     .mini-txt {
@@ -670,29 +709,43 @@ margin: 20px;
     .place-order-image {
       width: 100px;
       height: 100px;
+      border-radius: 20px;
     }
     
     .place-mini-h {
-      color: #333;
+      color: #f5f5f5;
       font-size: 2rem;
       margin-bottom: 1rem;
     }
     
     .place-edit {
-      color: #007bff;
+      color: yellow;
+      font-size: 20px;
+    }
+
+    .edit-div2{
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .place-edit2{
+      color: yellow;
+      font-size: 20px;
     }
     
     .place-name-link {
-      color: #333;
+      color: #f5f5f5;
+      font-size: 22px;
+      text-transform: capitalize;
     }
 
     .place-stg{
-      color:#666;
+      color: #f5f5f5;
       font-size: 1.5rem;
     }
 
     .place-span{
-      color: black;
+      color:#f39c12;
       font-size: 1.2rem;
       text-transform: capitalize;
     }
@@ -708,6 +761,23 @@ margin: 20px;
       border-radius: 10px;
 
     }
+
+    .place-right-white{
+      color: #f5f5f5;
+      font-size: 20px;
+  
+    }
+
+    .place-right-orange{
+      color: #f39c12;
+      font-size: 18px;
+    }
+
+    .place-right-white-h3{
+      text-align: center;
+      font-size: 30px;
+      color: #f5f5f5;
+    }
     
     .place-yy-div{
       display: flex;
@@ -716,19 +786,13 @@ margin: 20px;
       margin: 10px;
     }
     
-    .place-details h3 {
-      color: #333;
-      font-size: 2rem;
-    }
     
-    .place-details strong {
-      color: #333;
-      
-    }
     
-    .place-details button {
-      background-color: #007bff;
-      color: white;
+    
+    
+    .place-button{
+      background-color:#f39c12;
+      color: #f5f5f5;
       border: none;
       padding: 15px;
       border-radius: 5px;
@@ -750,15 +814,28 @@ margin: 20px;
 
     .order-img{
       height: 100px;
+      width: 100px;
+      border-radius: 20px;
+    }
+
+    .order-link{
+      color: #f5f5f5;
+      text-transform: capitalize;
+      margin: 0 0 0 20px;
     }
 
     .order-1{
       width: 70%;
       margin: 5px;
     }
+    
+    .my-3{
+      text-align: center;
+      color: white;
+    }
 
     .order-span{
-      color: black;
+      color:#f39c12;
     font-size: 1.2rem;
     text-transform: capitalize;
     }
@@ -780,15 +857,16 @@ margin: 20px;
     .order-h3{
       font-size: 2rem;
       margin-bottom: 1rem;
-      color: #333;
+      color: #f5f5f5;
     }
 
     .not{
       display: block;
       background-color: rgba(500, 0, 0, 0.5);
       padding: 20px;
-      margin: 5px 0;
+      margin: 20px 0;
       border-radius: 10px;
+      color: #f5f5f5;
     }
 
     .order-items{
@@ -804,7 +882,7 @@ margin: 20px;
     }
 
    .order-stg{
-    color: #666;
+    color: #f5f5f5;
     font-size: 1.5rem;
    }
 
@@ -825,6 +903,7 @@ margin: 20px;
 .order-2 > div > span {
   font-family: Arial, sans-serif; /* Span öğelerinin yazı tipi */
   font-size: 18px; /* Span öğelerinin yazı boyutu */
+  color: red;
 }
 
 .order-btn-divv{
@@ -889,6 +968,12 @@ margin: 20px;
       /*SonAdim End*/
 
       /*Signin Start*/
+
+      .sign-in-h1{
+        color: #f5f5f5;
+        text-align: center;
+      }
+      
       .signin-form {
         border: 1px solid #ccc;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -930,9 +1015,10 @@ margin: 20px;
       }
       
       .signin-link {
-        color: blue;
-        font-size: 25px;
+        color: darkred;
+        font-size: 20px;
         margin: 5px;
+        text-align: center;
       }
       
       /*Signin End*/
@@ -1145,7 +1231,7 @@ margin: 20px;
 
       /*Footer Start*/
       .footer {
-        background-color: #9b9b9b;
+        background-color: #f39c12;
         padding: 20px 0;
         color: #333;
         text-align: center;

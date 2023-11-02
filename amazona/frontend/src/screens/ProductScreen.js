@@ -104,13 +104,13 @@ console.log(product.image)
 
                 <div className="product-div-1">
                     <h1 className="product-name">{product.name}</h1>
-                    <i className="product-rating">{product.rating}</i>
-                    <p className="product-price">Fiyat: {product.price} TL</p>
+                    <i className="product-rating">Ürün durumu: {product.status === "new" ? "Yeni" : "İkinci el"}</i>
+                    <p className="product-price">Fiyat: <span className="productsc-price-color">{product.price} TL</span></p>
                     <p className="product-description">{product.description}</p>
                 </div>
 
                 <div className="product-div-2">
-                    <p className="product-price">Fiyat: {product.price} TL</p>
+                    <p className="product-price">Fiyat: <span className="productsc-price-color">{product.price} TL</span></p>
                     <p className="product-countInStock">Stokta: {product.countInStock ? <span> Var</span> : <span className="product-span-2"> Kalmadı</span>} </p>
                     <button className="btn" onClick={addToCartHandler}>Sepete Ekle</button>
                 </div>

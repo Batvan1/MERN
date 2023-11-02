@@ -108,7 +108,7 @@ export default function PlaceOrderScreen() {
 
             <Helmet><title>Preview Order</title></Helmet>
 
-            <h1>Sipariş Özet</h1>
+            <h1 className="shipping-h1">Sipariş Özet</h1>
 
             <div className="place-full-com">
                 <div className="place-div1">
@@ -146,13 +146,13 @@ export default function PlaceOrderScreen() {
 
                         <h3 className="place-mini-h">Ürünler</h3>
 
-                        <div className="mini-body">
+                        <div>
                             {cart.cartItems.map((item) => (
 
-                                <div key={item._id}>
+                                <div key={item._id} className="mini-body">
                                     <img src={item.image} alt={item.name} className="place-order-image"></img>
 
-                                    <Link to={`/product/${item.slug}`} className="place-name-link">{item.name}</Link> <br/>
+                                    <Link to={`/product/${item.slug}`} className="place-name-link">{item.name}</Link> 
 
                                         <strong className="place-stg">Adet: </strong> <span className="place-span">{item.quantity}</span> <br/>
                                         <strong className="place-stg">Fiyat: </strong> <span className="place-span">{item.price}</span>
@@ -160,37 +160,39 @@ export default function PlaceOrderScreen() {
 
                             ))}
                         </div>
-                        <Link to="/cart" className="place-edit">Edit</Link>
+                        <div className="edit-div2">
+                        <Link to="/cart" className="place-edit2">Edit</Link>
+                        </div>
                     </div>
                 </div>
 
 
                 <div className="place-details">
-                    <h3>Sipariş Özeti</h3>
+                    <h3 className="place-right-white-h3">Sipariş Özeti</h3>
 
                     <div className="place-yy-div">
-                        <div>Ürünler</div>
-                        <div>{cart.itemsPrice.toFixed(2)} TL</div>
+                        <div className="place-right-white">Ürünler</div>
+                        <div className="place-right-orange">{cart.itemsPrice.toFixed(2)} TL</div>
                     </div>
 
                     <div className="place-yy-div">
-                        <div>Kargo</div>
-                        <div>{cart.shippingPrice.toFixed(2)} TL</div>
+                        <div className="place-right-white">Kargo</div>
+                        <div className="place-right-orange">{cart.shippingPrice.toFixed(2)} TL</div>
                     </div>
 
                     <div className="place-yy-div">
-                        <div>Vergi</div>
-                        <div>{cart.taxPrice.toFixed(2)} TL</div>
+                        <div className="place-right-white">Vergi</div>
+                        <div className="place-right-orange">{cart.taxPrice.toFixed(2)} TL</div>
                     </div>
 
                     <div className="place-yy-div">
-                        <strong>Sipariş Toplamı</strong>
-                        <strong>{cart.totalPrice.toFixed(2)} TL</strong>
+                        <strong className="place-right-white">Sipariş Toplamı</strong>
+                        <strong className="place-right-orange">{cart.totalPrice.toFixed(2)} TL</strong>
                     </div>
 
 
                     <div className="place-right-button">
-                        <button type="button" onClick={placeOrderHandler} disabled={cart.cartItems.length === 0}>Siparişi Ver</button>
+                        <button type="button" onClick={placeOrderHandler} disabled={cart.cartItems.length === 0} className="place-button">Siparişi Ver</button>
                     </div>
 
                                

@@ -66,7 +66,8 @@ export default function SignupScreen() {
                 <title>Sign up</title>
             </Helmet>
 
-            <h1>Kayıt Ol</h1>
+            <h1 className="sign-in-h1">Kayıt Ol</h1>
+
             <form onSubmit={submitHandler} className="signin-form">
 
                 <label className="signin-label" htmlFor="name">Your Name</label>
@@ -88,7 +89,7 @@ export default function SignupScreen() {
 
                 <div className="signin-link-div">
                     <p>Hesabınız Var mı ?</p>
-                    <Link to={`/signin?redirect=${redirect}`}>Giriş Yap</Link>
+                    <Link to={`/signin?redirect=${redirect}`} className="signin-link">Giriş Yap</Link>
                 </div>
             </form>
         </div>
