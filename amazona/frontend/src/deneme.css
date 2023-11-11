@@ -1,0 +1,83 @@
+.App-header { display: flex; flex-direction: column; align-items: center; justify-content: space-around; background-color: #282c34; color: white; height: auto; padding: 10px; }
+
+.app-header-tüm1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.app-header-tüm2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.app-header-tüm3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.side-bar {
+  font-size: 30px;
+  color: white;
+  margin-right: 10px;
+}
+
+.app-link {
+  text-decoration: none;
+}
+
+.app-header-logo {
+  height: 60px;
+  width: auto;
+}
+
+.app-header-link-cart {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  margin-left: 10px;
+}
+
+.shopping-cart {
+  font-size: 30px;
+  margin-right: 5px;
+}
+
+.basket-count {
+  background-color: #f44336;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.header-user-name {
+  margin-bottom: 5px;
+}
+
+.select-menu {
+  border: none;
+  outline: none;
+  background-color: #282c34;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.signin-link {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  width: 100%;
+  text-align: center;
+}

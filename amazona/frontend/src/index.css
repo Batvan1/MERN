@@ -1,1609 +1,1716 @@
- *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: rgb(34,186,217);
-background: linear-gradient(240deg, rgba(34,186,217,1) 2%, rgba(6,6,64,1) 62%, rgba(12,46,98,1) 91%);
-}
-
-button{
-  border: none;
-  outline: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-a{
-  text-decoration: none;
-}
-
-.home-div-title{
-  display: flex;
-  justify-content: center;
-}
-
-
-
-
-
-@media (min-width: 601px){
-  /*Header start*/
-.App-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color:#f39c12;
-  padding: 1rem;
-}
-
-.app-header-logo{
-  width: 400px;
-  margin: 0 0 0 20px;
-}
-
-.app-header-tüm1{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 33%;
-}
-
-.app-header-tüm2{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 33%;
-}
-
-.app-header-link-cart{
-  position: relative;
-}
-
-.basket-count{
-  position: absolute;
-  top: -10px;
-  left: 30px;
-  color: white;
-  background-color: red;
-  border-radius: 20px;
-}
-
-.shopping-cart{
-  font-size: 200%;
-  color: lightgray;
-}
-
-.side-bar{
-  font-size: 200%;
-  color: lightgray;
-}
-
-
-
-/*Header searchbox and input Start*/
-.search-box {
-  display: flex;
-  align-items: center;
-}
-
-.search-box-icon{
-  font-size: 200%;
-}
-
-#header-searchbox {
-  width: 300px;
-  height: 40px;
-  border: none;
-  outline: none;
-  padding: 10px;
-  font-size: 18px;
-  border-radius: 20px 0 0 20px ;
-}
-
-.search-button {
-  width: 40px;
-  height: 40px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  background-color: white;
-}
-/*Header searchbox and input End*/
-
-.app-link{
-  text-decoration: none;
-  color: rgb(32, 25, 31);
-}
-
-.signin-link{
-  font-size: 2rem;
-  color: black;
-}
-
-
-
-
-/*select-menu Start*/
-
-.header-user-name{
-  font-family: Georgia, serif;
-  color: #333;
-  text-transform: capitalize;
-  font-size: 20px;
-  margin-bottom: 4px;
-}
-
-.header-user-name::first-letter {
-  font-size: 2rem;
-  font-weight: bold;
-  background-color: #eee;
-  border: 2px solid #333;
-}
-
-.select-menu {
-  /* genişlik ve yükseklik */
-  width: 200px;
-  height: 40px;
-  /* kenarlık ve yuvarlak köşeler */
-  border: 2px solid #333;
-  border-radius: 10px;
-  /* yazı tipi ve renk */
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  color: #333;
-  /* arkaplan rengi ve resmi */
-  background-color: transparent;
-  background-image: url("https://cdn-icons-png.flaticon.com/512/25/25243.png");
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: 17px;
-  
-}
-
-/* seçili seçeneği vurgula */
-.select-menu option:checked {
-  background-color: green;
-}
-
-/* seçeneklerin üzerine gelince renk değiştir */
-.select-menu option:hover {
-  background-color: orange;
-}
-
-/*select-menu End*/
-
-/*Header searchbox and input End*/
-
-
-/* Home Screen Start*/
-main{
-  padding: 1rem;
-}
-
-.home-products{
-  width: 80%;
-  height: auto;
-  margin: 0 auto;
-  background-color: transparent;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 20px;
-}
-
-
-
-.home-product {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  border: 1px #f39c12 solid;
-  border-radius: 50%;
- /* Resmi çerçevenin dışına taşan kısımları kes---   border: 11px solid #ccc;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  border-radius: 10px;
-  overflow: hidden;*/
-}
-
-.home-h1{
-  
-  display: inline-block;
-  position: relative;
-  font-size: 5vw;
-  color: rgb(34,186,217);
-  -webkit-text-stroke: 0.3vw gray;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-}
-
-.home-h1::before{
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  color: white;
-  -webkit-text-stroke: 0vw purple;
-  border-right: 2px solid blue;
-  overflow: hidden;
-  animation: animate 4s linear infinite ;
-}
-
-@keyframes animate{
-  0%{
-    width: 0%;
-  }
-  25%{
-    width: 100%;
-  }
-  75%{
-    width: 100%;
-  }
-  100%{
-    width: 100%;
-  }
-}
-
-
-
-.home-img {
-  width: 100%; /* Çerçeve genişliği */
-  height: 200px; /* Çerçeve yüksekliği */
-  display: block;
- 
-}
-
-.home-product-info{
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-margin: 20px;
-}
-
-.home-name {
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  text-transform: capitalize;
-}
-
-.home-price {
-  color: rgb(246, 109, 0);
-}
-
-.home-btn {
-  background-color: #f39c12;
-  border: none;
-  padding: 10px;
-  width: 100%;
-  margin-top: auto; /* Button'u en alta taşır */
-  border-radius: 20px;
-}
-
-
-
-
-/* Home Screen End*/
-
-/*PRODUCT Screen start */
-
-
-.product-screennn {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
- 
-  background-color: transparent;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.img-large {
-  width: 200px; /* Çerçeve genişliği */
-  height: 200px; /* Çerçeve yüksekliği */
-  display: block;
-}
-
-.product-div-1{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.product-div-2{
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} 
-
-.product-name {
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-transform: capitalize;
-  color: #f5f5f5;
-}
-
-.product-rating {
-  color: #f39c12;
-  font-size: 18px;
-}
-
-.product-price {
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 5px;
-  margin: 10px;
-  color: #f5f5f5;
-}
-
-.productsc-price-color{
-  color: #f39c12;
-}
-
-.product-span-2{
-  color: red;
-}
-
-.product-description {
-  font-size: 22px;
-  color: lightgray;
-  margin-bottom: 20px;
-  margin-top: 10px;
-}
-
-.product-countInStock {
-  font-size: 18px;
-  margin: 20px;
-}
-
-.btn {
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: #f39c12;
-  color: #f5f5f5;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition:  0.3s ease;
-}
-
-.btn:hover {
-  background-color: #2980b9;
-}
-
-
-
-
-/*PRODUCT Screen End*/
-
-
-  .cart-image{
-    height: 80px;
-  }
-
-  /*Sidebar start*/
-
-  .navbar-brand{
-    font-weight: bold;
-  }
-
-  
-
-  .active-cont{
-    margin-left: 200px;
-    transition: 1s;
-  }
-
-  .active-nav{
-    position: fixed; /* Sidebar'i sayfanin solunda sabitle */
-    left: 0; /* Sidebar'i sol kenardan baslat */
-    top: 0;
-    height: 100%; /* Sidebar'in yuksekligini sayfa yuksekligine esitle */
-    width: 200px; /* Sidebar'in genisligini belirt */
-    background-color: #333; /* Sidebar'in arka plan rengini belirt */
-    border-right: 2px solid #fff; /* Sidebar'in sag kenarina beyaz bir cizgi ekle */
-    border-radius: 0 10px 10px 0; /* Sidebar'in sag ust ve alt koselelerine yuvarlaklik ver */
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.5); /* Sidebar'a goz aldirici bir golge ekle */
-    transition: 2s;
-
-  }
-
-  /* Sidebar stilini tanimla */
-  .side-navbar {
-  left: -200px;
-  display: none;
-   
-  }
-
-/* Navigasyon menusunun stilini tanimla */
-.appjs-nav {
-  list-style-type: none; /* Menudeki noktalari kaldir */
-  padding: 0; /* Menudeki boslugu kaldir */
-}
-
-/* Navigasyon menusundeki basligin stilini tanimla */
-.appjs-stg {
-  color: white; /* Basligin rengini beyaz yap */
-  font-size: 20px; /* Basligin boyutunu belirt */
-  font-weight: bold; /* Basligi kalin yap */
-  text-align: center; /* Basligi ortala */
-}
-
-/* Navigasyon menusundeki divlerin stilini tanimla */
-.appjs-map-div {
-  margin: 10px; /* Divler arasinda bosluk birak */
-}
-
-/* Navigasyon menusundeki baglantilarin stilini tanimla */
-.appjs-link {
-  color: white; /* Baglantilarin rengini beyaz yap */
-  font-size: 16px; /* Baglantilarin boyutunu belirt */
-  text-decoration: none; /* Baglantilarin alt cizgisini kaldir */
-  display: block; /* Baglantilari blok yap */
-  padding: 10px; /* Baglantilara ic bosluk ekle */
-}
-
-/* Baglantilarin ustune gelince stilini degistir */
-.appjs-link:hover {
-  background-color: #555; /* Baglantinin arka plan rengini degistir */
-  border-radius: 10px; /* Baglantinin koselerine yuvarlaklik ver */
-}
-
-/*Sidebar end*/
-
-
-  
-  /* Cart Screen Start */
-
-  .cart-h1{
-    color: #f5f5f5;
-    text-align: center;
-  }
-
-  .cart-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-  }
-  
-  .cart-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 80%;
-    border: 1px solid black;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .cart-image {
-    width: 100px;
-    height: 100x;
-  }
-  
-  .cart-name {
-    font-size: 20px;
-    font-weight: bold;
-    color: #f5f5f5;
-    text-transform: capitalize;
-  }
-  
-  .cart-details {
-    display: flex;
-    align-items: center;
-  }
-  
-  .cart-minus, .cart-plus {
-    border: none;
-    background-color: transparent;
-  }
-  
-  .cart-quantity {
-    font-size: 18px;
-    margin: 0px 10px;
-    color: #f5f5f5;
-  }
-  
-  .cart-price {
-    font-size: 20px;
-    font-weight: bold;
-    margin-left: 30px;
-    color: #f39c12;
-  }
-  
-  .cart-delete {
-   margin-left: 30px;
-  }
-
-  .cart-negative{
-    color: red;
-    font-size: 50px;
-  }
-
-  .cart-positive{
-    color: gold;
-    font-size: 50px;
-  }
-
-  .total{
-    display: flex;
-    justify-content: space-around;
-  }
-
-  .cart-quantity-totalPrice{
-    color: #f5f5f5;
-  }
-
-  .div-btn{
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-  }
-
-  /* Cart Screen END */
-
-
-  /*Shipping Screen Start*/
-
-  .shipping-h1{
-    color: white;
-    text-align: center;
-  }
-
-  .shipping-form {
-    max-width: 600px;
-    margin: 20px auto;
-    font-family: Arial, sans-serif;
-}
-
-.shipping-div {
-    margin-bottom: 10px;
-}
-
-
-.shipping-label {
-  display: inline-block;
-  width: 120px;
-  font-weight: bold;
-  color: #f5f5f5;
-}  
-
-#fullName , #address , #city , #postalCode , #country{
-  
-    display: inline-block;
-    width: 400px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.shipping-btn{
-  display: block;
-  margin: 20px auto;
-  width: 200px;
-  padding: 10px;
-  background-color:#f39c12;
-  color: #f5f5f5;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.shipping-btn:hover {
-  background-color: #008fb3;
-}
-
- /*Shipping Screen END*/
-
-
- /*Payment Screen Start*/
-
-    .payment-form {
-        max-width: 600px;
-        margin: 100px auto 20px auto;
-        font-family: Arial, sans-serif;
-    }
-
-    .payment-div {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    .payment-label {
-        display: inline-block;
-        width: 120px;
-        font-weight: bold;
-    }
-
-    .payment-img{
-      height: 100px;
-      width: 400px;
-      background-color: #f5f5f5;
-      border-radius: 20px;
-      margin: 20px;
-    }
-
-    input[type="radio"] {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        border: 1px solid #ccc;
-        border-radius: 50%;
-    }
-
-    input[type="radio"]:checked {
-        background-color: #00a0d2;
-    }
-
-    .payment-btn {
-        display: block;
-        width: 200px;
-        margin: 20px auto;
-        padding: 10px;
-        background-color:#f39c12;
-        color: white;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-    }
-
-    .payment-btn:hover {
-        background-color: #008fb3;
-    }
-
-    /*Payment Screen End*/
-
-
-    /*Place Order Start*/
-    
-
-    .place-full-com{
-      display: flex;
-      justify-content: center;
-      padding: 0 5rem;
-    }
-
-    .place-order-image{
-      height: 200px;
-    }
-
-    .place-div1{
-      width: 70%;
-    }
-
-    .mini-container {
-      border: 2px solid #ccc;
-      margin: 10px;
-      padding: 10px;
-      border-radius: 10px;
-    }
-    
-    .mini-body {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 20px;
-    }
-    
-    .mini-txt {
-      font-size: 14px;
-      margin: 5px;
-    }
-    
-    .place-order-image {
-      width: 100px;
-      height: 100px;
-      border-radius: 20px;
-    }
-    
-    .place-mini-h {
-      color: #f5f5f5;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    
-    .place-edit {
-      color: yellow;
-      font-size: 20px;
-    }
-
-    .edit-div2{
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .place-edit2{
-      color: yellow;
-      font-size: 20px;
-    }
-    
-    .place-name-link {
-      color: #f5f5f5;
-      font-size: 22px;
-      text-transform: capitalize;
-    }
-
-    .place-stg{
-      color: #f5f5f5;
-      font-size: 1.5rem;
-    }
-
-    .place-span{
-      color:#f39c12;
-      font-size: 1.2rem;
-      text-transform: capitalize;
-    }
-    
-
-    
-
-    .place-details { /*place div-2 (sağ)*/
-      width: 30%;
-      border: 2px solid #ccc;
-      margin: 10px;
-      padding: 10px;
-      border-radius: 10px;
-
-    }
-
-    .place-right-white{
-      color: #f5f5f5;
-      font-size: 20px;
-  
-    }
-
-    .place-right-orange{
-      color: #f39c12;
-      font-size: 18px;
-    }
-
-    .place-right-white-h3{
-      text-align: center;
-      font-size: 30px;
-      color: #f5f5f5;
-    }
-    
-    .place-yy-div{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 10px;
-    }
-    
-    
-    
-    
-    
-    .place-button{
-      background-color:#f39c12;
-      color: #f5f5f5;
-      border: none;
-      padding: 15px;
-      border-radius: 5px;
-      margin-top: 1rem;
-    }
-
-    .place-right-button{
-      display: flex;
-      justify-content: center;
-    }
-     /*Place Order End*/
-
-     /*Order Start*/
-     .order-container {
-      display: flex;
-      justify-content: center;
-      padding: 1rem 2rem;
-    }
-
-    .order-img{
-      height: 100px;
-      width: 100px;
-      border-radius: 20px;
-    }
-
-    .order-link{
-      color: #f5f5f5;
-      text-transform: capitalize;
-      margin: 0 0 0 20px;
-    }
-
-    .order-1{
-      width: 70%;
-      margin: 5px;
-    }
-    
-    .my-3{
-      text-align: center;
-      color: white;
-    }
-
-    .order-span{
-      color:#f39c12;
-    font-size: 1.2rem;
-    text-transform: capitalize;
-    }
-
-    .order-div{
-      border: 2px solid #ccc;
-      border-radius: 10px;
-      margin-bottom: 5px;
-      padding: 20px;
-    }
-
-    .order-2{
-      border: 2px solid #ccc;
-      width: 30%;
-      margin: 5px;
-      padding: 20px;
-    }
-
-    .order-h3{
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #f5f5f5;
-    }
-
-    .not{
-      display: block;
-      background-color: rgba(500, 0, 0, 0.5);
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 10px;
-      color: #f5f5f5;
-    }
-
-    .order-items{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 30px;
-    }
-
-    .order-imgLink{
-      display: flex;
-      align-items: center;
-    }
-
-   .order-stg{
-    color: #f5f5f5;
-    font-size: 1.5rem;
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
+
+ body {
+   margin: 0;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+     sans-serif;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   background: rgb(34, 186, 217);
+   background: linear-gradient(240deg, rgba(34, 186, 217, 1) 2%, rgba(6, 6, 64, 1) 62%, rgba(12, 46, 98, 1) 91%);
+ }
+
+ button {
+   border: none;
+   outline: none;
+   background-color: transparent;
+   cursor: pointer;
+ }
+
+ a {
+   text-decoration: none;
+ }
+
+ .home-div-title {
+   display: flex;
+   justify-content: center;
+ }
+
+
+
+
+
+ @media (min-width: 601px) {
+
+   /*Header start*/
+   .App-header {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     background-color: #f39c12;
+     padding: 1rem;
+   }
+
+   .app-header-logo {
+     width: 400px;
+     margin: 0 0 0 20px;
+   }
+
+   .app-header-tüm1 {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     width: 33%;
+   }
+
+   .app-header-tüm2 {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     width: 33%;
+   }
+
+   .app-header-link-cart {
+     position: relative;
+   }
+
+   .basket-count {
+     position: absolute;
+     top: -10px;
+     left: 30px;
+     color: white;
+     background-color: red;
+     border-radius: 20px;
+   }
+
+   .shopping-cart {
+     font-size: 200%;
+     color: lightgray;
+   }
+
+   .side-bar {
+     font-size: 200%;
+     color: lightgray;
    }
 
 
-.order2-div{
-  display: flex; /* Div etiketlerini esnek olarak gösteriyoruz */
-  justify-content: space-between; /* Div etiketlerinin içindeki öğeleri aralarında boşluk bırakarak yatay olarak dağıtıyoruz */
-  align-items: center; /* Div etiketlerinin içindeki öğeleri dikey olarak ortalamak için */
-  margin: 10px;
-}
 
-.order-2 > div > h4 {
-  font-family: Arial, sans-serif; /* H4 başlıklarının yazı tipi */
-  font-size: 18px; /* H4 başlıklarının yazı boyutu */
-  font-weight:500; /* H4 başlıklarının yazı kalınlığı */
-}
+   /*Header searchbox and input Start*/
+   .search-box {
+     display: flex;
+     align-items: center;
+   }
 
-.order-2 > div > span {
-  font-family: Arial, sans-serif; /* Span öğelerinin yazı tipi */
-  font-size: 18px; /* Span öğelerinin yazı boyutu */
-  color: red;
-}
+   .search-box-icon {
+     font-size: 200%;
+   }
 
-.order-btn-divv{
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
-}
+   #header-searchbox {
+     width: 300px;
+     height: 40px;
+     border: none;
+     outline: none;
+     padding: 10px;
+     font-size: 18px;
+     border-radius: 20px 0 0 20px;
+   }
 
-.order-btnn{
-  background-color: #00a0d2;
-  padding: 20px;
-  border-radius: 20px;
-}
-    
-      /*Order End*/
+   .search-button {
+     width: 40px;
+     height: 40px;
+     border: none;
+     outline: none;
+     cursor: pointer;
+     background-color: white;
+   }
 
+   /*Header searchbox and input End*/
 
-      /*SonAdim Start*/
-      .son-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-      
-      .son-div {
-        margin-bottom: 10px;
-      }
-      
-      .son-label {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 5px;
-      }
-      
-      .son-input {
-        width: 300px;
-        padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
-      
-      .son-btn {
-        padding: 10px 20px;
-        background-color: #4caf50;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        margin-top: 30px;
-      }
-      
-      .son-btn:hover {
-        background-color: #45a049;
-        
-      }
-      
-      .son-btn:active {
-        background-color: #3e8e41;
-      }
-      
-      /*SonAdim End*/
+   .app-link {
+     text-decoration: none;
+     color: rgb(32, 25, 31);
+   }
 
-      /*Signin Start*/
-
-      .sign-in-h1{
-        color: #f5f5f5;
-        text-align: center;
-      }
-      
-      .signin-form {
-        border: 1px solid #ccc;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        border-radius: 10px;
-        width: 300px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: #fff;
-      }
-      
-      .signin-label {
-        display: block;
-        font-size: 16px;
-        font-weight: bold;
-      }
-      
-      .signin-input {
-        display: block;
-        width: 100%;
-        margin-top: 10px;
-        margin-bottom: 20px;
-        padding: 10px;
-      }
-      
-      .signin-btn {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        background-color: #f0c14b;
-      }
-      
-      .signin-link-div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 10px;
-      }
-      
-      .signin-link {
-        color: darkred;
-        font-size: 20px;
-        margin: 5px;
-        text-align: center;
-      }
-      
-      /*Signin End*/
-
-      /*SearchScreen Start*/
+   .signin-link {
+     font-size: 2rem;
+     color: black;
+   }
 
 
-        /* search-department sınıfına sahip div elementinin stilini belirliyoruz */
-.search-department {
-  /* arkaplan rengini açık gri yapıyoruz */
-  background-color: lightgray;
-  /* kenar boşluklarını 10 piksel yapıyoruz */
-  margin: 10px;
-  /* dolgu boşluklarını 20 piksel yapıyoruz */
-  padding: 20px;
-  /* yuvarlak köşeler için sınır yarıçapını 10 piksel yapıyoruz */
+
+
+   /*select-menu Start*/
+
+   .header-user-name {
+     font-family: Georgia, serif;
+     color: #333;
+     text-transform: capitalize;
+     font-size: 20px;
+     margin-bottom: 4px;
+   }
+
+   .header-user-name::first-letter {
+     font-size: 2rem;
+     font-weight: bold;
+     background-color: #eee;
+     border: 2px solid #333;
+   }
+
+   .select-menu {
+     /* genişlik ve yükseklik */
+     width: 200px;
+     height: 40px;
+     /* kenarlık ve yuvarlak köşeler */
+     border: 2px solid #333;
+     border-radius: 10px;
+     /* yazı tipi ve renk */
+     font-family: Arial, sans-serif;
+     font-size: 16px;
+     color: #333;
+     /* arkaplan rengi ve resmi */
+     background-color: transparent;
+     background-image: url("https://cdn-icons-png.flaticon.com/512/25/25243.png");
+     background-repeat: no-repeat;
+     background-position: right center;
+     background-size: 17px;
+
+   }
+
+   /* seçili seçeneği vurgula */
+   .select-menu option:checked {
+     background-color: green;
+   }
+
+   /* seçeneklerin üzerine gelince renk değiştir */
+   .select-menu option:hover {
+     background-color: orange;
+   }
+
+   /*select-menu End*/
+
+   /*Header searchbox and input End*/
+
+
+   /* Home Screen Start*/
+   main {
+     padding: 1rem;
+   }
+
+   .home-products {
+     width: 80%;
+     height: auto;
+     margin: 0 auto;
+     background-color: transparent;
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+     grid-gap: 20px;
+   }
+
+
+
+   .home-product {
+     display: flex;
+     flex-direction: column;
+     width: 100%;
+     border: 1px #f39c12 solid;
+     border-radius: 50%;
+     /* Resmi çerçevenin dışına taşan kısımları kes---   border: 11px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   border-radius: 10px;
-}
-
-/* search-department sınıfına sahip div elementinin içindeki h3 elementinin stilini belirliyoruz */
-.search-department h3 {
-  /* yazı rengini koyu gri yapıyoruz */
-  color:#666;
-  /* yazı tipini Arial olarak seçiyoruz */
-  font-family: Arial;
-}
-
-/* search-department-ul sınıfına sahip ul elementinin stilini belirliyoruz */
-.search-department-ul {
-  /* liste işaretlerini kaldırıyoruz */
-  list-style: none;
-}
-
-/* search-department-ul sınıfına sahip ul elementinin içindeki li elementlerinin stilini belirliyoruz */
-.search-department-ul li {
-  /* her liste öğesinin altına bir çizgi çiziyoruz */
-  border-bottom: 1px solid gray;
-  font-size: 1.5rem;
-}
-
-/* search-department-ul sınıfına sahip ul elementinin içindeki li elementlerinin içindeki Link componentlerinin stilini belirliyoruz */
-.search-department-ul li a {
-  /* yazı rengini siyah yapıyoruz */
-  color: black;
-  /* yazı tipini Arial olarak seçiyoruz */
-  font-family: Arial;
-}
-
-.search-department-ul li a:hover {
-  /* yazı rengini siyah yapıyoruz */
-  color: blueviolet;
-  /* yazı tipini Arial olarak seçiyoruz */
-}
-
-/* text-bold sınıfına sahip Link componentlerinin stilini belirliyoruz */
-.text-bold {
-  /* yazı kalınlığını artırıyoruz */
-  font-weight: bold;
-}
-
-
-
-
-
-/* search-price sınıfına sahip div elementinin stilini belirliyoruz */
-.search-price {
-  /* arkaplan rengini açık mavi yapıyoruz */
-  background-color: lightgray;
-  /* kenar boşluklarını 10 piksel yapıyoruz */
-  margin: 10px;
-  /* dolgu boşluklarını 20 piksel yapıyoruz */
-  padding: 20px;
-  /* yuvarlak köşeler için sınır yarıçapını 10 piksel yapıyoruz */
-  border-radius: 10px;
-}
-
-/* search-price sınıfına sahip div elementinin içindeki h3 elementinin stilini belirliyoruz */
-.search-price h3 {
-  /* yazı rengini koyu mavi yapıyoruz */
-  color:#666;
-  /* yazı tipini Arial olarak seçiyoruz */
-  font-family: Arial;
-}
-
-/* search-search-ul sınıfına sahip ul elementinin stilini belirliyoruz */
-.search-search-ul {
-  /* liste işaretlerini kaldırıyoruz */
-  list-style: none;
-}
-
-/* search-search-ul sınıfına sahip ul elementinin içindeki li elementlerinin stilini belirliyoruz */
-.search-search-ul li {
-  /* her liste öğesinin altına bir çizgi çiziyoruz */
-  border-bottom: 1px solid gray;
-  font-size: 1.5rem;
-}
-
-/* search-search-ul sınıfına sahip ul elementinin içindeki li elementlerinin içindeki Link componentlerinin stilini belirliyoruz */
-.search-search-ul li a {
-  /* yazı rengini siyah yapıyoruz */
-  color: black;
-  /* yazı tipini Arial olarak seçiyoruz */
-  font-family: Arial;
-}
-
-.search-search-ul li a:hover {
-  /* yazı rengini siyah yapıyoruz */
-  color: purple;
-  /* yazı tipini Arial olarak seçiyoruz */
-  font-family: Arial;
-}
-
-
-
-
-
-
-.search-p-select{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.search-sortBy{
-  font-size: 25px;
-}
-
-
-/* search-result sınıfına sahip div elementinin stilini belirliyoruz */
-.search-result {
-  /* arkaplan rengini beyaz yapıyoruz */
-  background-color:darkorange;
-  /* kenar boşluklarını 10 piksel yapıyoruz */
-  margin: 10px;
-  /* dolgu boşluklarını 20 piksel yapıyoruz */
-  padding: 20px;
-  border-radius: 10px;
-}
-
-/* search-mini-result sınıfına sahip div elementinin stilini belirliyoruz */
-.search-mini-result {
-  /* arkaplan rengini açık sarı yapıyoruz */
-  background-color: gray;
-  /* yuvarlak köşeler için sınır yarıçapını 10 piksel yapıyoruz */
-  border-radius: 10px;
-  margin: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-}
-
-/* search-result-span sınıfına sahip span elementinin stilini belirliyoruz */
-.search-result-span {
-  /* yazı rengini koyu sarı yapıyoruz */
-  color: white;
-  /* yazı tipini Arial olarak seçiyoruz */
-  font-family: Arial;
-  font-size: 1.5rem;
-}
-
-.search-result-before-span{
-  font-size: 1.5rem;
-}
-
-/* search-result-btn sınıfına sahip button elementinin stilini belirliyoruz */
-.search-result-btn {
-  /* arkaplan rengini koyu sarı yapıyoruz */
-  background-color: gold;
-  /* yazı rengini beyaz yapıyoruz */
-  color: white;
-  /* yazı tipini Arial olarak seçiyoruz */
-  font-family: Arial;
-  padding: 20px;
-  border-radius: 10px;
-  margin-left: 100px;
-}
-
-/* search-select sınıfına sahip select elementinin stilini belirliyoruz */
-.search-select {
-  /* arkaplan rengini açık mavi yapıyoruz */
-  background-color: lightblue;
-  margin: 1rem;
-  width: 300px;
-  font-size: 20px;
-  padding: 10px;
-}
-
-/* search-not-product sınıfına sahip div elementinin stilini belirliyoruz */
-.search-not-product {
-  /* yazı rengini kırmızı yapıyoruz */
-  color: red;
-}
-
-/* search-result-products sınıfına sahip div elementinin stilini belirliyoruz */
-.search-result-products {
-  /* arkaplan rengini açık yeşil yapıyoruz */
-  background-color: lightgreen;
-}
-
-/* search-result-item sınıfına sahip div elementinin stilini belirliyoruz */
-.search-result-item {
-  /* her ürün için bir çerçeve çiziyoruz */
-  border: 1px solid black;
-}
-
-
-      /*SearchScreen End*/
-
-
-      /*Footer Start*/
-      .footer {
-        background-color: #f39c12;
-        padding: 20px 0;
-        color: #333;
-        text-align: center;
-      }
-      
-      .about {
-        margin-bottom: 10px;
-        font-size: 30px;
-        color: rgb(238, 238, 238);
-      }
-      
-      .footer h4{
-        margin: 10px;
-      }
-
-      .footer p {
-        margin-bottom: 0;
-      }
-      
-      .footer-links li {
-        list-style: none;
-        margin-bottom: 5px;
-        font-size: large;
-      }
-      
-      .footer-links a {
-        color: #333;
-        text-decoration: none;
-      }
-      
-      .footer-links a:hover {
-        text-decoration: underline;
-      }
-      
-      /*Footer End*/
-
-      /*AboutScreen START*/
-
-      .about-h1{
-        margin-bottom: 15px;
-      }
-
-        .about-div{
-          height: 100vh;
-          padding: 0 30px;
-        }
-
-        .about-p{
-          font-size: 20px;
-          line-height: 1.5;
-        }
-      /*AboutScreen START*/
-        
-      /*Privacy Policy Start*/
-
-        .privacy-div{
-          
-          padding: 30px;
-        }
-
-        .privacy-h1{
-          margin-bottom: 15px;
-        }
-
-        .privacy-p{
-          line-height: 1.5;
-          font-size: 20px;
-        }
-      /*Privacy Policy End*/
-
-      /*Delivery and return start*/
-
-      .delivery-div{
-        padding: 30px;
-      }
-
-          .delivery-h1{
-            margin-bottom: 15px;
-          }
-
-          .delivery-p{
-            line-height: 1.5;
-            font-size: 20px;
-          }
-      /*Delivery and return start*/
-
-
-      /*SONADİM Pop-up Start*/
-
-      .son-check{
-        transform: scale(1.5); 
-        margin: 10px;
-      }
-
-      #showPopup{
-        color: blue;
-        font-size: 18px;
-      }
-
-      #popup {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-    
-    #popup-content {
-        background-color: #e4dbdb;
-        padding: 20px;
-       
-        max-width: 600px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        max-height: 400px; /* Popup içeriğinin en fazla ne kadar yüksek olabileceği */
-        overflow-y: auto;
-    }
-
-    .son-iimg{
-      height:100px;
-      width: 100%;
-      margin-top: 50px;
-    }
-
-      /*SONADİM Pop-up End*/
-
-
-      /*Communication Start*/
-      
-      .communication-div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-      
-      .communication-label {
-        font-weight: bold;
-      }
-      
-      .communication-input {
-        width: 300px;
-        height: 25px;
-      }
-      
-      .communication-texrarea {
-        width: 400px;
-        height: 200px;
-        font-size: 20px;
-      }
-      
-      .communication-button {
-        display: block;
-        margin: 0 auto;
-        width: 100px;
-        margin-top: 20px;
-        background-color: #00a0d2;
-        padding: 20px;
-        border-radius: 20px;
-      }
-      
-      /*Communication Ent*/
-
-      /*TransactionOkScreen Start*/
-      .payment-success{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 20px;
-      }
-
-      .payment-success *{
-          margin: 20px;
-      }
-      /*TransactionOkScreen End*/
-}
-
-
-
-  /*TELEFON HALİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİ START*/
-
-  @media (max-width:600px) {
-
-    
-    
-    /* Ürünleri tek sütun halinde göster */
-    .home-products {
-        flex-direction: column;
-        align-items: center; 
-    }
-    
-    /* Ürünlerin boyutunu küçült */
-    .home-product {
-      display: flex;
-      flex-direction: column;
-      align-items: center; 
-      justify-content: center;
-      border: 2px gray solid;
-      margin: 20px;
-    }
-    
-    /* Resimlerin boyutunu küçült */
-    .home-img {
-        width:250px; 
-        height:250px; 
-    }
-
-    .home-product-info{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    /* Ürün bilgilerinin boyutunu küçült */
-    .home-name {
-        font-size:16px; 
-        margin: 10px;
-    }
-    
-    .home-price {
-        font-size:18px; 
-        margin: 5px;
-    }
-    
-    /* Sepete ekle butonunun boyutunu küçült */
-    .home-btn {
-        width:100%; 
-        height:30px; 
-        background-color: #f39c12;
-        border-radius: 20px;
-        margin: 10px;
-    }
-  
-  /*NAVBAR START*/
-  
-  .App-header {
+  overflow: hidden;*/
+   }
+
+   .home-h1 {
+
+     display: inline-block;
+     position: relative;
+     font-size: 5vw;
+     color: rgb(34, 186, 217);
+     -webkit-text-stroke: 0.3vw gray;
+     text-transform: uppercase;
+     margin-bottom: 15px;
+   }
+
+   .home-h1::before {
+     content: attr(data-text);
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 0;
+     height: 100%;
+     color: white;
+     -webkit-text-stroke: 0vw purple;
+     border-right: 2px solid blue;
+     overflow: hidden;
+     animation: animate 4s linear infinite;
+   }
+
+   @keyframes animate {
+     0% {
+       width: 0%;
+     }
+
+     25% {
+       width: 100%;
+     }
+
+     75% {
+       width: 100%;
+     }
+
+     100% {
+       width: 100%;
+     }
+   }
+
+
+
+   .home-img {
+     width: 100%;
+     /* Çerçeve genişliği */
+     height: 200px;
+     /* Çerçeve yüksekliği */
+     display: block;
+
+   }
+
+   .home-product-info {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     margin: 20px;
+   }
+
+   .home-name {
+     color: white;
+     font-size: 18px;
+     font-weight: bold;
+     text-transform: capitalize;
+   }
+
+   .home-price {
+     color: rgb(246, 109, 0);
+   }
+
+   .home-btn {
      background-color: #f39c12;
-    }
-  
-    .app-header-tüm1{
-      display: flex;
-      justify-content:space-around;
-    }
-  
-    .app-header-tüm2{
-      display: flex;
-      justify-content:space-around;
-      margin: 20px;
-    }
-  
-    .app-header-tüm3{
-      display: flex;
-      justify-content:space-around;
-      margin: 20px 0 50px 0;
-      border-bottom: 2px solid gray;
-    }
-    
-    /* Başlık bağlantısını küçült ve sola hizala */
-    .App-header .app-link {
-      width: 100%;
-      height: 75px;
-      margin: 20px;
-    }
-    
-    /* Başlık bağlantısının resmini küçült */
-    .App-header .app-link img {
-      height: 75px;
-      width: 100%;
-    }
-    
-    /* Arama kutusunu küçült ve sağa hizala */
-    .SearchBox {
-      width: 200px;
-    }
-    
-    /* Arama kutusunun girişini küçült */
-    .SearchBox input {
-      width: 150px;
-      height: 30px;
-      padding: 5px;
-      font-size: 14px;
-    }
-    
-    /* Arama kutusunun butonunu küçült */
-    .SearchBox button {
-      width: 30px;
-      height: 30px;
-    }
-    
-    /* Sepet bağlantısını küçült ve sağa hizala */
-    .App-header a:nth-child(4) {
-      width: 50px;
-      height: 30px;
-      margin-right: 10px;
-    }
-    
-    /* Sepet bağlantısının ikonunu küçült */
-    .App-header a:nth-child(4) svg {
-      width: 20px;
-      height: 20px;
-    }
-    
-    /* Giriş yap bağlantısını küçült ve sağa hizala */
-    .App-header .signin-link {
-      width: 100px;
-      height: 30px;
-      margin-right: 10px;
-    }
-    
-    /* Kullanıcı adını küçült ve sağa hizala */
-    .App-header .header-user-name {
-      width: 100px;
-      height: 30px;
-      margin-right: 10px;
-    }
-    
-    /* Kullanıcı adının ilk harfini küçült */
-    .App-header .header-user-name::first-letter {
-        font-size :1.5rem;  
-    }
-    
-    /* Seçim menüsünü küçült ve sağa hizala */
-    .App-header .select-menu {
-         width :100px;  
-         height :30px;  
-         margin-right :10px; 
-         font-size :14px;  
-         background-size :15px;  
-    }
-    
-    /* Yönetici bağlantılarını gizle */
-    .App-header div:nth-child(6) {
-        display:none; 
-    }
-    
-    /* Yan menüyü göster ve sola hizala */
-    .side-navbar {
-        display:block; 
-        position:absolute; 
-        top:-10px; 
-        left:-250px; 
-        width:250px; 
-        height:auto; 
-        background-color:#f39c12; 
-        transition:.5s; 
-    }
-    
-    .appjs-nav {
-        display:flex; 
-        flex-direction:column; 
-        align-items:center; 
-    }
-    
-    .appjs-stg {
-        margin-top:-10px; 
-        margin-bottom:-10px; 
-        font-size:x-large; 
-    }
-    
-    .appjs-map-div a{
-        text-decoration:none; 
-        color:black; 
-    }
-  
-   
-  
-    }
-  
-   
- 
+     border: none;
+     padding: 10px;
+     width: 100%;
+     margin-top: auto;
+     /* Button'u en alta taşır */
+     border-radius: 20px;
+   }
 
-  
+
+
+
+   /* Home Screen End*/
+
+   /*PRODUCT Screen start */
+
+
+   .product-screennn {
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+
+     background-color: transparent;
+     padding: 20px;
+     border-radius: 8px;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   }
+
+   .img-large {
+     width: 200px;
+     /* Çerçeve genişliği */
+     height: 200px;
+     /* Çerçeve yüksekliği */
+     display: block;
+   }
+
+   .product-div-1 {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+   }
+
+   .product-div-2 {
+
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+   }
+
+   .product-name {
+     font-size: 30px;
+     font-weight: bold;
+     margin-bottom: 10px;
+     text-transform: capitalize;
+     color: #f5f5f5;
+   }
+
+   .product-rating {
+     color: #f39c12;
+     font-size: 18px;
+   }
+
+   .product-price {
+     font-size: 30px;
+     font-weight: bold;
+     margin-bottom: 5px;
+     margin: 10px;
+     color: #f5f5f5;
+   }
+
+   .productsc-price-color {
+     color: #f39c12;
+   }
+
+   .product-span-2 {
+     color: red;
+   }
+
+   .product-description {
+     font-size: 22px;
+     color: lightgray;
+     margin-bottom: 20px;
+     margin-top: 10px;
+   }
+
+   .product-countInStock {
+     font-size: 18px;
+     margin: 20px;
+   }
+
+   .btn {
+     padding: 10px 20px;
+     font-size: 16px;
+     font-weight: bold;
+     background-color: #f39c12;
+     color: #f5f5f5;
+     border: none;
+     border-radius: 4px;
+     cursor: pointer;
+     transition: 0.3s ease;
+   }
+
+   .btn:hover {
+     background-color: #2980b9;
+   }
+
+
+
+
+   /*PRODUCT Screen End*/
+
+
+   .cart-image {
+     height: 80px;
+   }
+
+   /*Sidebar start*/
+
+   .navbar-brand {
+     font-weight: bold;
+   }
+
+
+
+   .active-cont {
+     margin-left: 200px;
+     transition: 1s;
+   }
+
+   .active-nav {
+     position: fixed;
+     /* Sidebar'i sayfanin solunda sabitle */
+     left: 0;
+     /* Sidebar'i sol kenardan baslat */
+     top: 0;
+     height: 100%;
+     /* Sidebar'in yuksekligini sayfa yuksekligine esitle */
+     width: 200px;
+     /* Sidebar'in genisligini belirt */
+     background-color: #333;
+     /* Sidebar'in arka plan rengini belirt */
+     border-right: 2px solid #fff;
+     /* Sidebar'in sag kenarina beyaz bir cizgi ekle */
+     border-radius: 0 10px 10px 0;
+     /* Sidebar'in sag ust ve alt koselelerine yuvarlaklik ver */
+     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+     /* Sidebar'a goz aldirici bir golge ekle */
+     transition: 2s;
+
+   }
+
+   /* Sidebar stilini tanimla */
+   .side-navbar {
+     left: -200px;
+     display: none;
+
+   }
+
+   /* Navigasyon menusunun stilini tanimla */
+   .appjs-nav {
+     list-style-type: none;
+     /* Menudeki noktalari kaldir */
+     padding: 0;
+     /* Menudeki boslugu kaldir */
+   }
+
+   /* Navigasyon menusundeki basligin stilini tanimla */
+   .appjs-stg {
+     color: white;
+     /* Basligin rengini beyaz yap */
+     font-size: 20px;
+     /* Basligin boyutunu belirt */
+     font-weight: bold;
+     /* Basligi kalin yap */
+     text-align: center;
+     /* Basligi ortala */
+   }
+
+   /* Navigasyon menusundeki divlerin stilini tanimla */
+   .appjs-map-div {
+     margin: 10px;
+     /* Divler arasinda bosluk birak */
+   }
+
+   /* Navigasyon menusundeki baglantilarin stilini tanimla */
+   .appjs-link {
+     color: white;
+     /* Baglantilarin rengini beyaz yap */
+     font-size: 16px;
+     /* Baglantilarin boyutunu belirt */
+     text-decoration: none;
+     /* Baglantilarin alt cizgisini kaldir */
+     display: block;
+     /* Baglantilari blok yap */
+     padding: 10px;
+     /* Baglantilara ic bosluk ekle */
+   }
+
+   /* Baglantilarin ustune gelince stilini degistir */
+   .appjs-link:hover {
+     background-color: #555;
+     /* Baglantinin arka plan rengini degistir */
+     border-radius: 10px;
+     /* Baglantinin koselerine yuvarlaklik ver */
+   }
+
+   /*Sidebar end*/
+
+
+
+   /* Cart Screen Start */
+
+   .cart-h1 {
+     color: #f5f5f5;
+     text-align: center;
+   }
+
+   .cart-container {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     margin: 20px;
+   }
+
+   .cart-item {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     width: 80%;
+     border: 1px solid black;
+     padding: 10px;
+     margin-bottom: 10px;
+   }
+
+   .cart-image {
+     width: 100px;
+     height: 100x;
+   }
+
+   .cart-name {
+     font-size: 20px;
+     font-weight: bold;
+     color: #f5f5f5;
+     text-transform: capitalize;
+   }
+
+   .cart-details {
+     display: flex;
+     align-items: center;
+   }
+
+   .cart-minus,
+   .cart-plus {
+     border: none;
+     background-color: transparent;
+   }
+
+   .cart-quantity {
+     font-size: 18px;
+     margin: 0px 10px;
+     color: #f5f5f5;
+   }
+
+   .cart-price {
+     font-size: 20px;
+     font-weight: bold;
+     margin-left: 30px;
+     color: #f39c12;
+   }
+
+   .cart-delete {
+     margin-left: 30px;
+   }
+
+   .cart-negative {
+     color: red;
+     font-size: 50px;
+   }
+
+   .cart-positive {
+     color: gold;
+     font-size: 50px;
+   }
+
+   .total {
+     display: flex;
+     justify-content: space-around;
+   }
+
+   .cart-quantity-totalPrice {
+     color: #f5f5f5;
+   }
+
+   .div-btn {
+     display: flex;
+     justify-content: center;
+     margin-top: 10px;
+   }
+
+   /* Cart Screen END */
+
+
+   /*Shipping Screen Start*/
+
+   .shipping-h1 {
+     color: white;
+     text-align: center;
+   }
+
+   .shipping-form {
+     max-width: 600px;
+     margin: 20px auto;
+     font-family: Arial, sans-serif;
+   }
+
+   .shipping-div {
+     margin-bottom: 10px;
+   }
+
+
+   .shipping-label {
+     display: inline-block;
+     width: 120px;
+     font-weight: bold;
+     color: #f5f5f5;
+   }
+
+   #fullName,
+   #address,
+   #city,
+   #postalCode,
+   #country {
+
+     display: inline-block;
+     width: 400px;
+     padding: 5px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+   }
+
+   .shipping-btn {
+     display: block;
+     margin: 20px auto;
+     width: 200px;
+     padding: 10px;
+     background-color: #f39c12;
+     color: #f5f5f5;
+     border: none;
+     border-radius: 10px;
+     cursor: pointer;
+   }
+
+   .shipping-btn:hover {
+     background-color: #008fb3;
+   }
+
+   /*Shipping Screen END*/
+
+
+   /*Payment Screen Start*/
+
+   .payment-form {
+     max-width: 600px;
+     margin: 100px auto 20px auto;
+     font-family: Arial, sans-serif;
+   }
+
+   .payment-div {
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+   }
+
+   .payment-label {
+     display: inline-block;
+     width: 120px;
+     font-weight: bold;
+   }
+
+   .payment-img {
+     height: 100px;
+     width: 400px;
+     background-color: #f5f5f5;
+     border-radius: 20px;
+     margin: 20px;
+   }
+
+   input[type="radio"] {
+     display: inline-block;
+     width: 20px;
+     height: 20px;
+     border: 1px solid #ccc;
+     border-radius: 50%;
+   }
+
+   input[type="radio"]:checked {
+     background-color: #00a0d2;
+   }
+
+   .payment-btn {
+     display: block;
+     width: 200px;
+     margin: 20px auto;
+     padding: 10px;
+     background-color: #f39c12;
+     color: white;
+     border: none;
+     border-radius: 10px;
+     cursor: pointer;
+   }
+
+   .payment-btn:hover {
+     background-color: #008fb3;
+   }
+
+   /*Payment Screen End*/
+
+
+   /*Place Order Start*/
+
+
+   .place-full-com {
+     display: flex;
+     justify-content: center;
+     padding: 0 5rem;
+   }
+
+   .place-order-image {
+     height: 200px;
+   }
+
+   .place-div1 {
+     width: 70%;
+   }
+
+   .mini-container {
+     border: 2px solid #ccc;
+     margin: 10px;
+     padding: 10px;
+     border-radius: 10px;
+   }
+
+   .mini-body {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin: 20px;
+   }
+
+   .mini-txt {
+     font-size: 14px;
+     margin: 5px;
+   }
+
+   .place-order-image {
+     width: 100px;
+     height: 100px;
+     border-radius: 20px;
+   }
+
+   .place-mini-h {
+     color: #f5f5f5;
+     font-size: 2rem;
+     margin-bottom: 1rem;
+   }
+
+   .place-edit {
+     color: yellow;
+     font-size: 20px;
+   }
+
+   .edit-div2 {
+     display: flex;
+     justify-content: flex-end;
+   }
+
+   .place-edit2 {
+     color: yellow;
+     font-size: 20px;
+   }
+
+   .place-name-link {
+     color: #f5f5f5;
+     font-size: 22px;
+     text-transform: capitalize;
+   }
+
+   .place-stg {
+     color: #f5f5f5;
+     font-size: 1.5rem;
+   }
+
+   .place-span {
+     color: #f39c12;
+     font-size: 1.2rem;
+     text-transform: capitalize;
+   }
+
+
+
+
+   .place-details {
+     /*place div-2 (sağ)*/
+     width: 30%;
+     border: 2px solid #ccc;
+     margin: 10px;
+     padding: 10px;
+     border-radius: 10px;
+
+   }
+
+   .place-right-white {
+     color: #f5f5f5;
+     font-size: 20px;
+
+   }
+
+   .place-right-orange {
+     color: #f39c12;
+     font-size: 18px;
+   }
+
+   .place-right-white-h3 {
+     text-align: center;
+     font-size: 30px;
+     color: #f5f5f5;
+   }
+
+   .place-yy-div {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin: 10px;
+   }
+
+
+
+
+
+   .place-button {
+     background-color: #f39c12;
+     color: #f5f5f5;
+     border: none;
+     padding: 15px;
+     border-radius: 5px;
+     margin-top: 1rem;
+   }
+
+   .place-right-button {
+     display: flex;
+     justify-content: center;
+   }
+
+   /*Place Order End*/
+
+   /*Order Start*/
+   .order-container {
+     display: flex;
+     justify-content: center;
+     padding: 1rem 2rem;
+   }
+
+   .order-img {
+     height: 100px;
+     width: 100px;
+     border-radius: 20px;
+   }
+
+   .order-link {
+     color: #f5f5f5;
+     text-transform: capitalize;
+     margin: 0 0 0 20px;
+   }
+
+   .order-1 {
+     width: 70%;
+     margin: 5px;
+   }
+
+   .my-3 {
+     text-align: center;
+     color: white;
+   }
+
+   .order-span {
+     color: #f39c12;
+     font-size: 1.2rem;
+     text-transform: capitalize;
+   }
+
+   .order-div {
+     border: 2px solid #ccc;
+     border-radius: 10px;
+     margin-bottom: 5px;
+     padding: 20px;
+   }
+
+   .order-2 {
+     border: 2px solid #ccc;
+     width: 30%;
+     margin: 5px;
+     padding: 20px;
+   }
+
+   .order-h3 {
+     font-size: 2rem;
+     margin-bottom: 1rem;
+     color: #f5f5f5;
+   }
+
+   .not {
+     display: block;
+     background-color: rgba(500, 0, 0, 0.5);
+     padding: 20px;
+     margin: 20px 0;
+     border-radius: 10px;
+     color: #f5f5f5;
+   }
+
+   .order-items {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     font-size: 30px;
+   }
+
+   .order-imgLink {
+     display: flex;
+     align-items: center;
+   }
+
+   .order-stg {
+     color: #f5f5f5;
+     font-size: 1.5rem;
+   }
+
+
+   .order2-div {
+     display: flex;
+     /* Div etiketlerini esnek olarak gösteriyoruz */
+     justify-content: space-between;
+     /* Div etiketlerinin içindeki öğeleri aralarında boşluk bırakarak yatay olarak dağıtıyoruz */
+     align-items: center;
+     /* Div etiketlerinin içindeki öğeleri dikey olarak ortalamak için */
+     margin: 10px;
+   }
+
+   .order-2>div>h4 {
+     font-family: Arial, sans-serif;
+     /* H4 başlıklarının yazı tipi */
+     font-size: 20px;
+     /* H4 başlıklarının yazı boyutu */
+     font-weight: 500;
+     /* H4 başlıklarının yazı kalınlığı */
+     color: #f5f5f5;
+     margin: 10px 0;
+   }
+
+   .order-2>div>span {
+     font-family: Arial, sans-serif;
+     /* Span öğelerinin yazı tipi */
+     font-size: 18px;
+     /* Span öğelerinin yazı boyutu */
+     color: #f39c12;
+
+   }
+
+   .order-btn-divv {
+     display: flex;
+     justify-content: center;
+     margin-top: 40px;
+   }
+
+   .order-btnn {
+     background-color: #f39c12;
+     padding: 20px;
+     border-radius: 20px;
+     color: #f5f5f5;
+   }
+
+   /*Order End*/
+
+
+   /*SonAdim Start*/
+   .son-container {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+   }
+
+   .son-div {
+     margin-bottom: 10px;
+   }
+
+   .son-label {
+     display: block;
+     font-weight: bold;
+     margin-bottom: 5px;
+     color: #f5f5f5
+   }
+
+   .son-input {
+     width: 100%;
+     padding: 5px;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+     font-size: 20px;
+   }
+
+   .son-btn {
+     padding: 10px 20px;
+     background-color: #f39c12;
+     color: white;
+     border: none;
+     border-radius: 4px;
+     cursor: pointer;
+     width: 100%;
+     margin-top: 20px;
+   }
+
+   .son-btn:hover {
+     background-color: #45a049;
+
+   }
+
+   .son-btn:active {
+     background-color: #3e8e41;
+   }
+
+   /*SonAdim End*/
+
+   /*Signin Start*/
+
+   .sign-in-h1 {
+     color: #f5f5f5;
+     text-align: center;
+   }
+
+   .signin-form {
+     border: 1px solid #ccc;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     border-radius: 10px;
+     width: 300px;
+     margin: 20px auto;
+     padding: 20px;
+     background-color: #fff;
+   }
+
+   .signin-label {
+     display: block;
+     font-size: 16px;
+     font-weight: bold;
+   }
+
+   .signin-input {
+     display: block;
+     width: 100%;
+     margin-top: 10px;
+     margin-bottom: 20px;
+     padding: 10px;
+   }
+
+   .signin-btn {
+     display: block;
+     width: 100%;
+     padding: 10px;
+     border: none;
+     border-radius: 5px;
+     background-color: #f0c14b;
+   }
+
+   .signin-link-div {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding: 10px;
+   }
+
+   .signin-link {
+     color: darkred;
+     font-size: 20px;
+     margin: 5px;
+     text-align: center;
+   }
+
+   /*Signin End*/
+
+   /*SearchScreen Start*/
+
+
+   /* search-department sınıfına sahip div elementinin stilini belirliyoruz */
+   .search-department {
+     /* arkaplan rengini açık gri yapıyoruz */
+     background-color: lightgray;
+     /* kenar boşluklarını 10 piksel yapıyoruz */
+     margin: 10px;
+     /* dolgu boşluklarını 20 piksel yapıyoruz */
+     padding: 20px;
+     /* yuvarlak köşeler için sınır yarıçapını 10 piksel yapıyoruz */
+     border-radius: 10px;
+   }
+
+   /* search-department sınıfına sahip div elementinin içindeki h3 elementinin stilini belirliyoruz */
+   .search-department h3 {
+     /* yazı rengini koyu gri yapıyoruz */
+     color: #666;
+     /* yazı tipini Arial olarak seçiyoruz */
+     font-family: Arial;
+   }
+
+   /* search-department-ul sınıfına sahip ul elementinin stilini belirliyoruz */
+   .search-department-ul {
+     /* liste işaretlerini kaldırıyoruz */
+     list-style: none;
+   }
+
+   /* search-department-ul sınıfına sahip ul elementinin içindeki li elementlerinin stilini belirliyoruz */
+   .search-department-ul li {
+     /* her liste öğesinin altına bir çizgi çiziyoruz */
+     border-bottom: 1px solid gray;
+     font-size: 1.5rem;
+   }
+
+   /* search-department-ul sınıfına sahip ul elementinin içindeki li elementlerinin içindeki Link componentlerinin stilini belirliyoruz */
+   .search-department-ul li a {
+     /* yazı rengini siyah yapıyoruz */
+     color: black;
+     /* yazı tipini Arial olarak seçiyoruz */
+     font-family: Arial;
+   }
+
+   .search-department-ul li a:hover {
+     /* yazı rengini siyah yapıyoruz */
+     color: blueviolet;
+     /* yazı tipini Arial olarak seçiyoruz */
+   }
+
+   /* text-bold sınıfına sahip Link componentlerinin stilini belirliyoruz */
+   .text-bold {
+     /* yazı kalınlığını artırıyoruz */
+     font-weight: bold;
+   }
+
+
+
+
+
+   /* search-price sınıfına sahip div elementinin stilini belirliyoruz */
+   .search-price {
+     /* arkaplan rengini açık mavi yapıyoruz */
+     background-color: lightgray;
+     /* kenar boşluklarını 10 piksel yapıyoruz */
+     margin: 10px;
+     /* dolgu boşluklarını 20 piksel yapıyoruz */
+     padding: 20px;
+     /* yuvarlak köşeler için sınır yarıçapını 10 piksel yapıyoruz */
+     border-radius: 10px;
+   }
+
+   /* search-price sınıfına sahip div elementinin içindeki h3 elementinin stilini belirliyoruz */
+   .search-price h3 {
+     /* yazı rengini koyu mavi yapıyoruz */
+     color: #666;
+     /* yazı tipini Arial olarak seçiyoruz */
+     font-family: Arial;
+   }
+
+   /* search-search-ul sınıfına sahip ul elementinin stilini belirliyoruz */
+   .search-search-ul {
+     /* liste işaretlerini kaldırıyoruz */
+     list-style: none;
+   }
+
+   /* search-search-ul sınıfına sahip ul elementinin içindeki li elementlerinin stilini belirliyoruz */
+   .search-search-ul li {
+     /* her liste öğesinin altına bir çizgi çiziyoruz */
+     border-bottom: 1px solid gray;
+     font-size: 1.5rem;
+   }
+
+   /* search-search-ul sınıfına sahip ul elementinin içindeki li elementlerinin içindeki Link componentlerinin stilini belirliyoruz */
+   .search-search-ul li a {
+     /* yazı rengini siyah yapıyoruz */
+     color: black;
+     /* yazı tipini Arial olarak seçiyoruz */
+     font-family: Arial;
+   }
+
+   .search-search-ul li a:hover {
+     /* yazı rengini siyah yapıyoruz */
+     color: purple;
+     /* yazı tipini Arial olarak seçiyoruz */
+     font-family: Arial;
+   }
+
+
+
+
+
+
+   .search-p-select {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+   }
+
+   .search-sortBy {
+     font-size: 25px;
+   }
+
+
+   /* search-result sınıfına sahip div elementinin stilini belirliyoruz */
+   .search-result {
+     /* arkaplan rengini beyaz yapıyoruz */
+     background-color: darkorange;
+     /* kenar boşluklarını 10 piksel yapıyoruz */
+     margin: 10px;
+     /* dolgu boşluklarını 20 piksel yapıyoruz */
+     padding: 20px;
+     border-radius: 10px;
+   }
+
+   /* search-mini-result sınıfına sahip div elementinin stilini belirliyoruz */
+   .search-mini-result {
+     /* arkaplan rengini açık sarı yapıyoruz */
+     background-color: gray;
+     /* yuvarlak köşeler için sınır yarıçapını 10 piksel yapıyoruz */
+     border-radius: 10px;
+     margin: 10px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+
+   }
+
+   /* search-result-span sınıfına sahip span elementinin stilini belirliyoruz */
+   .search-result-span {
+     /* yazı rengini koyu sarı yapıyoruz */
+     color: white;
+     /* yazı tipini Arial olarak seçiyoruz */
+     font-family: Arial;
+     font-size: 1.5rem;
+   }
+
+   .search-result-before-span {
+     font-size: 1.5rem;
+   }
+
+   /* search-result-btn sınıfına sahip button elementinin stilini belirliyoruz */
+   .search-result-btn {
+     /* arkaplan rengini koyu sarı yapıyoruz */
+     background-color: gold;
+     /* yazı rengini beyaz yapıyoruz */
+     color: white;
+     /* yazı tipini Arial olarak seçiyoruz */
+     font-family: Arial;
+     padding: 20px;
+     border-radius: 10px;
+     margin-left: 100px;
+   }
+
+   /* search-select sınıfına sahip select elementinin stilini belirliyoruz */
+   .search-select {
+     /* arkaplan rengini açık mavi yapıyoruz */
+     background-color: lightblue;
+     margin: 1rem;
+     width: 300px;
+     font-size: 20px;
+     padding: 10px;
+   }
+
+   /* search-not-product sınıfına sahip div elementinin stilini belirliyoruz */
+   .search-not-product {
+     /* yazı rengini kırmızı yapıyoruz */
+     color: red;
+   }
+
+   /* search-result-products sınıfına sahip div elementinin stilini belirliyoruz */
+   .search-result-products {
+     /* arkaplan rengini açık yeşil yapıyoruz */
+     background-color: lightgreen;
+   }
+
+   /* search-result-item sınıfına sahip div elementinin stilini belirliyoruz */
+   .search-result-item {
+     /* her ürün için bir çerçeve çiziyoruz */
+     border: 1px solid black;
+   }
+
+
+   /*SearchScreen End*/
+
+
+   /*Footer Start*/
+   .footer {
+     background-color: #f39c12;
+     padding: 20px 0;
+     color: #333;
+     text-align: center;
+   }
+
+   .about {
+     margin-bottom: 10px;
+     font-size: 30px;
+     color: rgb(238, 238, 238);
+   }
+
+   .footer h4 {
+     margin: 10px;
+   }
+
+   .footer p {
+     margin-bottom: 0;
+   }
+
+   .footer-links li {
+     list-style: none;
+     margin-bottom: 5px;
+     font-size: large;
+   }
+
+   .footer-links a {
+     color: #333;
+     text-decoration: none;
+   }
+
+   .footer-links a:hover {
+     text-decoration: underline;
+   }
+
+   /*Footer End*/
+
+   /*AboutScreen START*/
+
+   .about-h1 {
+     margin-bottom: 15px;
+   }
+
+   .about-div {
+     height: 100vh;
+     padding: 0 30px;
+   }
+
+   .about-p {
+     font-size: 20px;
+     line-height: 1.5;
+   }
+
+   /*AboutScreen START*/
+
+   /*Privacy Policy Start*/
+
+   .privacy-div {
+
+     padding: 30px;
+   }
+
+   .privacy-h1 {
+     margin-bottom: 15px;
+   }
+
+   .privacy-p {
+     line-height: 1.5;
+     font-size: 20px;
+   }
+
+   /*Privacy Policy End*/
+
+   /*Delivery and return start*/
+
+   .delivery-div {
+     padding: 30px;
+   }
+
+   .delivery-h1 {
+     margin-bottom: 15px;
+   }
+
+   .delivery-p {
+     line-height: 1.5;
+     font-size: 20px;
+   }
+
+   /*Delivery and return start*/
+
+
+   /*SONADİM Pop-up Start*/
+
+   .son-check {
+     transform: scale(1.5);
+     margin: 10px;
+   }
+
+   #showPopup {
+     color: gold;
+     font-size: 18px;
+   }
+
+   .sonadim-span {
+     color: #f5f5f5;
+   }
+
+   #popup {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.8);
+   }
+
+   #popup-content {
+     background-color: #e4dbdb;
+     padding: 20px;
+
+     max-width: 600px;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     max-height: 400px;
+     /* Popup içeriğinin en fazla ne kadar yüksek olabileceği */
+     overflow-y: auto;
+   }
+
+   .son-iimg {
+     height: 100px;
+     width: 100%;
+     margin-top: 50px;
+   }
+
+   /*SONADİM Pop-up End*/
+
+
+   /*Communication Start*/
+
+   .communication-div {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 10px;
+   }
+
+   .communication-label {
+     font-weight: bold;
+   }
+
+   .communication-input {
+     width: 300px;
+     height: 25px;
+   }
+
+   .communication-texrarea {
+     width: 400px;
+     height: 200px;
+     font-size: 20px;
+   }
+
+   .communication-button {
+     display: block;
+     margin: 0 auto;
+     width: 100px;
+     margin-top: 20px;
+     background-color: #00a0d2;
+     padding: 20px;
+     border-radius: 20px;
+   }
+
+   /*Communication Ent*/
+
+   /*TransactionOkScreen Start*/
+   .payment-success {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     margin: 20px;
+   }
+
+   .payment-success * {
+     margin: 20px;
+   }
+
+   /*TransactionOkScreen End*/
+ }
+
+
+
+ /*TELEFON HALİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİ START*/
+
+ @media (max-width:600px) {
+
+
+
+   /* Ürünleri tek sütun halinde göster */
+   .home-products {
+     flex-direction: column;
+     align-items: center;
+   }
+
+   /* Ürünlerin boyutunu küçült */
+   .home-product {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     border: 2px gray solid;
+     margin: 20px;
+   }
+
+   /* Resimlerin boyutunu küçült */
+   .home-img {
+     width: 250px;
+     height: 250px;
+   }
+
+   .home-product-info {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+   }
+
+   /* Ürün bilgilerinin boyutunu küçült */
+   .home-name {
+     font-size: 16px;
+     margin: 10px;
+   }
+
+   .home-price {
+     font-size: 18px;
+     margin: 5px;
+   }
+
+   /* Sepete ekle butonunun boyutunu küçült */
+   .home-btn {
+     width: 100%;
+     height: 30px;
+     background-color: #f39c12;
+     border-radius: 20px;
+     margin: 10px;
+   }
+
+   /*NAVBAR START*/
+
+   .App-header {
+     background-color: #f39c12;
+   }
+
+   .app-header-tüm1 {
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+   }
+
+   .app-header-tüm2 {
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     margin: 20px;
+   }
+
+   .app-header-tüm3 {
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     margin: 20px 0 50px 0;
+     border-bottom: 2px solid gray;
+   }
+
+   /* Başlık bağlantısını küçült ve sola hizala */
+   .App-header .app-link {
+     width: 100%;
+     height: 75px;
+     margin: 20px;
+   }
+
+   /* Başlık bağlantısının resmini küçült */
+   .App-header .app-link img {
+     height: 75px;
+     width: 100%;
+   }
+
+   .side-bar {
+     font-size: 300%;
+   }
+
+   .search-box {
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     border: 2px solid #f5f5f5;
+     border-radius: 20px;
+     padding: 5px;
+     margin: 10px;
+     color: #f5f5f5;
+   }
+
+   #header-searchbox {
+     border: none;
+     outline: none;
+     background-color: transparent;
+     font-size: 16px;
+     width: 200px;
+   }
+
+   .search-button {
+     border: none;
+     outline: none;
+     background-color: transparent;
+     cursor: pointer;
+     color: #f5f5f5;
+   }
+
+   .search-box-icon {
+     font-size: 29px;
+     color: #f5f5f5;
+   }
+
+   /*basket css start*/
+   .app-header-link-cart {
+     /* Bağlantı rengini beyaz yapın */
+     color: white;
+     /* Bağlantıyı sağ üst köşeye yerleştirin */
+     position: relative;
+   }
+
+   .shopping-cart {
+     /* Alışveriş sepeti simgesinin boyutunu büyütün */
+     font-size: 32px;
+     /* Simgenin etrafında biraz boşluk bırakın */
+   }
+
+   .basket-count {
+     /* Sepetinizdeki ürün sayısını gösteren bir daire oluşturun */
+     position: absolute;
+     top: -20px;
+     left: 20px;
+     background-color: red;
+     width: 20px;
+     color: white;
+     text-align: center;
+     border-radius: 20px;
+
+   }
+
+   /*basket css end*/
+
+
+
+   /* Giriş yap bağlantısını küçült ve sağa hizala */
+   .App-header .signin-link {
+     width: 100px;
+     height: 30px;
+     margin-right: 10px;
+   }
+
+   /* Kullanıcı adını küçült ve sağa hizala */
+   .App-header .header-user-name {
+     font-size: 25px;
+   }
+
+   /* Kullanıcı adının ilk harfini küçült */
+   .App-header .header-user-name::first-letter {
+     font-size: 40px;
+     text-transform: capitalize;
+   }
+
+   .select-menu {
+     background-color: white;
+     border: 1px solid gray;
+     color: black;
+     font-size: 16px;
+     padding: 10px;
+     width: 200px;
+     border-radius: 10px;
+   }
+
+   .select-menu:hover {
+     cursor: pointer;
+   }
+
+   .select-menu option {
+     background-color: white;
+     color: black;
+   }
+
+   .select-menu option:hover {
+     background-color: red;
+     color: white;
+   }
+
+
+
+   /* Yan menüyü göster ve sola hizala */
+   .side-navbar {
+     display: block;
+     position: absolute;
+     top: -10px;
+     left: -250px;
+     width: 250px;
+     height: auto;
+     background-color: #f39c12;
+     transition: .5s;
+   }
+
+   .appjs-nav {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+   }
+
+   .appjs-stg {
+     margin-top: -10px;
+     margin-bottom: -10px;
+     font-size: x-large;
+   }
+
+   .appjs-map-div a {
+     text-decoration: none;
+     color: black;
+   }
+
+
+
+ }

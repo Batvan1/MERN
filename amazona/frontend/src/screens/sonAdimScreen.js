@@ -172,34 +172,35 @@ export default function SonAdimScreen() {
 
                 <div className="son-div">
 
-                    <label className="son-label" htmlFor="cart-user">Cart User Name</label>
+                    <label className="son-label" htmlFor="cart-user">Kart Üzerindeki Ad Soyad</label>
                     <input required className="son-input" type="text" id="cart-user" onChange={(e) => setCartUserName(e.target.value)}></input>
 
                 </div>
 
                 <div className="son-div">
 
-                    <label className="son-label" htmlFor="cart-number">Cart Number</label>
+                    <label className="son-label" htmlFor="cart-number">Kart Numarası</label>
+
                     <input required className="son-input" type="text" id="cart-number" onChange={(e) => setCartNumber(e.target.value)}></input>
 
                 </div>
 
                 <div className="son-div">
 
-                    <label className="son-label" htmlFor="cart-expire">Cart Expire Month Year</label>
+                    <label className="son-label" htmlFor="cart-expire">Ay/Yıl</label>
                     <input required value={expireMonthYear} className="son-input" type="text" id="cart-expire" onChange={expireMonthYearHandler}></input>
 
                 </div>
 
                 <div className="son-div">
 
-                    <label className="son-label" htmlFor="cart-cvc">Cart Cvc</label>
+                    <label className="son-label" htmlFor="cart-cvc">CVC</label>
                     <input required className="son-input" type="text" id="cart-cvc" onChange={(e) => setCvc(e.target.value)}></input>
 
                 </div>
 
                 <div>
-                    <input type="checkbox" className="son-check" onChange={(e) => setKabulDurum(e.target.checked)} /> <button id="showPopup" onClick={popUpOpen}>Mesafeli Satış Sözleşmesi</button> okudum kabul ediyorum
+                    <input type="checkbox" className="son-check" onChange={(e) => setKabulDurum(e.target.checked)} /> <button id="showPopup" onClick={popUpOpen}>Mesafeli Satış Sözleşmesi</button> <span className="sonadim-span">okudum kabul ediyorum</span>
                 </div>
 
                 {isPopup && <div id="popup" onClick={() => setIsPopup(false)}>
