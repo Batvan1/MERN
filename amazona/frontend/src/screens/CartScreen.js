@@ -76,7 +76,7 @@ export default function CartScreen() {
                             <Link to={`/product/${item.slug}`} className="cart-name">{item.name}</Link>
 
                             <div className="cart-details">
-
+                                
                                 <button onClick={() => updateCartHandler1(item, item.quantity - 1)}>
 
                                     <MdRemove className="cart-negative" /> {/* React icons kütüphanesi*/}
@@ -90,6 +90,7 @@ export default function CartScreen() {
                                     <MdAdd className="cart-positive" /> {/* React icons kütüphanesi*/}
 
                                 </button>{" "}
+                                
 
                                 <div className="cart-price">{item.price} TL</div>
 
@@ -108,17 +109,17 @@ export default function CartScreen() {
                 <div className="total">
                     
                         <h3 className="cart-quantity-totalPrice">
-                            Toplam Adet : {cartItems.reduce((a, c) => a + c.quantity, 0)}
+                            Toplam Adet : <span className="cart-color">{cartItems.reduce((a, c) => a + c.quantity, 0)}</span>
                         </h3>
 
                         <h3 className="cart-quantity-totalPrice">
-                            Toplam Tutar : {cartItems.reduce((a, c) => a + c.quantity * c.price, 0)} TL
+                            Toplam Tutar : <span className="cart-color">{cartItems.reduce((a, c) => a + c.quantity * c.price, 0)} TL</span>
                         </h3>
 
                 </div>
 
                 <div className="div-btn">
-                    <button onClick={checkoutHandler} className="btn" disabled={cartItems.length === 0}>Ödeme</button>
+                    <button onClick={checkoutHandler} className="cart-btn" disabled={cartItems.length === 0}>Ödeme</button>
                 </div>
 
 

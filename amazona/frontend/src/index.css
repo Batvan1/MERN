@@ -588,6 +588,16 @@
      margin-top: 10px;
    }
 
+   .cart-btn{
+    background-color: #f39c12;
+    padding: 20px;
+    color: #fff;
+    margin: 20px;
+    width: 50%;
+    font-size: 20px;
+    border-radius: 10px;
+   }
+
    /* Cart Screen END */
 
 
@@ -1823,5 +1833,100 @@
     font-size: 20px;
    }
    /*Footer End*/
+
+   /*CartScreen Start*/
+   .cart-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 2px solid white;
+    margin: 20px;
+    gap: 10px;
+   }
+
+   .cart-image{
+    height: 250px;
+    width: 250px;
+    border-radius: 10px;
+   }
+
+   .cart-h1{
+    color: #f5f5f5;
+    text-align: center;
+   }
+
+   .cart-name{
+    color: #f5f5f5;
+    text-transform: capitalize;
+    font-size: 20px;
+    text-align: center;
+   }
+
+  
+
+   .cart-negative{
+    color: red;
+    font-size: 45px;
+    vertical-align: middle; /*dikey hizalama*/
+   }
+
+   .cart-positive{
+    color: yellow;
+    font-size: 45px;
+    vertical-align: middle;/*dikey hizalama*/
+  }
+   
+
+   .cart-quantity{
+    font-size: 30px;
+    text-align: center;
+    color: #f5f5f5;
+    vertical-align: middle;/*dikey hizalama*/
+  }
+    
+   
+   
+   .cart-price{
+    text-align: center; /*price yazan etiketi sayfada ortaladım*/
+    font-size: 20px;
+    color:#f39c12;
+    margin: 5px;
+   }
+
+   .cart-delete{
+    display: flex; /*flex ile iki aşamalı yandan ortalama klasiği yapıldı*/
+    justify-content: center;
+    margin: 5px;
+   }
+
+   .total{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+   }
+
+   .cart-quantity-totalPrice{
+    color: #f5f5f5;
+   }
+
+   .cart-color{
+    color: #f39c12;
+   }
+
+   .div-btn{
+    display: flex;
+    justify-content: center;
+   }
+
+   .cart-btn{
+    background-color: #f39c12;
+    padding: 20px;
+    color: #fff;
+    margin: 20px;
+    width: 100%;
+    font-size: 20px;
+    border-radius: 10px;
+   }
+   /*CartScreen End*/
 
  }
