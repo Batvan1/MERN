@@ -171,8 +171,8 @@ productRouter.get('/search', async (req, res) => {
 
 
 productRouter.get('/categories', async (req, res) => {
-    const categories = await Product.find().distinct('category')
-
+    const categories = await Product.find().distinct('category') 
+    
     res.send(categories)
 })
 

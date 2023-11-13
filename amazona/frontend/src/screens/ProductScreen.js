@@ -111,7 +111,7 @@ console.log(product.image)
 
                 <div className="product-div-2">
                     <p className="product-price">Fiyat: <span className="productsc-price-color">{product.price} TL</span></p>
-                    <p className="product-countInStock">Stokta: {product.countInStock ? <span> Var</span> : <span className="product-span-2"> Kalmadı</span>} </p>
+                    <p className="product-countInStock">Stokta: {product.countInStock ? <span className="product-stock-true"> Var</span> : <span className="product-span-2"> Kalmadı</span>} </p>
                     <button className="btn" onClick={addToCartHandler}>Sepete Ekle</button>
                 </div>
 

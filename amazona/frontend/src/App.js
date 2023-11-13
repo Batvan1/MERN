@@ -130,7 +130,7 @@ function App() {
               //   <Link to='/orderhistory'>Order History</Link>{" "}
               //   <Link to='#signout' onClick={signoutHandler}>Sign Out</Link>
               // </div>
-            ) : (<Link to='/signin' className='signin-link'>Sing In</Link>)}
+            ) : (<Link to='/signin' className='signin-link'>Giriş Yap</Link>)}
 
 
             {userInfo && userInfo.isAdmin && (

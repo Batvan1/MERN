@@ -1495,7 +1495,7 @@
      flex-direction: column;
      align-items: center;
      justify-content: center;
-     border: 2px gray solid;
+     border-bottom: #f5f5f5 solid 2px;
      margin: 20px;
    }
 
@@ -1503,6 +1503,7 @@
    .home-img {
      width: 250px;
      height: 250px;
+     border-radius: 10px;
    }
 
    .home-product-info {
@@ -1513,13 +1514,16 @@
 
    /* Ürün bilgilerinin boyutunu küçült */
    .home-name {
-     font-size: 16px;
+     font-size: 22px;
      margin: 10px;
+     color: #f5f5f5;
+     text-transform: capitalize;
    }
 
    .home-price {
-     font-size: 18px;
+     font-size: 21px;
      margin: 5px;
+     color: #f39c12;
    }
 
    /* Sepete ekle butonunun boyutunu küçült */
@@ -1640,9 +1644,11 @@
 
    /* Giriş yap bağlantısını küçült ve sağa hizala */
    .App-header .signin-link {
-     width: 100px;
-     height: 30px;
-     margin-right: 10px;
+     font-size: 25px;
+     color: black;
+     background-color: #f5f5f5;
+     padding: 7px;
+     border-radius: 10px;
    }
 
    /* Kullanıcı adını küçült ve sağa hizala */
@@ -1710,7 +1716,74 @@
      text-decoration: none;
      color: black;
    }
+   /*Navbar End*/
 
+   /*Product Screen Start*/
+   .product-screennn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   }
 
+   .product-div-1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    gap: 10px;
+   }
+
+   .product-div-2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    gap: 5px;
+   }
+
+   .product-name{
+    text-transform: capitalize;
+    font-size: 25px;
+    text-align: center;
+    color: #f5f5f5;
+   }
+
+   .product-rating{
+    font-size: 20px;
+    color: #f39c12;
+   }
+
+   .product-price{
+    color: #f5f5f5;
+    font-size: 20px;
+   }
+
+   .productsc-price-color{
+    color: #f39c12;
+   }
+
+   .product-description{
+    font-size: 20px;
+    color: #f5f5f5;
+    text-align: center;
+   }
+
+   .product-countInStock{
+    color: #f5f5f5;
+    font-size: 20px;
+   }
+
+   .product-stock-true{
+    color: #3e8e41;
+   }
+
+   .btn{
+    margin: 10px;
+    background-color: #f39c12;
+    padding: 20px;
+    width: 100%;
+    border-radius: 10px;
+   }
+   /*Product Screen End*/
 
  }
