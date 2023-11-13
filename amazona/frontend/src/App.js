@@ -246,7 +246,7 @@ function App() {
 
             <div className="col-md-4">
 
-              <h4>Bağlantılar</h4>
+              <h4 className='footer-h4'>Bağlantılar</h4>
               <ul className="footer-links">
                 <li><Link to="/privacy-policy">Gizlilik Politikası</Link></li>
                 <li><Link to="/delivery-and-return">Teslimat Ve İade Şartları</Link></li>
@@ -257,8 +257,8 @@ function App() {
 
             <div className="col-md-4">
 
-              <h4>İletişim</h4>
-              <p>Bizimle krayyark9@gmail.com üzerinden veya iletişim sayfamızdan iletişime geçebilirsiniz</p>
+              <h4 className='footer-h4'>İletişim</h4>
+              <p className='footer-p'>Bizimle krayyark9@gmail.com üzerinden veya iletişim sayfamızdan iletişime geçebilirsiniz</p>
 
             </div>
 
