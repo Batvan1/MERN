@@ -44,7 +44,7 @@ export default function ShippingAdressScreen() {
     return (
         <div>
             <Helmet>
-            <title>Shipping Adress</title>
+            <title>Kargo Adresi</title>
             </Helmet>
 
             <h1 className="shipping-h1">Kargo Adresi</h1>

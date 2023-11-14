@@ -36,7 +36,7 @@ export default function PaymentMethodScreen() {
 
     return (
         <div>
-            <Helmet><title>Payment Method</title></Helmet>
+            <Helmet><title>Ödeme Yöntemi</title></Helmet>
 
             <h1 className="shipping-h1">Ödeme Yöntemi</h1>
 

@@ -9,7 +9,7 @@ const userRouter = express.Router()
 userRouter.post('/signin', expressAsyncHandler(async (req,res)=>{
 
 
-    const user = await User.findOne({email: req.body.email})
+    const user = await User.findOne({email: req.body.email}) //databasede email key'i kullanıcıdan alınan email key'i ile kıyaslanıyor ve varsa objenin tamamı geliyor sadece değeri değil
 
 
     if(user){
