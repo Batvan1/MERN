@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from 'axios'
 import { useContext, useEffect, useState } from "react";
 import { Store } from "../Store";
+import { Helmet } from "react-helmet-async";
 
 export default function SigninScreen(){
 
@@ -53,7 +54,10 @@ export default function SigninScreen(){
 
     return(
         <div className="signin-container">
+            <Helmet>
             <title>Giriş yap</title>
+            </Helmet>
+           
 
             <h1 className="sign-in-h1">Giriş Yap</h1>
 
