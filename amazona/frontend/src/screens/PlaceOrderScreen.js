@@ -119,8 +119,8 @@ export default function PlaceOrderScreen() {
                         <div className="mini-body">
 
                             <div className="mini-txt">
-                                <strong className="place-stg">İsim: </strong> <span className="place-span">{cart.shippingAddress.fullName}</span> <br />
-                                <strong className="place-stg">Adres: </strong> <span className="place-span"> {cart.shippingAddress.address}, {cart.shippingAddress.postalCode}, {cart.shippingAddress.country} </span>
+                                <strong className="place-stg">İsim: <span className="place-span">{cart.shippingAddress.fullName}</span> </strong> 
+                                <strong className="place-stg">Adres:  <span className="place-span"> {cart.shippingAddress.address}, {cart.shippingAddress.postalCode}, {cart.shippingAddress.country} </span></strong>
                             </div>
                             <Link to="/shipping" className="place-edit">Edit</Link>
                         </div>
@@ -134,7 +134,7 @@ export default function PlaceOrderScreen() {
                         <div className="mini-body">
 
                             <div className="mini-txt">
-                                <strong className="place-stg">Metod:</strong> <span className="place-span">{cart.paymentMethod}</span> <br />
+                                <strong className="place-stg">Metod: <span className="place-span">{cart.paymentMethod}</span> </strong> 
 
                             </div>
                             <Link to="/payment" className="place-edit">Edit</Link>
@@ -154,8 +154,11 @@ export default function PlaceOrderScreen() {
 
                                     <Link to={`/product/${item.slug}`} className="place-name-link">{item.name}</Link> 
 
-                                        <strong className="place-stg">Adet: </strong> <span className="place-span">{item.quantity}</span> <br/>
-                                        <strong className="place-stg">Fiyat: </strong> <span className="place-span">{item.price}</span>
+                                    <div className="placeorder-quantityAndPrice">
+                                        <strong className="place-stg">Adet: <span className="place-span">{item.quantity}</span></strong> 
+                                        <strong className="place-stg">Fiyat: <span className="place-span">{item.price} TL</span></strong> 
+                                    </div>
+
                                 </div>
 
                             ))}
@@ -171,22 +174,22 @@ export default function PlaceOrderScreen() {
                     <h3 className="place-right-white-h3">Sipariş Özeti</h3>
 
                     <div className="place-yy-div">
-                        <div className="place-right-white">Ürünler</div>
+                        <div className="place-right-white">Ürünler:</div>
                         <div className="place-right-orange">{cart.itemsPrice.toFixed(2)} TL</div>
                     </div>
 
                     <div className="place-yy-div">
-                        <div className="place-right-white">Kargo</div>
+                        <div className="place-right-white">Kargo:</div>
                         <div className="place-right-orange">{cart.shippingPrice.toFixed(2)} TL</div>
                     </div>
 
                     <div className="place-yy-div">
-                        <div className="place-right-white">Vergi</div>
+                        <div className="place-right-white">Vergi:</div>
                         <div className="place-right-orange">{cart.taxPrice.toFixed(2)} TL</div>
                     </div>
 
                     <div className="place-yy-div">
-                        <strong className="place-right-white">Sipariş Toplamı</strong>
+                        <strong className="place-right-white">Sipariş Toplamı:</strong>
                         <strong className="place-right-orange">{cart.totalPrice.toFixed(2)} TL</strong>
                     </div>
 

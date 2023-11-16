@@ -27,7 +27,7 @@ function reducer(state, action) {
 
 
 export default function OrderScreen() {
-console.log(process.env.PUBLIC_URL)
+    console.log(process.env.PUBLIC_URL)
 
     const dOrderId = useLocation().pathname.split("/")[2] // useParams ilede aynı hesaba geliyor
 
@@ -91,11 +91,11 @@ console.log(process.env.PUBLIC_URL)
 
         console.log("orderdaki son buton active")
 
-        
-            navigate(`/sonAdim/${dOrderId}`)
 
-        
-       
+        navigate(`/sonAdim/${dOrderId}`)
+
+
+
     }
 
 
@@ -118,11 +118,9 @@ console.log(process.env.PUBLIC_URL)
 
                             <h3 className="order-h3">Kargo</h3>
 
-                            <strong className="order-stg">İsim: </strong> <span className="order-span">{order.shippingAddress.fullName} </span><br />
-                            <strong className="order-stg">Adres: </strong> <span className="order-span">{order.shippingAddress.address}, {order.shippingAddress.city},
-                            {order.shippingAddress.postalCode},
-                            {order.shippingAddress.country}
-                            </span>
+                            <strong className="order-stg">İsim: <span className="order-span">{order.shippingAddress.fullName} </span></strong> 
+                            <strong className="order-stg">Adres:  <span className="order-span">{order.shippingAddress.address}, {order.shippingAddress.city}, {order.shippingAddress.postalCode},{order.shippingAddress.country}</span></strong>
+                            
                             <div className="textt">
 
                                 {order.isDelivered ? (
@@ -161,17 +159,17 @@ console.log(process.env.PUBLIC_URL)
                                 {order.orderItems.map((item) => {
                                     return <div key={item._id} className="order-items">
 
-                                        <div className="order-imgLink">
+                                        
                                             <img src={item.image} alt={item.name} className="order-img"></img> {' '}
 
                                             <Link to={`/product/${item.slug}`} className="order-link">{item.name}</Link>
+                                        
+
+                                        <div className="orderQuantityAndPrice">
+                                            <strong className="order-stg">Adet: <span className="order-span">{item.quantity}</span></strong>
+
+                                            <strong className="order-stg">Fiyat: <span className="order-span">{item.price} TL</span></strong>
                                         </div>
-
-
-                                        <span className="order-span">{item.quantity}</span>
-
-                                        <span className="order-span">{item.price} TL</span>
-
                                     </div>
                                 })}
                             </div>
@@ -185,24 +183,24 @@ console.log(process.env.PUBLIC_URL)
 
 
                         <div className="order2-div">
-                            <h4>Ürünler</h4>
+                            <h4>Ürünler:</h4>
                             <span>{order.itemsPrice.toFixed(2)} TL</span>
                         </div>
-                       
+
 
                         <div className="order2-div">
-                            <h4>Kargo</h4>
+                            <h4>Kargo:</h4>
                             <span>{order.shippingPrice.toFixed(2)} TL</span>
                         </div>
 
 
                         <div className="order2-div">
-                            <h4>Vergi</h4>
+                            <h4>Vergi:</h4>
                             <span>{order.taxPrice.toFixed(2)} TL</span>
                         </div>
 
                         <div className="order2-div">
-                            <h4>Sipariş Toplamı</h4>
+                            <h4>Sipariş Toplamı:</h4>
                             <span>{order.totalPrice.toFixed(2)} TL</span>
                         </div>
 
@@ -212,11 +210,11 @@ console.log(process.env.PUBLIC_URL)
                         </div>
                     </div>
 
-                                    
 
-               
 
-                  
+
+
+
 
                 </div>
 
