@@ -168,7 +168,7 @@ export default function SonAdimScreen() {
     return (
         <div className="son-container">
 
-            <form onSubmit={endSubmitHandler}>
+            <form onSubmit={endSubmitHandler} className="son-form">
 
                 <div className="son-div">
 
@@ -199,7 +199,7 @@ export default function SonAdimScreen() {
 
                 </div>
 
-                <div>
+                <div className="son-agreement">
                     <input type="checkbox" className="son-check" onChange={(e) => setKabulDurum(e.target.checked)} /> <button id="showPopup" onClick={popUpOpen}>Mesafeli Satış Sözleşmesi</button> <span className="sonadim-span">okudum kabul ediyorum</span>
                 </div>
 
