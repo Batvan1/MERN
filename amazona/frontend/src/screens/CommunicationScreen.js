@@ -33,7 +33,7 @@ export default function CommunicationScreen() {
 
     return (
         <div>
-            <h1>İletişim</h1>
+            <h1 className="communication-h1">İletişim</h1>
 
             <form onSubmit={submitHandler}>
 
@@ -46,9 +46,11 @@ export default function CommunicationScreen() {
 
                     <label className="communication-label">Konu</label>
                     <textarea required onChange={(e) => setKonu(e.target.value)} className="communication-texrarea"></textarea>
+
+                    <button type="submit" className="communication-button">Gönder</button>
                 </div>
 
-                <button type="submit" className="communication-button">Gönder</button>
+              
 
 
             </form>
