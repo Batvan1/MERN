@@ -266,6 +266,7 @@
      height: 200px;
      /* Çerçeve yüksekliği */
      display: block;
+     border-radius: 10px;
 
    }
 
@@ -282,6 +283,7 @@
      font-size: 18px;
      font-weight: bold;
      text-transform: capitalize;
+     text-align: center;
    }
 
    .home-price {
@@ -745,7 +747,7 @@
      justify-content: space-between;
      align-items: center;
      margin: 20px;
-     border: 2px solid #f39c12;
+    
      padding: 5px;
      border-radius: 10px;
    }
@@ -905,6 +907,10 @@
      border-radius: 10px;
      margin-bottom: 5px;
      padding: 20px;
+
+     display: flex;
+     flex-direction: column;
+     gap: 5px;
    }
 
    .order-2 {
@@ -934,7 +940,6 @@
      justify-content: space-between;
      align-items: center;
      font-size: 30px;
-     background-color: #333;
    }
 
    .orderQuantityAndPrice{
@@ -1537,7 +1542,9 @@
 
  @media (max-width:600px) {
 
-
+  .home-h1{
+    color: #f5f5f5;
+  }
 
    /* Ürünleri tek sütun halinde göster */
    .home-products {
@@ -1574,6 +1581,7 @@
      margin: 10px;
      color: #f5f5f5;
      text-transform: capitalize;
+     text-align: center;
    }
 
    .home-price {
